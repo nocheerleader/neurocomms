@@ -4,6 +4,7 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Features } from './components/Features';
 import { HowItWorks } from './components/HowItWorks';
+import PricingSection from './components/PricingSection';
 import { CallToAction } from './components/CallToAction';
 import { Footer } from './components/Footer';
 import { Login } from './pages/auth/Login';
@@ -62,6 +63,7 @@ function Router() {
           <Hero />
           <Features />
           <HowItWorks />
+          <PricingSection />
           <CallToAction />
           <Footer />
         </div>
