@@ -2,16 +2,17 @@ import React, { useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { LoadingSpinner } from '../../components/atoms/LoadingSpinner';
 import { PasswordStrength } from '../../components/atoms/PasswordStrength';
-import { MessageCircle, Eye, EyeOff, CheckCircle } from 'lucide-react';
+import { MessageCircle, Eye, EyeOff, CheckCircle, Play } from 'lucide-react';
 
 export function Signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [demoLoading, setDemoLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
-  const { signUp } = useAuth();
+  const { signUp, signIn } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,6 +28,23 @@ export function Signup() {
     }
     
     setLoading(false);
+  };
+
+  const handleDemoLogin = async () => {
+    setDemoLoading(true);
+    setError('');
+
+    // Demo credentials for hackathon judges
+    const { error } = await signIn('demo@tonewise.app', 'demopassword123');
+    
+    if (error) {
+      setError('Demo login failed. Please try creating a regular account.');
+    } else {
+      // Redirect to main app after successful demo login
+      window.location.href = '/';
+    }
+    
+    setDemoLoading(false);
   };
 
   if (success) {
@@ -151,6 +169,37 @@ export function Signup() {
             >
               {loading ? <LoadingSpinner /> : 'Create account'}
             </button>
+          </div>
+
+          {/* Demo Bypass Button for Hackathon Judges */}
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-300" />
+            </div>
+            <div className="relative flex justify-center text-sm">
+              <span className="px-2 bg-gray-50 text-gray-500">For Hackathon Judges</span>
+            </div>
+          </div>
+
+          <div>
+            <button
+              type="button"
+              onClick={handleDemoLogin}
+              disabled={demoLoading}
+              className="group relative w-full flex justify-center py-3 px-4 border-2 border-emerald-600 text-sm font-medium rounded-lg text-emerald-700 bg-emerald-50 hover:bg-emerald-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-600 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {demoLoading ? (
+                <LoadingSpinner />
+              ) : (
+                <>
+                  <Play className="h-4 w-4 mr-2" />
+                  Continue as Demo User
+                </>
+              )}
+            </button>
+            <p className="mt-2 text-xs text-center text-gray-500">
+              Demo account with pre-populated data for evaluation purposes
+            </p>
           </div>
 
           <div className="text-center">
