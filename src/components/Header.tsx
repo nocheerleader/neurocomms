@@ -2,6 +2,10 @@ import React from 'react';
 import { MessageCircle } from 'lucide-react';
 
 export function Header() {
+  const handleGetStarted = () => {
+    window.location.href = '/login';
+  };
+
   return (
     <header className="bg-white border-b-2 border-gray-200">
       <div className="max-w-7xl mx-auto px-6 py-6">
@@ -22,7 +26,10 @@ export function Header() {
             <a href="#how-it-works" className="text-gray-700 hover:text-blue-700 font-medium transition-colors">
               How It Works
             </a>
-            <button className="bg-blue-700 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-800 transition-colors">
+            <button 
+              onClick={handleGetStarted}
+              className="bg-blue-700 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-800 transition-colors"
+            >
               Get Started
             </button>
           </nav>

@@ -9,6 +9,10 @@ const benefits = [
 ];
 
 export function CallToAction() {
+  const handleStartUsing = () => {
+    window.location.href = '/signup';
+  };
+
   return (
     <section className="py-20 bg-blue-700">
       <div className="max-w-7xl mx-auto px-6">
@@ -21,7 +25,10 @@ export function CallToAction() {
             with clarity and confidence.
           </p>
           
-          <button className="bg-white text-blue-700 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-colors flex items-center justify-center gap-2 mx-auto mb-12">
+          <button 
+            onClick={handleStartUsing}
+            className="bg-white text-blue-700 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-colors flex items-center justify-center gap-2 mx-auto mb-12"
+          >
             Start Using ToneWise
             <ArrowRight className="h-5 w-5" />
           </button>
