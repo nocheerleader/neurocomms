@@ -2,12 +2,16 @@ import React, { useState } from 'react';
 import { useProfile } from '../hooks/useProfile';
 import { LoadingSpinner } from '../components/atoms/LoadingSpinner';
 import { CommunicationAssessment } from '../components/organisms/CommunicationAssessment';
-import { User, Settings as SettingsIcon, Bell, Save } from 'lucide-react';
+import { User, Settings as SettingsIcon, Bell, Save, ArrowLeft } from 'lucide-react';
 
 export function Settings() {
   const { profile, loading, updateProfile } = useProfile();
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState('');
+
+  const handleBackToDashboard = () => {
+    window.location.href = '/profile';
+  };
 
   const handlePreferenceChange = async (key: string, value: boolean) => {
     if (!profile) return;
@@ -53,9 +57,18 @@ export function Settings() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white shadow rounded-lg">
           <div className="px-6 py-6 border-b border-gray-200">
-            <div className="flex items-center">
-              <SettingsIcon className="h-6 w-6 text-gray-900 mr-3" />
-              <h1 className="text-2xl font-bold text-gray-900">Settings</h1>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+                <SettingsIcon className="h-6 w-6 text-gray-900 mr-3" />
+                <h1 className="text-2xl font-bold text-gray-900">Settings</h1>
+              </div>
+              <button
+                onClick={handleBackToDashboard}
+                className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-blue-700 bg-blue-50 border border-blue-200 rounded-lg hover:bg-blue-100 transition-colors"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                Back to Dashboard
+              </button>
             </div>
           </div>
 
