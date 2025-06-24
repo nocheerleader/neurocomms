@@ -20,10 +20,11 @@ You are building a communication assistance web app for neurodiverse individuals
 - Stripe for payments
 - Must include "Built with Bolt" badge
 
+# Monetization Structure
 **Freemium Model**:
-- Free: 5 tone analyses/day, 3 script generations/day, 1000 saved scripts
-- Premium ($19/month): Unlimited analyses/scripts, voice synthesis (10/month)
-- Enterprise tier: "Contact for more information" 
+- Free: 10 tone analyses per month, basic script templates.
+- Premium ($19/month): Unlimited analysis, advanced scripts, voice features, personal library.
+- Enterprise ($1,000-10,000/year): Workplace team dashboards, admin controls, training modules. (Including government/Institutional Contracts for Organizations supporting ND individuals) - 
 
 **Design Principles**:
 - High contrast, consistent layouts
