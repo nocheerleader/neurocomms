@@ -14,7 +14,7 @@ export function Login() {
   // Redirect if user is already authenticated
   useEffect(() => {
     if (user) {
-      window.location.href = '/';
+      window.location.href = '/profile';
     }
   }, [user]);
 
@@ -29,8 +29,8 @@ export function Login() {
       setError(error.message);
       setLoading(false);
     } else {
-      // Successful login - redirect to main app
-      window.location.href = '/';
+      // Successful login - redirect to profile
+      window.location.href = '/profile';
     }
   };
 
