@@ -1,5 +1,35 @@
-For all designs I ask you to make, have them be beautiful, not cookie cutter. Make webpages that are fully featured and worthy for production.
+You are building a communication assistance web app for neurodiverse individuals.
 
-By default, this template supports JSX syntax with Tailwind CSS classes, React hooks, and Lucide React for icons. Do not install other packages for UI themes, icons, etc unless absolutely necessary or I request them.
+**Core Purpose**: Help neurodiverse individuals decode email/message tone and generate appropriate social and professional responses.
 
-Use icons from lucide-react for logos.
+**Target Users**: Employed neurodiverse adults (ADHD, ASD, social anxiety) who struggle with workplace communication nuances. And neurodiverse adults who struggle with personal communication like SMS messages. 
+
+**Key Features**:
+1. Tone Analyzer - Analyzes messages for Professional/Friendly/Urgent/Neutral percentages
+2. Script Generator - Creates response options (casual, professional, direct)
+3. Voice Practice - Text-to-speech for response practice (premium)
+4. Personal Script Library - Save and organize successful scripts
+
+**Tech Requirements**:
+- React + TypeScript + Vite frontend
+- Supabase backend (auth, database, edge functions)
+- TailwindCSS + shadcn/ui components
+- Use the Heroicons icon library 
+- OpenAI API for tone analysis and script generation
+- ElevenLabs API for voice synthesis
+- Stripe for payments
+- Must include "Built with Bolt" badge
+
+**Freemium Model**:
+- Free: 5 tone analyses/day, 3 script generations/day, 1000 saved scripts
+- Premium ($19/month): Unlimited analyses/scripts, voice synthesis (10/month)
+- Enterprise tier: "Contact for more information" 
+
+**Design Principles**:
+- High contrast, consistent layouts
+- Literal language, no metaphors
+- Clear visual feedback for all actions
+- Mobile-responsive
+- WCAG AA compliant
+
+Always consider the user's ADHD/ASD needs when implementing features. Prioritize predictability and clarity over visual flair.
