@@ -33,6 +33,29 @@ const PricingSection = () => {
 
   const premiumProduct = products.find(p => p.name === 'Premium');
 
+  const getPremiumButtonText = () => {
+    if (loading === premiumProduct?.priceId) {
+      return <LoadingSpinner />;
+    }
+    
+    if (isPremium) {
+      return "Current Plan";
+    }
+    
+    if (user) {
+      return "Upgrade to Premium";
+    }
+    
+    return "Start 7-Day Free Trial";
+  };
+
+  const getTrialStatus = () => {
+    if (subscription?.subscription_status === 'trialing') {
+      return 'Currently on trial';
+    }
+    return null;
+  };
+
   return (
     <section className="relative z-10 overflow-hidden bg-white pb-12 pt-20 lg:pb-20 lg:pt-32">
       <div className="container mx-auto max-w-7xl px-6">
@@ -76,20 +99,12 @@ const PricingSection = () => {
               price="$19"
               subscription="month"
               description="Unlimited access to all features for professional communication confidence."
-              buttonText={
-                loading === premiumProduct?.priceId ? (
-                  <LoadingSpinner />
-                ) : isPremium ? (
-                  "Current Plan"
-                ) : user ? (
-                  "Upgrade to Premium"
-                ) : (
-                  "Start Premium Trial"
-                )
-              }
+              buttonText={getPremiumButtonText()}
               buttonAction={() => premiumProduct && !isPremium && handleUpgrade(premiumProduct.priceId)}
               active={!isPremium}
               disabled={isPremium || loading === premiumProduct?.priceId}
+              trialBadge={!user}
+              trialStatus={getTrialStatus()}
             >
               <PricingFeature>Unlimited tone analyses</PricingFeature>
               <PricingFeature>Advanced script generation</PricingFeature>
@@ -116,6 +131,33 @@ const PricingSection = () => {
             </PricingCard>
           </div>
         </div>
+
+        {/* Trial Information Banner */}
+        <div className="mt-12 max-w-4xl mx-auto">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 text-center">
+            <h3 className="text-lg font-semibold text-blue-900 mb-2">
+              7-Day Free Trial Included
+            </h3>
+            <p className="text-blue-800 mb-4">
+              Start your Premium subscription with a full week to explore all features at no cost. 
+              Cancel anytime during your trial period with no charges.
+            </p>
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-blue-700">
+              <div className="flex items-center gap-2">
+                <CheckIcon className="h-4 w-4" />
+                <span>No credit card required for trial</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckIcon className="h-4 w-4" />
+                <span>Full access to all Premium features</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckIcon className="h-4 w-4" />
+                <span>Cancel anytime</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -133,6 +175,8 @@ interface PricingCardProps {
   buttonAction: () => void;
   active?: boolean;
   disabled?: boolean;
+  trialBadge?: boolean;
+  trialStatus?: string | null;
 }
 
 const PricingCard = ({
@@ -145,6 +189,8 @@ const PricingCard = ({
   buttonAction,
   active = false,
   disabled = false,
+  trialBadge = false,
+  trialStatus = null,
 }: PricingCardProps) => {
   return (
     <div className="w-full px-4 md:w-1/2 lg:w-1/3">
@@ -158,12 +204,24 @@ const PricingCard = ({
             Most Popular
           </div>
         )}
+
+        {trialBadge && (
+          <div className="absolute top-0 left-0 bg-green-500 text-white px-4 py-1 text-sm font-medium rounded-br-lg">
+            7-Day Free Trial
+          </div>
+        )}
         
         <span className={`mb-3 block text-lg font-semibold ${
           active ? 'text-blue-700' : 'text-blue-700'
         }`}>
           {type}
         </span>
+
+        {trialStatus && (
+          <div className="mb-3 text-sm text-green-600 font-medium">
+            {trialStatus}
+          </div>
+        )}
         
         <h2 className="mb-5 text-4xl font-bold text-gray-900">
           {price}

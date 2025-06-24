@@ -3,12 +3,12 @@ import { useAuth } from '../contexts/AuthContext';
 import { useProfile } from '../hooks/useProfile';
 import { useSubscription } from '../hooks/useSubscription';
 import { LoadingSpinner } from '../components/atoms/LoadingSpinner';
-import { UserIcon, Cog6ToothIcon, ChartBarIcon, BookOpenIcon, ArrowRightOnRectangleIcon, CheckCircleIcon, XCircleIcon } from '@heroicons/react/24/outline';
+import { UserIcon, Cog6ToothIcon, ChartBarIcon, BookOpenIcon, ArrowRightOnRectangleIcon, CheckCircleIcon, XCircleIcon, ClockIcon } from '@heroicons/react/24/outline';
 
 export function Profile() {
   const { user, signOut } = useAuth();
   const { profile, loading: profileLoading } = useProfile();
-  const { subscription, isPremium, loading: subscriptionLoading } = useSubscription();
+  const { subscription, isPremium, isTrialing, trialDaysRemaining, loading: subscriptionLoading } = useSubscription();
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [showCancelMessage, setShowCancelMessage] = useState(false);
 
@@ -53,7 +53,7 @@ export function Profile() {
       case 'active':
         return 'Premium (Active)';
       case 'trialing':
-        return 'Premium (Trial)';
+        return `Premium (Trial - ${trialDaysRemaining} days left)`;
       case 'past_due':
         return 'Premium (Past Due)';
       case 'canceled':
@@ -97,7 +97,10 @@ export function Profile() {
             <div className="flex items-center">
               <CheckCircleIcon className="h-5 w-5 text-green-500 mr-2" />
               <p className="text-green-800 font-medium">
-                Payment successful! Your subscription has been activated.
+                {isTrialing 
+                  ? `Welcome to your 7-day Premium trial! Enjoy full access to all features.`
+                  : 'Payment successful! Your subscription has been activated.'
+                }
               </p>
             </div>
           </div>
@@ -109,6 +112,19 @@ export function Profile() {
               <XCircleIcon className="h-5 w-5 text-yellow-500 mr-2" />
               <p className="text-yellow-800 font-medium">
                 Payment was canceled. You can try again anytime.
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* Trial Warning */}
+        {isTrialing && trialDaysRemaining && trialDaysRemaining <= 3 && (
+          <div className="mb-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <div className="flex items-center">
+              <ClockIcon className="h-5 w-5 text-blue-500 mr-2" />
+              <p className="text-blue-800 font-medium">
+                Your trial ends in {trialDaysRemaining} day{trialDaysRemaining !== 1 ? 's' : ''}. 
+                Your subscription will automatically start after the trial period.
               </p>
             </div>
           </div>
@@ -167,7 +183,7 @@ export function Profile() {
                   </p>
                   {isPremium && subscription?.current_period_end && (
                     <p className="text-xs text-gray-500 mt-1">
-                      Renews {new Date(subscription.current_period_end * 1000).toLocaleDateString()}
+                      {isTrialing ? 'Trial ends' : 'Renews'} {new Date(subscription.current_period_end * 1000).toLocaleDateString()}
                     </p>
                   )}
                 </div>

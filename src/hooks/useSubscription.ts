@@ -49,14 +49,28 @@ export function useSubscription() {
   };
 
   const isActive = subscription?.subscription_status === 'active';
-  const isPremium = isActive;
+  const isTrialing = subscription?.subscription_status === 'trialing';
+  const isPremium = isActive || isTrialing;
+
+  const getTrialDaysRemaining = () => {
+    if (!isTrialing || !subscription?.current_period_end) return null;
+    
+    const trialEndDate = new Date(subscription.current_period_end * 1000);
+    const now = new Date();
+    const diffTime = trialEndDate.getTime() - now.getTime();
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    
+    return Math.max(0, diffDays);
+  };
 
   return {
     subscription,
     loading,
     error,
     isActive,
+    isTrialing,
     isPremium,
+    trialDaysRemaining: getTrialDaysRemaining(),
     refetch: fetchSubscription,
   };
 }

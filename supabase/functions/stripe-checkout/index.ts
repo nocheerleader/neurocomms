@@ -177,8 +177,8 @@ Deno.serve(async (req) => {
       }
     }
 
-    // create Checkout Session
-    const session = await stripe.checkout.sessions.create({
+    // Create checkout session configuration
+    const sessionConfig: Stripe.Checkout.SessionCreateParams = {
       customer: customerId,
       payment_method_types: ['card'],
       line_items: [
@@ -190,9 +190,19 @@ Deno.serve(async (req) => {
       mode,
       success_url,
       cancel_url,
-    });
+    };
 
-    console.log(`Created checkout session ${session.id} for customer ${customerId}`);
+    // Add trial period for subscription mode
+    if (mode === 'subscription') {
+      sessionConfig.subscription_data = {
+        trial_period_days: 7,
+      };
+    }
+
+    // create Checkout Session
+    const session = await stripe.checkout.sessions.create(sessionConfig);
+
+    console.log(`Created checkout session ${session.id} for customer ${customerId} with ${mode === 'subscription' ? '7-day trial' : 'one-time payment'}`);
 
     return corsResponse({ sessionId: session.id, url: session.url });
   } catch (error: any) {
