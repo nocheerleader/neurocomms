@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { LoadingSpinner } from '../../components/atoms/LoadingSpinner';
 import { MessageCircle, Eye, EyeOff } from 'lucide-react';
@@ -9,7 +9,14 @@ export function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const { signIn } = useAuth();
+  const { signIn, user } = useAuth();
+
+  // Redirect if user is already authenticated
+  useEffect(() => {
+    if (user) {
+      window.location.href = '/';
+    }
+  }, [user]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,9 +27,11 @@ export function Login() {
     
     if (error) {
       setError(error.message);
+      setLoading(false);
+    } else {
+      // Successful login - redirect to main app
+      window.location.href = '/';
     }
-    
-    setLoading(false);
   };
 
   return (
