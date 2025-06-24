@@ -34,14 +34,42 @@ export function Signup() {
     setDemoLoading(true);
     setError('');
 
-    // Demo credentials for hackathon judges
-    const { error } = await signIn('demo@tonewise.app', 'demopassword123');
+    const demoEmail = 'demo@tonewise.app';
+    const demoPassword = 'demopassword123';
+
+    // First try to sign in with demo credentials
+    const { error: signInError } = await signIn(demoEmail, demoPassword);
     
-    if (error) {
-      setError('Demo login failed. Please try creating a regular account.');
-    } else {
-      // Redirect to main app after successful demo login
+    if (!signInError) {
+      // Successful login, redirect to main app
       window.location.href = '/';
+      setDemoLoading(false);
+      return;
+    }
+
+    // If sign in failed, try to create the demo account first
+    if (signInError.message.includes('Invalid login credentials')) {
+      const { error: signUpError } = await signUp(demoEmail, demoPassword);
+      
+      if (signUpError) {
+        // If signup also fails, show error
+        setError('Demo setup failed. Please try creating a regular account.');
+        setDemoLoading(false);
+        return;
+      }
+
+      // Account created, now try to sign in again
+      const { error: secondSignInError } = await signIn(demoEmail, demoPassword);
+      
+      if (secondSignInError) {
+        setError('Demo login failed after account creation. Please try creating a regular account.');
+      } else {
+        // Successful demo login
+        window.location.href = '/';
+      }
+    } else {
+      // Some other error occurred
+      setError('Demo login failed. Please try creating a regular account.');
     }
     
     setDemoLoading(false);
