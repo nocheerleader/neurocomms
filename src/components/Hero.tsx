@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Shield, Zap } from 'lucide-react';
+import { ArrowRightIcon, ShieldCheckIcon, BoltIcon } from '@heroicons/react/24/outline';
 
 export function Hero() {
   const handleTryNow = () => {
@@ -29,7 +29,7 @@ export function Hero() {
               className="bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-800 transition-colors flex items-center justify-center gap-2"
             >
               Try ToneWise Now
-              <ArrowRight className="h-5 w-5" />
+              <ArrowRightIcon className="h-5 w-5" />
             </button>
             <button 
               onClick={handleWatchDemo}
@@ -41,11 +41,11 @@ export function Hero() {
 
           <div className="flex flex-col md:flex-row gap-8 justify-center items-center text-sm text-gray-600">
             <div className="flex items-center gap-2">
-              <Shield className="h-5 w-5 text-teal-600" />
+              <ShieldCheckIcon className="h-5 w-5 text-teal-600" />
               <span>Privacy-focused design</span>
             </div>
             <div className="flex items-center gap-2">
-              <Zap className="h-5 w-5 text-teal-600" />
+              <BoltIcon className="h-5 w-5 text-teal-600" />
               <span>Instant tone analysis</span>
             </div>
           </div>

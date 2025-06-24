@@ -2,7 +2,7 @@ import React from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useProfile } from '../hooks/useProfile';
 import { LoadingSpinner } from '../components/atoms/LoadingSpinner';
-import { User, Settings, BarChart3, BookOpen, LogOut } from 'lucide-react';
+import { UserIcon, Cog6ToothIcon, ChartBarIcon, BookOpenIcon, ArrowRightOnRectangleIcon } from '@heroicons/react/24/outline';
 
 export function Profile() {
   const { user, signOut } = useAuth();
@@ -35,7 +35,7 @@ export function Profile() {
           <div className="flex justify-between items-center py-6">
             <div className="flex items-center space-x-3">
               <div className="bg-blue-700 p-2 rounded-lg">
-                <User className="h-6 w-6 text-white" />
+                <UserIcon className="h-6 w-6 text-white" />
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-gray-900">Profile</h1>
@@ -46,7 +46,7 @@ export function Profile() {
               onClick={handleSignOut}
               className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-lg hover:bg-gray-200 transition-colors"
             >
-              <LogOut className="h-4 w-4" />
+              <ArrowRightOnRectangleIcon className="h-4 w-4" />
               Sign Out
             </button>
           </div>
@@ -78,14 +78,14 @@ export function Profile() {
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <button className="flex items-center gap-3 p-4 border border-gray-300 rounded-lg hover:border-gray-400 transition-colors text-left">
-                  <BarChart3 className="h-6 w-6 text-blue-700" />
+                  <ChartBarIcon className="h-6 w-6 text-blue-700" />
                   <div>
                     <h4 className="font-medium text-gray-900">Analyze Tone</h4>
                     <p className="text-sm text-gray-600">Understand message sentiment</p>
                   </div>
                 </button>
                 <button className="flex items-center gap-3 p-4 border border-gray-300 rounded-lg hover:border-gray-400 transition-colors text-left">
-                  <BookOpen className="h-6 w-6 text-blue-700" />
+                  <BookOpenIcon className="h-6 w-6 text-blue-700" />
                   <div>
                     <h4 className="font-medium text-gray-900">Generate Script</h4>
                     <p className="text-sm text-gray-600">Create response options</p>
@@ -129,7 +129,7 @@ export function Profile() {
                 onClick={handleSettingsClick}
                 className="flex items-center gap-2 w-full px-4 py-2 text-sm font-medium text-blue-700 bg-blue-50 border border-blue-200 rounded-lg hover:bg-blue-100 transition-colors"
               >
-                <Settings className="h-4 w-4" />
+                <Cog6ToothIcon className="h-4 w-4" />
                 Manage Settings
               </button>
             </div>

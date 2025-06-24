@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { LoadingSpinner } from '../../components/atoms/LoadingSpinner';
 import { PasswordStrength } from '../../components/atoms/PasswordStrength';
-import { MessageCircle, Eye, EyeOff, CheckCircle, Play } from 'lucide-react';
+import { ChatBubbleLeftRightIcon, EyeIcon, EyeSlashIcon, CheckCircleIcon, PlayIcon } from '@heroicons/react/24/outline';
 
 export function Signup() {
   const [email, setEmail] = useState('');
@@ -81,7 +81,7 @@ export function Signup() {
         <div className="max-w-md w-full space-y-8">
           <div className="text-center">
             <div className="flex justify-center mb-4">
-              <CheckCircle className="h-16 w-16 text-green-500" />
+              <CheckCircleIcon className="h-16 w-16 text-green-500" />
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Account created successfully!
@@ -107,7 +107,7 @@ export function Signup() {
         <div>
           <div className="flex items-center justify-center space-x-3 mb-8">
             <div className="bg-blue-700 p-3 rounded-lg">
-              <MessageCircle className="h-8 w-8 text-white" />
+              <ChatBubbleLeftRightIcon className="h-8 w-8 text-white" />
             </div>
             <div>
               <h1 className="text-2xl font-bold text-gray-900">ToneWise</h1>
@@ -169,9 +169,9 @@ export function Signup() {
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? (
-                    <EyeOff className="h-5 w-5 text-gray-400" />
+                    <EyeSlashIcon className="h-5 w-5 text-gray-400" />
                   ) : (
-                    <Eye className="h-5 w-5 text-gray-400" />
+                    <EyeIcon className="h-5 w-5 text-gray-400" />
                   )}
                 </button>
               </div>
@@ -220,7 +220,7 @@ export function Signup() {
                 <LoadingSpinner />
               ) : (
                 <>
-                  <Play className="h-4 w-4 mr-2" />
+                  <PlayIcon className="h-4 w-4 mr-2" />
                   Continue as Demo User
                 </>
               )}

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useProfile } from '../hooks/useProfile';
 import { LoadingSpinner } from '../components/atoms/LoadingSpinner';
 import { CommunicationAssessment } from '../components/organisms/CommunicationAssessment';
-import { User, Settings as SettingsIcon, Bell, Save, ArrowLeft } from 'lucide-react';
+import { UserIcon, Cog6ToothIcon, BellIcon, DocumentCheckIcon, ArrowLeftIcon } from '@heroicons/react/24/outline';
 
 export function Settings() {
   const { profile, loading, updateProfile } = useProfile();
@@ -59,14 +59,14 @@ export function Settings() {
           <div className="px-6 py-6 border-b border-gray-200">
             <div className="flex items-center justify-between">
               <div className="flex items-center">
-                <SettingsIcon className="h-6 w-6 text-gray-900 mr-3" />
+                <Cog6ToothIcon className="h-6 w-6 text-gray-900 mr-3" />
                 <h1 className="text-2xl font-bold text-gray-900">Settings</h1>
               </div>
               <button
                 onClick={handleBackToDashboard}
                 className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-blue-700 bg-blue-50 border border-blue-200 rounded-lg hover:bg-blue-100 transition-colors"
               >
-                <ArrowLeft className="h-4 w-4" />
+                <ArrowLeftIcon className="h-4 w-4" />
                 Back to Dashboard
               </button>
             </div>
@@ -76,7 +76,7 @@ export function Settings() {
             {/* Account Information */}
             <section>
               <div className="flex items-center mb-4">
-                <User className="h-5 w-5 text-gray-900 mr-2" />
+                <UserIcon className="h-5 w-5 text-gray-900 mr-2" />
                 <h2 className="text-lg font-semibold text-gray-900">Account Information</h2>
               </div>
               <div className="bg-gray-50 rounded-lg p-4">
@@ -104,7 +104,7 @@ export function Settings() {
             {/* Preferences */}
             <section>
               <div className="flex items-center mb-4">
-                <Bell className="h-5 w-5 text-gray-900 mr-2" />
+                <BellIcon className="h-5 w-5 text-gray-900 mr-2" />
                 <h2 className="text-lg font-semibold text-gray-900">Preferences</h2>
               </div>
               <div className="space-y-4">
@@ -167,7 +167,7 @@ export function Settings() {
             {/* Success Message */}
             {message && (
               <div className="flex items-center text-sm text-green-700 bg-green-50 p-3 rounded-lg">
-                <Save className="h-4 w-4 mr-2" />
+                <DocumentCheckIcon className="h-4 w-4 mr-2" />
                 {message}
               </div>
             )}

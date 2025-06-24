@@ -1,21 +1,21 @@
 import React from 'react';
-import { FileText, Brain, Send } from 'lucide-react';
+import { DocumentTextIcon, AcademicCapIcon, PaperAirplaneIcon } from '@heroicons/react/24/outline';
 
 const steps = [
   {
-    icon: FileText,
+    icon: DocumentTextIcon,
     number: '1',
     title: 'Paste Your Message',
     description: 'Copy and paste the message you want to analyze or the situation you need to respond to.'
   },
   {
-    icon: Brain,
+    icon: AcademicCapIcon,
     number: '2',
     title: 'Get Clear Analysis',
     description: 'See visual feedback about tone, formality level, and how your message might be received.'
   },
   {
-    icon: Send,
+    icon: PaperAirplaneIcon,
     number: '3',
     title: 'Send with Confidence',
     description: 'Use the suggestions to refine your message or generate a new response that matches your goals.'

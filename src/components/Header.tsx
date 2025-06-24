@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageCircle, LogOut } from 'lucide-react';
+import { ChatBubbleLeftRightIcon, ArrowRightOnRectangleIcon } from '@heroicons/react/24/outline';
 import { useAuth } from '../contexts/AuthContext';
 
 export function Header() {
@@ -26,7 +26,7 @@ export function Header() {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <div className="bg-blue-700 p-2 rounded-lg">
-              <MessageCircle className="h-8 w-8 text-white" />
+              <ChatBubbleLeftRightIcon className="h-8 w-8 text-white" />
             </div>
             <div>
               <h1 className="text-2xl font-bold text-gray-900">ToneWise</h1>
@@ -61,7 +61,7 @@ export function Header() {
                   onClick={handleSignOut}
                   className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-lg hover:bg-gray-200 transition-colors"
                 >
-                  <LogOut className="h-4 w-4" />
+                  <ArrowRightOnRectangleIcon className="h-4 w-4" />
                   Sign Out
                 </button>
               </div>

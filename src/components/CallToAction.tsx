@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, CheckCircle } from 'lucide-react';
+import { ArrowRightIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
 
 const benefits = [
   'No account required to start',
@@ -30,14 +30,14 @@ export function CallToAction() {
             className="bg-white text-blue-700 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-colors flex items-center justify-center gap-2 mx-auto mb-12"
           >
             Start Using ToneWise
-            <ArrowRight className="h-5 w-5" />
+            <ArrowRightIcon className="h-5 w-5" />
           </button>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {benefits.map((benefit, index) => (
             <div key={index} className="flex items-center gap-3 text-white">
-              <CheckCircle className="h-6 w-6 text-teal-300 flex-shrink-0" />
+              <CheckCircleIcon className="h-6 w-6 text-teal-300 flex-shrink-0" />
               <span className="text-lg">{benefit}</span>
             </div>
           ))}

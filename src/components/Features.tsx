@@ -1,24 +1,24 @@
 import React from 'react';
-import { BarChart3, MessageSquare, BookOpen, Target } from 'lucide-react';
+import { ChartBarIcon, ChatBubbleLeftRightIcon, BookOpenIcon, CursorArrowRaysIcon } from '@heroicons/react/24/outline';
 
 const features = [
   {
-    icon: BarChart3,
+    icon: ChartBarIcon,
     title: 'Visual Tone Analysis',
     description: 'See exactly how your message will be perceived with clear visual indicators for tone, formality, and emotional impact.'
   },
   {
-    icon: MessageSquare,
+    icon: ChatBubbleLeftRightIcon,
     title: 'Smart Response Generation',
     description: 'Generate professional responses with adjustable tone settings. Choose from formal, friendly, direct, or empathetic styles.'
   },
   {
-    icon: BookOpen,
+    icon: BookOpenIcon,
     title: 'Template Library',
     description: 'Save and organize your most effective responses. Build a personal library of communication templates that work.'
   },
   {
-    icon: Target,
+    icon: CursorArrowRaysIcon,
     title: 'Context-Aware Suggestions',
     description: 'Get specific recommendations based on the situation, recipient, and desired outcome of your communication.'
   }

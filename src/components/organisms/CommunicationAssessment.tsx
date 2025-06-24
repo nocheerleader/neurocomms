@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useProfile } from '../../hooks/useProfile';
 import { LoadingSpinner } from '../atoms/LoadingSpinner';
-import { CheckCircle } from 'lucide-react';
+import { CheckCircleIcon } from '@heroicons/react/24/outline';
 
 const questions = [
   {
@@ -94,7 +94,7 @@ export function CommunicationAssessment() {
   if (completed) {
     return (
       <div className="text-center py-8">
-        <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
+        <CheckCircleIcon className="h-16 w-16 text-green-500 mx-auto mb-4" />
         <h3 className="text-xl font-semibold text-gray-900 mb-2">
           Assessment Complete!
         </h3>

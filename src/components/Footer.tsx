@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageCircle, Mail, Shield } from 'lucide-react';
+import { ChatBubbleLeftRightIcon, EnvelopeIcon, ShieldCheckIcon } from '@heroicons/react/24/outline';
 
 export function Footer() {
   return (
@@ -9,7 +9,7 @@ export function Footer() {
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
               <div className="bg-blue-700 p-2 rounded-lg">
-                <MessageCircle className="h-6 w-6 text-white" />
+                <ChatBubbleLeftRightIcon className="h-6 w-6 text-white" />
               </div>
               <div>
                 <h4 className="text-xl font-bold">ToneWise</h4>
@@ -22,11 +22,11 @@ export function Footer() {
             </p>
             <div className="flex items-center gap-4 text-sm text-gray-400">
               <div className="flex items-center gap-2">
-                <Shield className="h-4 w-4" />
+                <ShieldCheckIcon className="h-4 w-4" />
                 <span>Privacy First</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="h-4 w-4" />
+                <EnvelopeIcon className="h-4 w-4" />
                 <span>Support Available</span>
               </div>
             </div>

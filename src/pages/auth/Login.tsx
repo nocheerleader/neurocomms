@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { LoadingSpinner } from '../../components/atoms/LoadingSpinner';
-import { MessageCircle, Eye, EyeOff } from 'lucide-react';
+import { ChatBubbleLeftRightIcon, EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 
 export function Login() {
   const [email, setEmail] = useState('');
@@ -40,7 +40,7 @@ export function Login() {
         <div>
           <div className="flex items-center justify-center space-x-3 mb-8">
             <div className="bg-blue-700 p-3 rounded-lg">
-              <MessageCircle className="h-8 w-8 text-white" />
+              <ChatBubbleLeftRightIcon className="h-8 w-8 text-white" />
             </div>
             <div>
               <h1 className="text-2xl font-bold text-gray-900">ToneWise</h1>
@@ -102,9 +102,9 @@ export function Login() {
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? (
-                    <EyeOff className="h-5 w-5 text-gray-400" />
+                    <EyeSlashIcon className="h-5 w-5 text-gray-400" />
                   ) : (
-                    <Eye className="h-5 w-5 text-gray-400" />
+                    <EyeIcon className="h-5 w-5 text-gray-400" />
                   )}
                 </button>
               </div>
