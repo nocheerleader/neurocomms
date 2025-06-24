@@ -1,12 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useProfile } from '../hooks/useProfile';
+import { useSubscription } from '../hooks/useSubscription';
 import { LoadingSpinner } from '../components/atoms/LoadingSpinner';
-import { UserIcon, Cog6ToothIcon, ChartBarIcon, BookOpenIcon, ArrowRightOnRectangleIcon } from '@heroicons/react/24/outline';
+import { UserIcon, Cog6ToothIcon, ChartBarIcon, BookOpenIcon, ArrowRightOnRectangleIcon, CheckCircleIcon, XCircleIcon } from '@heroicons/react/24/outline';
 
 export function Profile() {
   const { user, signOut } = useAuth();
-  const { profile, loading } = useProfile();
+  const { profile, loading: profileLoading } = useProfile();
+  const { subscription, isPremium, loading: subscriptionLoading } = useSubscription();
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [showCancelMessage, setShowCancelMessage] = useState(false);
+
+  useEffect(() => {
+    // Check for success/cancel parameters in URL
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === 'true') {
+      setShowSuccessMessage(true);
+      // Clean up URL
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+    if (urlParams.get('canceled') === 'true') {
+      setShowCancelMessage(true);
+      // Clean up URL
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  }, []);
 
   const handleSignOut = async () => {
     const { error } = await signOut();
@@ -19,13 +38,30 @@ export function Profile() {
     window.location.href = '/settings';
   };
 
-  if (loading) {
+  if (profileLoading || subscriptionLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <LoadingSpinner />
       </div>
     );
   }
+
+  const getSubscriptionStatusDisplay = () => {
+    if (!subscription?.subscription_status) return 'Free';
+    
+    switch (subscription.subscription_status) {
+      case 'active':
+        return 'Premium (Active)';
+      case 'trialing':
+        return 'Premium (Trial)';
+      case 'past_due':
+        return 'Premium (Past Due)';
+      case 'canceled':
+        return 'Premium (Canceled)';
+      default:
+        return 'Free';
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -55,6 +91,29 @@ export function Profile() {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Success/Cancel Messages */}
+        {showSuccessMessage && (
+          <div className="mb-6 bg-green-50 border border-green-200 rounded-lg p-4">
+            <div className="flex items-center">
+              <CheckCircleIcon className="h-5 w-5 text-green-500 mr-2" />
+              <p className="text-green-800 font-medium">
+                Payment successful! Your subscription has been activated.
+              </p>
+            </div>
+          </div>
+        )}
+
+        {showCancelMessage && (
+          <div className="mb-6 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+            <div className="flex items-center">
+              <XCircleIcon className="h-5 w-5 text-yellow-500 mr-2" />
+              <p className="text-yellow-800 font-medium">
+                Payment was canceled. You can try again anytime.
+              </p>
+            </div>
+          </div>
+        )}
+
         <div className="grid md:grid-cols-3 gap-8">
           {/* Welcome Card */}
           <div className="md:col-span-2">
@@ -103,9 +162,14 @@ export function Profile() {
               <div className="space-y-3">
                 <div>
                   <label className="block text-sm font-medium text-gray-700">Plan</label>
-                  <p className="text-sm text-gray-900 capitalize">
-                    {profile?.subscription_tier || 'Free'}
+                  <p className="text-sm text-gray-900">
+                    {getSubscriptionStatusDisplay()}
                   </p>
+                  {isPremium && subscription?.current_period_end && (
+                    <p className="text-xs text-gray-500 mt-1">
+                      Renews {new Date(subscription.current_period_end * 1000).toLocaleDateString()}
+                    </p>
+                  )}
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700">Onboarding</label>
@@ -140,13 +204,17 @@ export function Profile() {
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-600">Tone Analyses</span>
-                  <span className="text-sm font-medium text-gray-900">0 / 5</span>
+                  <span className="text-sm font-medium text-gray-900">
+                    {isPremium ? '0 / unlimited' : '0 / 5'}
+                  </span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-600">Script Generations</span>
-                  <span className="text-sm font-medium text-gray-900">0 / 3</span>
+                  <span className="text-sm font-medium text-gray-900">
+                    {isPremium ? '0 / unlimited' : '0 / 3'}
+                  </span>
                 </div>
-                {profile?.subscription_tier === 'premium' && (
+                {isPremium && (
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-gray-600">Voice Syntheses</span>
                     <span className="text-sm font-medium text-gray-900">0 / 10</span>

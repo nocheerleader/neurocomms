@@ -1,7 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CheckIcon } from '@heroicons/react/24/outline';
+import { useAuth } from '../contexts/AuthContext';
+import { useSubscription } from '../hooks/useSubscription';
+import { redirectToCheckout } from '../services/stripe';
+import { products } from '../stripe-config';
+import { LoadingSpinner } from './atoms/LoadingSpinner';
 
 const PricingSection = () => {
+  const { user } = useAuth();
+  const { subscription, isPremium } = useSubscription();
+  const [loading, setLoading] = useState<string | null>(null);
+
+  const handleUpgrade = async (priceId: string) => {
+    if (!user) {
+      window.location.href = '/signup';
+      return;
+    }
+
+    try {
+      setLoading(priceId);
+      await redirectToCheckout({
+        priceId,
+        mode: 'subscription',
+      });
+    } catch (error) {
+      console.error('Error upgrading subscription:', error);
+      alert('Failed to start upgrade process. Please try again.');
+    } finally {
+      setLoading(null);
+    }
+  };
+
+  const premiumProduct = products.find(p => p.name === 'Premium');
+
   return (
     <section className="relative z-10 overflow-hidden bg-white pb-12 pt-20 lg:pb-20 lg:pt-32">
       <div className="container mx-auto max-w-7xl px-6">
@@ -29,8 +60,9 @@ const PricingSection = () => {
               price="$0"
               subscription="forever"
               description="Perfect for getting started with tone analysis and basic communication support."
-              buttonText="Get Started Free"
-              buttonAction={() => window.location.href = '/signup'}
+              buttonText={user ? "Current Plan" : "Get Started Free"}
+              buttonAction={() => !user && (window.location.href = '/signup')}
+              disabled={user && !isPremium}
             >
               <PricingFeature>10 tone analyses per month</PricingFeature>
               <PricingFeature>Basic script templates</PricingFeature>
@@ -44,9 +76,20 @@ const PricingSection = () => {
               price="$19"
               subscription="month"
               description="Unlimited access to all features for professional communication confidence."
-              buttonText="Start Premium Trial"
-              buttonAction={() => window.location.href = '/signup'}
-              active
+              buttonText={
+                loading === premiumProduct?.priceId ? (
+                  <LoadingSpinner />
+                ) : isPremium ? (
+                  "Current Plan"
+                ) : user ? (
+                  "Upgrade to Premium"
+                ) : (
+                  "Start Premium Trial"
+                )
+              }
+              buttonAction={() => premiumProduct && !isPremium && handleUpgrade(premiumProduct.priceId)}
+              active={!isPremium}
+              disabled={isPremium || loading === premiumProduct?.priceId}
             >
               <PricingFeature>Unlimited tone analyses</PricingFeature>
               <PricingFeature>Advanced script generation</PricingFeature>
@@ -86,9 +129,10 @@ interface PricingCardProps {
   price: string;
   type: string;
   subscription: string;
-  buttonText: string;
+  buttonText: React.ReactNode;
   buttonAction: () => void;
   active?: boolean;
+  disabled?: boolean;
 }
 
 const PricingCard = ({
@@ -100,6 +144,7 @@ const PricingCard = ({
   buttonText,
   buttonAction,
   active = false,
+  disabled = false,
 }: PricingCardProps) => {
   return (
     <div className="w-full px-4 md:w-1/2 lg:w-1/3">
@@ -135,8 +180,11 @@ const PricingCard = ({
         
         <button
           onClick={buttonAction}
+          disabled={disabled}
           className={`block w-full rounded-lg border p-3 text-center text-base font-medium transition-all ${
-            active
+            disabled
+              ? 'border-gray-300 bg-gray-100 text-gray-500 cursor-not-allowed'
+              : active
               ? 'border-blue-700 bg-blue-700 text-white hover:bg-blue-800 hover:border-blue-800'
               : 'border-gray-300 bg-transparent text-blue-700 hover:border-blue-700 hover:bg-blue-700 hover:text-white'
           }`}

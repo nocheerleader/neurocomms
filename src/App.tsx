@@ -11,6 +11,7 @@ import { Login } from './pages/auth/Login';
 import { Signup } from './pages/auth/Signup';
 import { Profile } from './pages/Profile';
 import { Settings } from './pages/Settings';
+import { SuccessPage } from './pages/SuccessPage';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { LoadingSpinner } from './components/atoms/LoadingSpinner';
 
@@ -33,6 +34,12 @@ function Router() {
       return <Login />;
     case '/signup':
       return <Signup />;
+    case '/success':
+      return (
+        <ProtectedRoute>
+          <SuccessPage />
+        </ProtectedRoute>
+      );
     case '/profile':
       return (
         <ProtectedRoute>
