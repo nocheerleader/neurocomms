@@ -65,15 +65,15 @@
 
 ### Step 14: Create Tone Analyzer Input Interface
 
-[ ] Task: Build text input with 2000 character limit, real-time character counter, usage limit display (X of 5 remaining), clear visual hierarchy, and loading states. Include content moderation check before submission
+[X] Task: Build text input with 2000 character limit, real-time character counter, usage limit display (X of 5 remaining), clear visual hierarchy, and loading states. Include content moderation check before submission
 
 ### Step 15: Implement OpenAI Edge Function for Tone Analysis
 
-[ ] Task: Create Supabase Edge Function calling OpenAI GPT-3.5-turbo with structured prompt for professional/friendly/urgent/neutral tone detection. Include content moderation, error handling, and 2-second timeout
+[X] Task: Create Supabase Edge Function calling OpenAI GPT-3.5-turbo with structured prompt for professional/friendly/urgent/neutral tone detection. Include content moderation, error handling, and 2-second timeout
 
 ### Step 16: Build Tone Results Display Component
 
-[ ] Task: Create results interface showing four tone categories with percentage bars, confidence indicators, plain English explanations, and visual color coding. Include save to history functionality
+[X] Task: Create results interface showing four tone categories with percentage bars, confidence indicators, plain English explanations, and visual color coding. Include save to history functionality
 
 ## Section 5: Core Features - Script Generation
 
