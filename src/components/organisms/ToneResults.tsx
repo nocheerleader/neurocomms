@@ -1,24 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CheckCircleIcon, ArrowPathIcon, XMarkIcon, BookmarkIcon } from '@heroicons/react/24/outline';
 import { ToneCategory } from '../molecules/ToneCategory';
 import { ConfidenceIndicator } from '../atoms/ConfidenceIndicator';
 import { ToneAnalysisResult } from '../../hooks/useToneAnalysis';
+import { SaveAnalysisModal } from '../modals/SaveAnalysisModal';
 
 interface ToneResultsProps {
   result: ToneAnalysisResult;
   inputText: string;
   onClear: () => void;
   onReanalyze: () => void;
+  onSaveAnalysis?: (analysisId: string, title: string) => Promise<{ error: string | null }>;
+  savingTitle?: boolean;
 }
 
-export function ToneResults({ result, inputText, onClear, onReanalyze }: ToneResultsProps) {
-  const handleSaveToLibrary = () => {
-    // TODO: Implement save to library functionality
-    console.log('Save to library:', { inputText, result });
+export function ToneResults({ 
+  result, 
+  inputText, 
+  onClear, 
+  onReanalyze, 
+  onSaveAnalysis,
+  savingTitle = false 
+}: ToneResultsProps) {
+  const [showSaveModal, setShowSaveModal] = useState(false);
+
+  const handleSaveClick = () => {
+    setShowSaveModal(true);
+  };
+
+  const handleSaveAnalysis = async (title: string) => {
+    if (onSaveAnalysis) {
+      return await onSaveAnalysis(result.id, title);
+    }
+    return { error: 'Save function not available' };
   };
 
   return (
-    <div className="bg-white rounded-lg shadow">
+    <>
+      <div className="bg-white rounded-lg shadow">
       {/* Header */}
       <div className="px-6 py-4 border-b border-gray-200">
         <div className="flex items-center justify-between">
@@ -33,11 +52,12 @@ export function ToneResults({ result, inputText, onClear, onReanalyze }: ToneRes
           </div>
           <div className="flex items-center space-x-2">
             <button
-              onClick={handleSaveToLibrary}
+              onClick={handleSaveClick}
               className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-blue-700 bg-blue-50 border border-blue-200 rounded-lg hover:bg-blue-100 transition-colors"
+              disabled={savingTitle}
             >
               <BookmarkIcon className="h-4 w-4" />
-              Save
+              {savingTitle ? 'Saving...' : 'Save'}
             </button>
             <button
               onClick={onReanalyze}
@@ -125,6 +145,16 @@ export function ToneResults({ result, inputText, onClear, onReanalyze }: ToneRes
           </div>
         </div>
       </div>
-    </div>
+      </div>
+      {/* Save Analysis Modal */}
+      <SaveAnalysisModal
+        isOpen={showSaveModal}
+        onClose={() => setShowSaveModal(false)}
+        onSave={handleSaveAnalysis}
+        analysisId={result.id}
+        initialInputText={inputText}
+        loading={savingTitle}
+      />
+    </>
   );
 }

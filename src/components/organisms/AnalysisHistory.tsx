@@ -103,9 +103,16 @@ export function AnalysisHistory({ history, onSelectAnalysis, onDeleteAnalysis }:
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex-1 min-w-0">
+                      {/* Show title if available, otherwise show truncated input text */}
                       <p className="text-sm text-gray-900 font-medium mb-1">
-                        {truncateText(item.input_text)}
+                        {item.title || truncateText(item.input_text)}
                       </p>
+                      {/* If we have a title, show a preview of the input text */}
+                      {item.title && (
+                        <p className="text-xs text-gray-500 mb-2 italic">
+                          "{truncateText(item.input_text, 60)}"
+                        </p>
+                      )}
                       <div className="flex items-center gap-3 text-xs text-gray-500">
                         <span>{formatDate(item.created_at)}</span>
                         {topTone.name !== 'Unknown' && (

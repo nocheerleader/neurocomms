@@ -73,6 +73,38 @@ export interface Database {
           updated_at?: string | null
         }
       }
+      tone_analyses: {
+        Row: {
+          id: string
+          user_id: string
+          input_text: string
+          analysis_result: Json
+          confidence_score: number | null
+          processing_time_ms: number | null
+          title: string | null
+          created_at: string | null
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          input_text: string
+          analysis_result: Json
+          confidence_score?: number | null
+          processing_time_ms?: number | null
+          title?: string | null
+          created_at?: string | null
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          input_text?: string
+          analysis_result?: Json
+          confidence_score?: number | null
+          processing_time_ms?: number | null
+          title?: string | null
+          created_at?: string | null
+        }
+      }
     }
     Views: {
       [_ in never]: never

@@ -16,7 +16,9 @@ export function ToneAnalyzer() {
     clearResults,
     analysisHistory,
     showHistory,
-    setShowHistory
+    setShowHistory,
+    saveAnalysisMetadata,
+    savingTitle
   } = useToneAnalysis();
 
   const handleBackToDashboard = () => {
@@ -95,6 +97,8 @@ export function ToneAnalyzer() {
                 inputText={inputText}
                 onClear={clearResults}
                 onReanalyze={() => analyzeTone(inputText)}
+                onSaveAnalysis={saveAnalysisMetadata}
+                savingTitle={savingTitle}
               />
             )}
 

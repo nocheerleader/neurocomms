@@ -20,6 +20,7 @@ export interface ToneAnalysisResult {
 export interface AnalysisHistoryItem {
   id: string;
   input_text: string;
+  title: string | null;
   analysis_result: any;
   confidence_score: number | null;
   created_at: string;
@@ -33,6 +34,7 @@ export function useToneAnalysis() {
   const [error, setError] = useState<string | null>(null);
   const [analysisHistory, setAnalysisHistory] = useState<AnalysisHistoryItem[]>([]);
   const [showHistory, setShowHistory] = useState(false);
+  const [savingTitle, setSavingTitle] = useState(false);
 
   // Fetch analysis history on component mount
   useEffect(() => {
@@ -124,6 +126,39 @@ export function useToneAnalysis() {
     }
   };
 
+  const saveAnalysisMetadata = async (analysisId: string, title: string) => {
+    if (!user) return { error: 'No user logged in' };
+
+    try {
+      setSavingTitle(true);
+      const { data, error } = await supabase
+        .from('tone_analyses')
+        .update({ title: title.trim() })
+        .eq('id', analysisId)
+        .eq('user_id', user.id)
+        .select()
+        .single();
+
+      if (error) throw error;
+
+      // Update the analysis history to reflect the new title
+      setAnalysisHistory(prev => 
+        prev.map(item => 
+          item.id === analysisId 
+            ? { ...item, title: title.trim() }
+            : item
+        )
+      );
+
+      return { data, error: null };
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'Failed to save title';
+      return { data: null, error: errorMessage };
+    } finally {
+      setSavingTitle(false);
+    }
+  };
+
   return {
     inputText,
     setInputText,
@@ -136,6 +171,8 @@ export function useToneAnalysis() {
     showHistory,
     setShowHistory,
     deleteAnalysis,
-    refreshHistory: fetchAnalysisHistory
+    refreshHistory: fetchAnalysisHistory,
+    saveAnalysisMetadata,
+    savingTitle
   };
 }

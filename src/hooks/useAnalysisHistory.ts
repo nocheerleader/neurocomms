@@ -5,6 +5,7 @@ import { supabase } from '../lib/supabase';
 export interface AnalysisHistoryItem {
   id: string;
   input_text: string;
+  title: string | null;
   analysis_result: any;
   confidence_score: number | null;
   created_at: string;
@@ -71,7 +72,8 @@ export function useAnalysisHistory() {
     if (!searchTerm.trim()) return history;
     
     return history.filter(item =>
-      item.input_text.toLowerCase().includes(searchTerm.toLowerCase())
+      item.input_text.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (item.title && item.title.toLowerCase().includes(searchTerm.toLowerCase()))
     );
   };
 
