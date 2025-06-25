@@ -65,7 +65,7 @@
 
 ### Step 14: Create Tone Analyzer Input Interface
 
-[ ] Task: Build text input with 1000 character limit, real-time character counter, usage limit display (X of 5 remaining), clear visual hierarchy, and loading states. Include content moderation check before submission
+[ ] Task: Build text input with 2000 character limit, real-time character counter, usage limit display (X of 5 remaining), clear visual hierarchy, and loading states. Include content moderation check before submission
 
 ### Step 15: Implement OpenAI Edge Function for Tone Analysis
 
