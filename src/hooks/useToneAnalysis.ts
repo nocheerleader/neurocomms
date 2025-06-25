@@ -137,10 +137,14 @@ export function useToneAnalysis() {
         .eq('id', analysisId)
         .eq('user_id', user.id)
         .select()
-        .single();
+        .maybeSingle();
 
       if (error) throw error;
 
+      // Check if the record was found and updated
+      if (!data) {
+        return { data: null, error: 'Analysis record not found or you do not have permission to update it' };
+      }
       // Update the analysis history to reflect the new title
       setAnalysisHistory(prev => 
         prev.map(item => 
