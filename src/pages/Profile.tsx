@@ -3,7 +3,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { useProfile } from '../hooks/useProfile';
 import { useSubscription } from '../hooks/useSubscription';
 import { LoadingSpinner } from '../components/atoms/LoadingSpinner';
-import { UserIcon, Cog6ToothIcon, ChartBarIcon, BookOpenIcon, ArrowRightOnRectangleIcon, CheckCircleIcon, XCircleIcon, ClockIcon } from '@heroicons/react/24/outline';
+import { UserIcon, Cog6ToothIcon, ChartBarIcon, BookOpenIcon, ChatBubbleLeftRightIcon, ArrowRightOnRectangleIcon, CheckCircleIcon, XCircleIcon, ClockIcon } from '@heroicons/react/24/outline';
 
 export function Profile() {
   const { user, signOut } = useAuth();
@@ -162,8 +162,11 @@ export function Profile() {
                     <p className="text-sm text-gray-600">Understand message sentiment</p>
                   </div>
                 </button>
-                <button className="flex items-center gap-3 p-4 border border-gray-300 rounded-lg hover:border-gray-400 transition-colors text-left">
-                  <BookOpenIcon className="h-6 w-6 text-blue-700" />
+                <button 
+                  onClick={() => window.location.href = '/script-generator'}
+                  className="flex items-center gap-3 p-4 border border-gray-300 rounded-lg hover:border-gray-400 transition-colors text-left"
+                >
+                  <ChatBubbleLeftRightIcon className="h-6 w-6 text-blue-700" />
                   <div>
                     <h4 className="font-medium text-gray-900">Generate Script</h4>
                     <p className="text-sm text-gray-600">Create response options</p>
