@@ -213,6 +213,11 @@ async function saveAnalysis(userId: string, inputText: string, analysisResult: a
 
     if (error) throw error;
 
+    // Validate that the inserted record has a valid ID
+    if (!data || !data.id || typeof data.id !== 'string') {
+      throw new Error('Database insert succeeded but did not return a valid record ID');
+    }
+
     // Update usage counter
     const today = new Date().toISOString().split('T')[0];
     await supabase

@@ -56,5 +56,12 @@ export async function analyzeToneAPI(text: string): Promise<ToneAnalysisResponse
     throw new Error(errorData.error || 'Failed to analyze tone');
   }
 
-  return response.json();
+  const result = await response.json();
+  
+  // Validate that the response contains a valid ID
+  if (!result.id || typeof result.id !== 'string') {
+    throw new Error('Server response missing valid analysis ID. Please try again.');
+  }
+  
+  return result;
 }

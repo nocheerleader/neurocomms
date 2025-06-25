@@ -72,6 +72,11 @@ export function useToneAnalysis() {
       const result = await analyzeToneAPI(text);
       const processingTime = Date.now() - startTime;
 
+      // Validate that we received a valid analysis ID
+      if (!result.id || typeof result.id !== 'string') {
+        throw new Error('Server did not return a valid analysis ID. Please try again.');
+      }
+
       // Create the analysis result object
       const analysisResult: ToneAnalysisResult = {
         id: result.id,
@@ -128,6 +133,15 @@ export function useToneAnalysis() {
 
   const saveAnalysisMetadata = async (analysisId: string, title: string) => {
     if (!user) return { error: 'No user logged in' };
+
+    // Validate analysis ID before attempting to save
+    if (!analysisId || typeof analysisId !== 'string' || analysisId.trim() === '') {
+      return { data: null, error: 'Invalid analysis ID. Cannot save metadata.' };
+    }
+
+    if (!title || title.trim() === '') {
+      return { data: null, error: 'Title is required to save analysis.' };
+    }
 
     try {
       setSavingTitle(true);
