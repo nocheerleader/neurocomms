@@ -81,7 +81,6 @@ export interface Database {
           analysis_result: Json
           confidence_score: number | null
           processing_time_ms: number | null
-          title: string | null
           created_at: string | null
         }
         Insert: {
@@ -91,7 +90,6 @@ export interface Database {
           analysis_result: Json
           confidence_score?: number | null
           processing_time_ms?: number | null
-          title?: string | null
           created_at?: string | null
         }
         Update: {
@@ -101,7 +99,6 @@ export interface Database {
           analysis_result?: Json
           confidence_score?: number | null
           processing_time_ms?: number | null
-          title?: string | null
           created_at?: string | null
         }
       }
