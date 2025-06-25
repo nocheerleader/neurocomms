@@ -51,6 +51,12 @@ export function Header() {
               </>
             ) : (
               <div className="flex items-center space-x-4">
+                <a
+                  href="/tone-analyzer"
+                  className="text-gray-700 hover:text-blue-700 font-medium transition-colors"
+                >
+                  Tone Analyzer
+                </a>
                 <button
                   onClick={handleProfileClick}
                   className="text-gray-700 hover:text-blue-700 font-medium transition-colors"

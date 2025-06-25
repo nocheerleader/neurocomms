@@ -152,7 +152,10 @@ export function Profile() {
             <div className="bg-white rounded-lg shadow p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <button className="flex items-center gap-3 p-4 border border-gray-300 rounded-lg hover:border-gray-400 transition-colors text-left">
+                <button 
+                  onClick={() => window.location.href = '/tone-analyzer'}
+                  className="flex items-center gap-3 p-4 border border-gray-300 rounded-lg hover:border-gray-400 transition-colors text-left"
+                >
                   <ChartBarIcon className="h-6 w-6 text-blue-700" />
                   <div>
                     <h4 className="font-medium text-gray-900">Analyze Tone</h4>

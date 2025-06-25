@@ -12,6 +12,7 @@ import { Signup } from './pages/auth/Signup';
 import { Profile } from './pages/Profile';
 import { Settings } from './pages/Settings';
 import { SuccessPage } from './pages/SuccessPage';
+import { ToneAnalyzer } from './pages/ToneAnalyzer';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { LoadingSpinner } from './components/atoms/LoadingSpinner';
 
@@ -50,6 +51,12 @@ function Router() {
       return (
         <ProtectedRoute>
           <Settings />
+        </ProtectedRoute>
+      );
+    case '/tone-analyzer':
+      return (
+        <ProtectedRoute>
+          <ToneAnalyzer />
         </ProtectedRoute>
       );
     default:
