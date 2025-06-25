@@ -75,11 +75,6 @@
 
 [ ] Task: Create results interface showing four tone categories with percentage bars, confidence indicators, plain English explanations, and visual color coding. Include save to history functionality
 
-### Step 17: Implement Tone Analysis History
-
-[ ] Task: Create searchable history of past analyses with date filtering, quick re-analysis option, and deletion capability. Use React Query for caching and optimistic updates
-
-
 ## Section 5: Core Features - Script Generation
 
 ### Step 18: Create Script Generation Input Form
