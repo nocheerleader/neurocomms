@@ -74,7 +74,7 @@ export function useToneAnalysis() {
 
       // Create the analysis result object
       const analysisResult: ToneAnalysisResult = {
-        id: result.id || 'temp-id',
+        id: result.id,
         tones: result.tones,
         confidence: result.confidence,
         explanation: result.explanation,
