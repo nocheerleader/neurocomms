@@ -14,6 +14,7 @@ import { Settings } from './pages/Settings';
 import { SuccessPage } from './pages/SuccessPage';
 import { ToneAnalyzer } from './pages/ToneAnalyzer';
 import { ScriptGenerator } from './pages/ScriptGenerator';
+import { Library } from './pages/Library';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { LoadingSpinner } from './components/atoms/LoadingSpinner';
 
@@ -64,6 +65,12 @@ function Router() {
       return (
         <ProtectedRoute>
           <ScriptGenerator />
+        </ProtectedRoute>
+      );
+    case '/library':
+      return (
+        <ProtectedRoute>
+          <Library />
         </ProtectedRoute>
       );
     default:
