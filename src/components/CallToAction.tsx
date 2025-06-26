@@ -14,20 +14,20 @@ export function CallToAction() {
   };
 
   return (
-    <section className="py-20 bg-blue-700">
+    <section className="py-20 bg-primary">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h3 className="text-4xl font-bold text-white mb-4">
+          <h3 className="text-4xl font-bold text-primary-foreground mb-4">
             Ready to Communicate with Confidence?
           </h3>
-          <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-8">
+          <p className="text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-8">
             Join professionals who use ToneWise to navigate workplace communication 
             with clarity and confidence.
           </p>
           
           <button 
             onClick={handleStartUsing}
-            className="bg-white text-blue-700 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-colors flex items-center justify-center gap-2 mx-auto mb-12"
+            className="bg-card text-primary px-8 py-4 rounded-lg font-semibold text-lg hover:bg-card/90 transition-colors flex items-center justify-center gap-2 mx-auto mb-12"
           >
             Start Using ToneWise
             <ArrowRightIcon className="h-5 w-5" />
@@ -36,8 +36,8 @@ export function CallToAction() {
 
         <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {benefits.map((benefit, index) => (
-            <div key={index} className="flex items-center gap-3 text-white">
-              <CheckCircleIcon className="h-6 w-6 text-teal-300 flex-shrink-0" />
+            <div key={index} className="flex items-center gap-3 text-primary-foreground">
+              <CheckCircleIcon className="h-6 w-6 text-chart-2 flex-shrink-0" />
               <span className="text-lg">{benefit}</span>
             </div>
           ))}

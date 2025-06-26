@@ -26,13 +26,13 @@ const features = [
 
 export function Features() {
   return (
-    <section id="features" className="py-20 bg-white">
+    <section id="features" className="py-20 bg-card">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h3 className="text-4xl font-bold text-gray-900 mb-4">
+          <h3 className="text-4xl font-bold text-foreground mb-4">
             Built for Clear Communication
           </h3>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Every feature is designed with neurodiverse professionals in mind, 
             providing the clarity and confidence you need in professional communication.
           </p>
@@ -41,14 +41,14 @@ export function Features() {
         <div className="grid md:grid-cols-2 gap-12">
           {features.map((feature, index) => (
             <div key={index} className="flex gap-6">
-              <div className="bg-blue-100 p-4 rounded-xl flex-shrink-0">
-                <feature.icon className="h-8 w-8 text-blue-700" />
+              <div className="bg-accent p-4 rounded-xl flex-shrink-0">
+                <feature.icon className="h-8 w-8 text-accent-foreground" />
               </div>
               <div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-3">
+                <h4 className="text-xl font-semibold text-foreground mb-3">
                   {feature.title}
                 </h4>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed">
                   {feature.description}
                 </p>
               </div>

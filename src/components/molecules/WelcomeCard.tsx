@@ -24,14 +24,14 @@ export function WelcomeCard() {
   };
 
   return (
-    <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg shadow p-6 text-white">
+    <div className="bg-gradient-to-r from-primary to-primary/90 rounded-lg shadow p-6 text-primary-foreground">
       <div className="flex items-center gap-3 mb-4">
         <SparklesIcon className="h-8 w-8" />
         <div>
           <h2 className="text-2xl font-bold">
             {getWelcomeMessage()}, {getDisplayName()}!
           </h2>
-          <p className="text-blue-100">
+          <p className="text-primary-foreground/80">
             Ready to communicate with confidence?
           </p>
         </div>
@@ -40,7 +40,7 @@ export function WelcomeCard() {
       {/* Subscription Status */}
       <div className="flex items-center gap-4 text-sm">
         <div className="flex items-center gap-2">
-          <div className={`w-2 h-2 rounded-full ${isPremium ? 'bg-green-400' : 'bg-yellow-400'}`} />
+          <div className={`w-2 h-2 rounded-full ${isPremium ? 'bg-chart-2' : 'bg-yellow-400'}`} />
           <span>
             {isPremium ? 'Premium Member' : 'Free Plan'}
           </span>
@@ -58,14 +58,14 @@ export function WelcomeCard() {
 
       {/* Onboarding Status */}
       {!profile?.onboarding_completed && (
-        <div className="mt-4 p-3 bg-blue-800 bg-opacity-50 rounded-lg border border-blue-500">
+        <div className="mt-4 p-3 bg-primary/20 rounded-lg border border-primary-foreground/20">
           <p className="text-sm font-medium mb-2">Complete your setup</p>
-          <p className="text-xs text-blue-100 mb-3">
+          <p className="text-xs text-primary-foreground/80 mb-3">
             Take the communication assessment to get personalized suggestions.
           </p>
           <button
             onClick={() => window.location.href = '/settings'}
-            className="text-xs font-medium text-white bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded transition-colors"
+            className="text-xs font-medium text-primary-foreground bg-primary/30 hover:bg-primary/40 px-3 py-1 rounded transition-colors"
           >
             Complete Assessment
           </button>

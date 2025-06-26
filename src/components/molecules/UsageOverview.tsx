@@ -10,7 +10,7 @@ export function UsageOverview() {
 
   if (loading) {
     return (
-      <div className="bg-white rounded-lg shadow p-6">
+      <div className="bg-card rounded-lg shadow p-6">
         <div className="flex items-center justify-center">
           <LoadingSpinner />
         </div>
@@ -20,8 +20,8 @@ export function UsageOverview() {
 
   if (error) {
     return (
-      <div className="bg-white rounded-lg shadow p-6">
-        <p className="text-red-600 text-sm">Failed to load usage data</p>
+      <div className="bg-card rounded-lg shadow p-6">
+        <p className="text-destructive text-sm">Failed to load usage data</p>
       </div>
     );
   }
@@ -38,19 +38,19 @@ export function UsageOverview() {
   const getUsageColor = (used: number, limit: number | 'unlimited') => {
     if (limit === 'unlimited') return 'text-green-600';
     const percentage = used / (limit as number);
-    if (percentage >= 1) return 'text-red-600';
+    if (percentage >= 1) return 'text-destructive';
     if (percentage >= 0.8) return 'text-yellow-600';
-    return 'text-gray-900';
+    return 'text-foreground';
   };
 
   return (
-    <div className="bg-white rounded-lg shadow p-6">
+    <div className="bg-card rounded-lg shadow p-6">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-lg font-semibold text-gray-900">Today's Usage</h3>
+        <h3 className="text-lg font-semibold text-foreground">Today's Usage</h3>
         {!isPremium && (nearLimit || hitLimit) && (
           <button
             onClick={() => window.location.href = '/profile#pricing'}
-            className="flex items-center gap-1 text-xs font-medium text-blue-700 hover:text-blue-800 transition-colors"
+            className="flex items-center gap-1 text-xs font-medium text-primary hover:text-primary/80 transition-colors"
           >
             <ArrowUpIcon className="h-3 w-3" />
             Upgrade
@@ -62,8 +62,8 @@ export function UsageOverview() {
         {/* Tone Analyses */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <ChartBarIcon className="h-5 w-5 text-blue-600" />
-            <span className="text-sm text-gray-600">Tone Analyses</span>
+            <ChartBarIcon className="h-5 w-5 text-primary" />
+            <span className="text-sm text-muted-foreground">Tone Analyses</span>
           </div>
           <span className={`text-sm font-medium ${getUsageColor(limits.toneAnalyses.used, limits.toneAnalyses.limit)}`}>
             {formatUsage(limits.toneAnalyses.used, limits.toneAnalyses.limit)}
@@ -73,8 +73,8 @@ export function UsageOverview() {
         {/* Script Generations */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <ChatBubbleLeftRightIcon className="h-5 w-5 text-blue-600" />
-            <span className="text-sm text-gray-600">Script Generations</span>
+            <ChatBubbleLeftRightIcon className="h-5 w-5 text-primary" />
+            <span className="text-sm text-muted-foreground">Script Generations</span>
           </div>
           <span className={`text-sm font-medium ${getUsageColor(limits.scriptGenerations.used, limits.scriptGenerations.limit)}`}>
             {formatUsage(limits.scriptGenerations.used, limits.scriptGenerations.limit)}
@@ -86,14 +86,14 @@ export function UsageOverview() {
           <div className="space-y-2">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <SpeakerWaveIcon className="h-5 w-5 text-purple-600" />
-                <span className="text-sm text-gray-600">Voice Syntheses</span>
+                <SpeakerWaveIcon className="h-5 w-5 text-chart-5" />
+                <span className="text-sm text-muted-foreground">Voice Syntheses</span>
               </div>
               <span className={`text-sm font-medium ${getUsageColor(limits.voiceSyntheses.usedMonthly, limits.voiceSyntheses.monthlyLimit)}`}>
                 {limits.voiceSyntheses.usedMonthly} / {limits.voiceSyntheses.monthlyLimit} monthly
               </span>
             </div>
-            <div className="text-xs text-gray-500 ml-8">
+            <div className="text-xs text-muted-foreground ml-8">
               Today: {limits.voiceSyntheses.usedToday}
             </div>
           </div>
@@ -110,8 +110,8 @@ export function UsageOverview() {
       )}
 
       {!isPremium && hitLimit && (
-        <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg">
-          <p className="text-red-800 text-sm font-medium">
+        <div className="mt-4 p-3 bg-destructive/10 border border-destructive/20 rounded-lg">
+          <p className="text-destructive text-sm font-medium">
             You've reached your daily limit. Upgrade to Premium for unlimited access.
           </p>
         </div>

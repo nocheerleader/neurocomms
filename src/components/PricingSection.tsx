@@ -65,10 +65,10 @@ const PricingSection = () => {
               <span className="mb-2 block text-lg font-semibold text-blue-700">
                 Pricing Plans
               </span>
-              <h2 className="mb-4 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl md:text-5xl">
+              <h2 className="mb-4 text-3xl font-bold leading-tight text-foreground sm:text-4xl md:text-5xl">
                 Choose Your Communication Plan
               </h2>
-              <p className="text-base text-gray-600 leading-relaxed">
+              <p className="text-base text-muted-foreground leading-relaxed">
                 Start free and upgrade as your communication confidence grows. 
                 All plans designed specifically for neurodiverse professionals.
               </p>
@@ -134,15 +134,15 @@ const PricingSection = () => {
 
         {/* Trial Information Banner */}
         <div className="mt-12 max-w-4xl mx-auto">
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 text-center">
-            <h3 className="text-lg font-semibold text-blue-900 mb-2">
+          <div className="bg-accent border border-border rounded-lg p-6 text-center">
+            <h3 className="text-lg font-semibold text-accent-foreground mb-2">
               7-Day Free Trial Included
             </h3>
-            <p className="text-blue-800 mb-4">
+            <p className="text-accent-foreground mb-4">
               Start your Premium subscription with a full week to explore all features at no cost. 
               Cancel anytime during your trial period with no charges.
             </p>
-            <div className="flex flex-wrap justify-center gap-6 text-sm text-blue-700">
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-accent-foreground">
               <div className="flex items-center gap-2">
                 <CheckIcon className="h-4 w-4" />
                 <span>No credit card required for trial</span>
@@ -196,41 +196,41 @@ const PricingCard = ({
     <div className="w-full px-4 md:w-1/2 lg:w-1/3">
       <div className={`relative z-10 mb-10 overflow-hidden rounded-lg border-2 bg-white px-8 py-10 shadow-lg sm:p-12 lg:px-6 lg:py-10 xl:p-12 ${
         active 
-          ? 'border-blue-700 shadow-xl' 
-          : 'border-gray-200 hover:border-gray-300'
+          ? 'border-primary shadow-xl' 
+          : 'border-border hover:border-border/80'
       }`}>
         {active && (
-          <div className="absolute top-0 right-0 bg-blue-700 text-white px-4 py-1 text-sm font-medium rounded-bl-lg">
+          <div className="absolute top-0 right-0 bg-primary text-primary-foreground px-4 py-1 text-sm font-medium rounded-bl-lg">
             Most Popular
           </div>
         )}
 
         {trialBadge && (
-          <div className="absolute top-0 left-0 bg-green-500 text-white px-4 py-1 text-sm font-medium rounded-br-lg">
+          <div className="absolute top-0 left-0 bg-chart-2 text-primary-foreground px-4 py-1 text-sm font-medium rounded-br-lg">
             7-Day Free Trial
           </div>
         )}
         
         <span className={`mb-3 block text-lg font-semibold ${
-          active ? 'text-blue-700' : 'text-blue-700'
+          active ? 'text-primary' : 'text-primary'
         }`}>
           {type}
         </span>
 
         {trialStatus && (
-          <div className="mb-3 text-sm text-green-600 font-medium">
+          <div className="mb-3 text-sm text-chart-2 font-medium">
             {trialStatus}
           </div>
         )}
         
-        <h2 className="mb-5 text-4xl font-bold text-gray-900">
+        <h2 className="mb-5 text-4xl font-bold text-foreground">
           {price}
-          <span className="text-base font-medium text-gray-600">
+          <span className="text-base font-medium text-muted-foreground">
             / {subscription}
           </span>
         </h2>
         
-        <p className="mb-8 border-b border-gray-200 pb-8 text-base text-gray-600 leading-relaxed">
+        <p className="mb-8 border-b border-border pb-8 text-base text-muted-foreground leading-relaxed">
           {description}
         </p>
         
@@ -241,10 +241,10 @@ const PricingCard = ({
           disabled={disabled}
           className={`block w-full rounded-lg border p-3 text-center text-base font-medium transition-all ${
             disabled
-              ? 'border-gray-300 bg-gray-100 text-gray-500 cursor-not-allowed'
+              ? 'border-border bg-secondary text-muted-foreground cursor-not-allowed'
               : active
-              ? 'border-blue-700 bg-blue-700 text-white hover:bg-blue-800 hover:border-blue-800'
-              : 'border-gray-300 bg-transparent text-blue-700 hover:border-blue-700 hover:bg-blue-700 hover:text-white'
+              ? 'border-primary bg-primary text-primary-foreground hover:bg-primary/90 hover:border-primary/90'
+              : 'border-border bg-transparent text-primary hover:border-primary hover:bg-primary hover:text-primary-foreground'
           }`}
         >
           {buttonText}
@@ -288,8 +288,8 @@ interface PricingFeatureProps {
 
 const PricingFeature = ({ children }: PricingFeatureProps) => {
   return (
-    <li className="flex items-center gap-3 text-base text-gray-600">
-      <CheckIcon className="h-5 w-5 text-green-500 flex-shrink-0" />
+    <li className="flex items-center gap-3 text-base text-muted-foreground">
+      <CheckIcon className="h-5 w-5 text-chart-2 flex-shrink-0" />
       <span>{children}</span>
     </li>
   );

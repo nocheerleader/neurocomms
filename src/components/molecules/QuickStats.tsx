@@ -28,31 +28,31 @@ export function QuickStats() {
       icon: CalendarDaysIcon,
       label: 'Member Since',
       value: memberSince,
-      color: 'text-blue-600'
+      color: 'text-primary'
     },
     {
       icon: ChartBarIcon,
       label: 'Assessment Status',
       value: profile?.onboarding_completed ? 'Complete' : 'Pending',
-      color: profile?.onboarding_completed ? 'text-green-600' : 'text-yellow-600'
+      color: profile?.onboarding_completed ? 'text-chart-2' : 'text-yellow-600'
     },
     {
       icon: BookOpenIcon,
       label: 'Account Type',
       value: profile?.subscription_tier === 'premium' ? 'Premium' : 'Free',
-      color: profile?.subscription_tier === 'premium' ? 'text-purple-600' : 'text-gray-600'
+      color: profile?.subscription_tier === 'premium' ? 'text-chart-5' : 'text-muted-foreground'
     }
   ];
 
   return (
-    <div className="bg-white rounded-lg shadow p-6">
-      <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Stats</h3>
+    <div className="bg-card rounded-lg shadow p-6">
+      <h3 className="text-lg font-semibold text-foreground mb-4">Quick Stats</h3>
       <div className="space-y-4">
         {stats.map((stat, index) => (
           <div key={index} className="flex items-center gap-3">
             <stat.icon className={`h-5 w-5 ${stat.color}`} />
             <div className="flex-1">
-              <p className="text-sm text-gray-600">{stat.label}</p>
+              <p className="text-sm text-muted-foreground">{stat.label}</p>
               <p className={`font-medium ${stat.color}`}>{stat.value}</p>
             </div>
           </div>

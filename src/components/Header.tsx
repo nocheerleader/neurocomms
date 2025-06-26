@@ -21,30 +21,30 @@ export function Header() {
   };
 
   return (
-    <header className="bg-white border-b-2 border-gray-200">
+    <header className="bg-card border-b-2 border-border">
       <div className="max-w-7xl mx-auto px-6 py-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="bg-blue-700 p-2 rounded-lg">
-              <ChatBubbleLeftRightIcon className="h-8 w-8 text-white" />
+            <div className="bg-primary p-2 rounded-lg">
+              <ChatBubbleLeftRightIcon className="h-8 w-8 text-primary-foreground" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">ToneWise</h1>
-              <p className="text-sm text-gray-600">Professional Communication Tool</p>
+              <h1 className="text-2xl font-bold text-foreground">ToneWise</h1>
+              <p className="text-sm text-muted-foreground">Professional Communication Tool</p>
             </div>
           </div>
           <nav className="hidden md:flex space-x-8">
             {!user ? (
               <>
-                <a href="#features" className="text-gray-700 hover:text-blue-700 font-medium transition-colors">
+                <a href="#features" className="text-muted-foreground hover:text-primary font-medium transition-colors">
                   Features
                 </a>
-                <a href="#how-it-works" className="text-gray-700 hover:text-blue-700 font-medium transition-colors">
+                <a href="#how-it-works" className="text-muted-foreground hover:text-primary font-medium transition-colors">
                   How It Works
                 </a>
                 <button 
                   onClick={handleGetStarted}
-                  className="bg-blue-700 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-800 transition-colors"
+                  className="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors"
                 >
                   Get Started
                 </button>
@@ -53,19 +53,19 @@ export function Header() {
               <div className="flex items-center space-x-4">
                 <a
                   href="/tone-analyzer"
-                  className="text-gray-700 hover:text-blue-700 font-medium transition-colors"
+                  className="text-muted-foreground hover:text-primary font-medium transition-colors"
                 >
                   Tone Analyzer
                 </a>
                 <button
                   onClick={handleProfileClick}
-                  className="text-gray-700 hover:text-blue-700 font-medium transition-colors"
+                  className="text-muted-foreground hover:text-primary font-medium transition-colors"
                 >
                   Profile
                 </button>
                 <button
                   onClick={handleSignOut}
-                  className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-lg hover:bg-gray-200 transition-colors"
+                  className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-muted-foreground bg-secondary border border-border rounded-lg hover:bg-secondary/80 transition-colors"
                 >
                   <ArrowRightOnRectangleIcon className="h-4 w-4" />
                   Sign Out

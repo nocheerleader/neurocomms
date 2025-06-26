@@ -35,36 +35,36 @@ export function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-background flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
           <div className="flex items-center justify-center space-x-3 mb-8">
-            <div className="bg-blue-700 p-3 rounded-lg">
-              <ChatBubbleLeftRightIcon className="h-8 w-8 text-white" />
+            <div className="bg-primary p-3 rounded-lg">
+              <ChatBubbleLeftRightIcon className="h-8 w-8 text-primary-foreground" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">ToneWise</h1>
-              <p className="text-sm text-gray-600">Professional Communication Tool</p>
+              <h1 className="text-2xl font-bold text-foreground">ToneWise</h1>
+              <p className="text-sm text-muted-foreground">Professional Communication Tool</p>
             </div>
           </div>
-          <h2 className="text-center text-3xl font-bold text-gray-900">
+          <h2 className="text-center text-3xl font-bold text-foreground">
             Sign in to your account
           </h2>
-          <p className="mt-2 text-center text-sm text-gray-600">
+          <p className="mt-2 text-center text-sm text-muted-foreground">
             Welcome back! Please enter your details.
           </p>
         </div>
 
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           {error && (
-            <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-              <p className="text-sm text-red-800">{error}</p>
+            <div className="bg-destructive/10 border border-destructive/20 rounded-lg p-4">
+              <p className="text-sm text-destructive">{error}</p>
             </div>
           )}
 
           <div className="space-y-4">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="email" className="block text-sm font-medium text-foreground">
                 Email address
               </label>
               <input
@@ -75,13 +75,13 @@ export function Login() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:border-transparent"
+                className="mt-1 block w-full px-3 py-2 border border-border rounded-lg shadow-sm placeholder-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent bg-input"
                 placeholder="Enter your email"
               />
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="password" className="block text-sm font-medium text-foreground">
                 Password
               </label>
               <div className="mt-1 relative">
@@ -93,7 +93,7 @@ export function Login() {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="block w-full px-3 py-2 pr-10 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:border-transparent"
+                  className="block w-full px-3 py-2 pr-10 border border-border rounded-lg shadow-sm placeholder-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent bg-input"
                   placeholder="Enter your password"
                 />
                 <button
@@ -102,9 +102,9 @@ export function Login() {
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? (
-                    <EyeSlashIcon className="h-5 w-5 text-gray-400" />
+                    <EyeSlashIcon className="h-5 w-5 text-muted-foreground" />
                   ) : (
-                    <EyeIcon className="h-5 w-5 text-gray-400" />
+                    <EyeIcon className="h-5 w-5 text-muted-foreground" />
                   )}
                 </button>
               </div>
@@ -115,16 +115,16 @@ export function Login() {
             <button
               type="submit"
               disabled={loading}
-              className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-primary-foreground bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? <LoadingSpinner /> : 'Sign in'}
             </button>
           </div>
 
           <div className="text-center">
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-muted-foreground">
               Don't have an account?{' '}
-              <a href="/signup" className="font-medium text-blue-700 hover:text-blue-800">
+              <a href="/signup" className="font-medium text-primary hover:text-primary/80">
                 Sign up
               </a>
             </p>
