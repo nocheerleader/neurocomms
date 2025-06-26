@@ -51,7 +51,6 @@ export async function createCheckoutSession({
         });
 
         clearTimeout(timeoutId);
-}
 
         if (!response.ok) {
           const errorData = await response.json().catch(() => ({ error: 'Unknown payment error' }));
@@ -64,13 +63,7 @@ export async function createCheckoutSession({
               400
             );
           }
-export async function redirectToCheckout(params: CreateCheckoutSessionParams): Promise<void> {
-  try {
-    const { url } = await createCheckoutSession(params);
-    window.location.href = url;
-  } catch (error) {
-    console.error('Error redirecting to checkout:', error);
-    throw error;
+
           throw new CustomError(
             errorData.error || 'Failed to create checkout session',
             ErrorType.SERVER,
@@ -78,7 +71,7 @@ export async function redirectToCheckout(params: CreateCheckoutSessionParams): P
             response.status
           );
         }
-  }
+        
         return response.json();
       } catch (error) {
         clearTimeout(timeoutId);
@@ -93,6 +86,23 @@ export async function redirectToCheckout(params: CreateCheckoutSessionParams): P
   } catch (error) {
     if (error instanceof CustomError) {
       throw error;
+    }
+    
+    throw new CustomError(
+      'Failed to redirect to checkout',
+      ErrorType.SERVER,
+      'Unable to redirect to the payment page. Please try again.',
+      undefined,
+      error as Error
+    );
+  }
+}
+
+export async function redirectToCheckout(params: CreateCheckoutSessionParams): Promise<void> {
+  try {
+    const { url } = await createCheckoutSession(params);
+    window.location.href = url;
+  } catch (error) {
     console.error('Error redirecting to checkout:', error);
     
     if (error instanceof CustomError) {
