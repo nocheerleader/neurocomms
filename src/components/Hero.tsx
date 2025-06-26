@@ -6,36 +6,71 @@ export function Hero() {
     window.location.href = '/signup';
   };
 
+  const handleLearnMore = () => {
+    document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <section className="bg-gradient-to-b from-accent to-card py-20 pt-32">
+    <section className="bg-background py-20 pt-32">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center">
-          <h2 className="text-5xl font-bold text-foreground mb-6 leading-tight">
-            Communicate with Confidence
-          </h2>
-          <p className="text-xl text-card-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-            ToneWise helps neurodiverse professionals analyze message tone and generate appropriate responses. 
-            Clear communication made simple with visual feedback and guided suggestions.
-          </p>
-          
-          <div className="flex justify-center mb-12">
-            <button 
-              onClick={handleTryNow}
-              className="bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
-            >
-              Try ToneWise Now
-              <ArrowRightIcon className="h-5 w-5" />
-            </button>
+        <div className="flex flex-col lg:flex-row items-center gap-12">
+          {/* Left Column - Text Content */}
+          <div className="flex-1 text-left">
+            <h1 className="text-5xl lg:text-6xl xl:text-7xl font-extrabold text-foreground mb-6 leading-tight">
+              Communicate with 
+              <br />
+              Confidence{' '}
+              <span className="inline-block text-primary transform rotate-12 text-4xl lg:text-5xl xl:text-6xl">
+                ✱
+              </span>
+            </h1>
+            
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl leading-relaxed">
+              ToneWise helps neurodiverse professionals analyze message tone and generate appropriate responses. 
+              Clear communication made simple with visual feedback and guided suggestions.
+            </p>
+            
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              <button 
+                onClick={handleTryNow}
+                className="bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
+              >
+                Try ToneWise Now
+                <ArrowRightIcon className="h-5 w-5" />
+              </button>
+              
+              <button 
+                onClick={handleLearnMore}
+                className="border-2 border-primary text-primary px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary/5 transition-colors"
+              >
+                Learn More
+              </button>
+            </div>
+
+            {/* Trust Indicators */}
+            <div className="flex flex-col sm:flex-row gap-6 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2">
+                <ShieldCheckIcon className="h-5 w-5 text-chart-2" />
+                <span>Privacy-focused design</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <BoltIcon className="h-5 w-5 text-chart-2" />
+                <span>Instant tone analysis</span>
+              </div>
+            </div>
           </div>
 
-          <div className="flex flex-col md:flex-row gap-8 justify-center items-center text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <ShieldCheckIcon className="h-5 w-5 text-chart-2" />
-              <span>Privacy-focused design</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <BoltIcon className="h-5 w-5 text-chart-2" />
-              <span>Instant tone analysis</span>
+          {/* Right Column - Illustration */}
+          <div className="flex-1 flex justify-center lg:justify-end">
+            <div className="relative">
+              <img
+                src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                alt="Person using laptop for professional communication"
+                className="w-full max-w-lg h-auto rounded-2xl shadow-2xl"
+              />
+              {/* Decorative gradient overlay for better visual appeal */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl"></div>
             </div>
           </div>
         </div>
