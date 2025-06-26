@@ -15,6 +15,7 @@ import { SuccessPage } from './pages/SuccessPage';
 import { ToneAnalyzer } from './pages/ToneAnalyzer';
 import { ScriptGenerator } from './pages/ScriptGenerator';
 import { Library } from './pages/Library';
+import { VoicePractice } from './pages/VoicePractice';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { LoadingSpinner } from './components/atoms/LoadingSpinner';
 
@@ -71,6 +72,12 @@ function Router() {
       return (
         <ProtectedRoute>
           <Library />
+        </ProtectedRoute>
+      );
+    case '/voice-practice':
+      return (
+        <ProtectedRoute>
+          <VoicePractice />
         </ProtectedRoute>
       );
     default:

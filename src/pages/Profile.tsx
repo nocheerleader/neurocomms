@@ -3,7 +3,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { useProfile } from '../hooks/useProfile';
 import { useSubscription } from '../hooks/useSubscription';
 import { LoadingSpinner } from '../components/atoms/LoadingSpinner';
-import { UserIcon, Cog6ToothIcon, ChartBarIcon, BookOpenIcon, ChatBubbleLeftRightIcon, ArrowRightOnRectangleIcon, CheckCircleIcon, XCircleIcon, ClockIcon } from '@heroicons/react/24/outline';
+import { UserIcon, Cog6ToothIcon, ChartBarIcon, BookOpenIcon, ChatBubbleLeftRightIcon, SpeakerWaveIcon, ArrowRightOnRectangleIcon, CheckCircleIcon, XCircleIcon, ClockIcon } from '@heroicons/react/24/outline';
 
 export function Profile() {
   const { user, signOut } = useAuth();
@@ -151,7 +151,7 @@ export function Profile() {
             {/* Quick Actions */}
             <div className="bg-white rounded-lg shadow p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <button 
                   onClick={() => window.location.href = '/tone-analyzer'}
                   className="flex items-center gap-3 p-4 border border-gray-300 rounded-lg hover:border-gray-400 transition-colors text-left"
@@ -181,6 +181,21 @@ export function Profile() {
                     <h4 className="font-medium text-gray-900">Script Library</h4>
                     <p className="text-sm text-gray-600">Manage saved scripts</p>
                   </div>
+                </button>
+                <button 
+                  onClick={() => window.location.href = '/voice-practice'}
+                  className="flex items-center gap-3 p-4 border border-gray-300 rounded-lg hover:border-gray-400 transition-colors text-left relative"
+                >
+                  <SpeakerWaveIcon className="h-6 w-6 text-purple-700" />
+                  <div>
+                    <h4 className="font-medium text-gray-900">Voice Practice</h4>
+                    <p className="text-sm text-gray-600">Practice with AI voice</p>
+                  </div>
+                  {isPremium && (
+                    <div className="absolute -top-1 -right-1 bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs font-medium">
+                      Premium
+                    </div>
+                  )}
                 </button>
               </div>
             </div>
