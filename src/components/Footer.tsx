@@ -47,8 +47,8 @@ export function Footer() {
             <ul className="space-y-2 text-primary-foreground/80">
               <li><a href="#" className="hover:text-primary-foreground transition-colors">Help Center</a></li>
               <li><a href="#" className="hover:text-primary-foreground transition-colors">Contact Us</a></li>
-              <li><a href="#" className="hover:text-primary-foreground transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-primary-foreground transition-colors">Terms of Service</a></li>
+              <li><a href="/privacy" className="hover:text-primary-foreground transition-colors">Privacy Policy</a></li>
+              <li><a href="/terms" className="hover:text-primary-foreground transition-colors">Terms of Service</a></li>
             </ul>
           </div>
         </div>

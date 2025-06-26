@@ -17,6 +17,8 @@ import { ToneAnalyzer } from './pages/ToneAnalyzer';
 import { ScriptGenerator } from './pages/ScriptGenerator';
 import { Library } from './pages/Library';
 import { VoicePractice } from './pages/VoicePractice';
+import { Privacy } from './pages/Privacy';
+import { Terms } from './pages/Terms';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { LoadingSpinner } from './components/atoms/LoadingSpinner';
 
@@ -81,6 +83,10 @@ function Router() {
           <VoicePractice />
         </ProtectedRoute>
       );
+    case '/privacy':
+      return <Privacy />;
+    case '/terms':
+      return <Terms />;
     default:
       // If user is authenticated, redirect to profile
       if (user) {
