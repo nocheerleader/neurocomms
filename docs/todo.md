@@ -148,7 +148,7 @@
 
 ### Step 32: Create Main Dashboard with Usage Overview
 
-[ ] Task: Build dashboard showing daily/monthly usage charts, quick action buttons, recent activity feed, and upgrade prompts based on usage patterns. Include welcome state for new users
+[X] Task: Build dashboard showing daily/monthly usage charts, quick action buttons, recent activity feed, and upgrade prompts based on usage patterns. Include welcome state for new users
 
 ### Step 33: Implement Usage Analytics and Insights
 
@@ -159,7 +159,7 @@
 
 ### Step 34: Implement Global Error Boundary and Handlers
 
-[ ] Task: Create error boundary component catching React errors, network error handlers with retry logic, user-friendly error messages by type, and fallback UI components
+[X] Task: Create error boundary component catching React errors, network error handlers with retry logic, user-friendly error messages by type, and fallback UI components
 
 ### Step 35: Create Loading States and Skeleton Components
 
