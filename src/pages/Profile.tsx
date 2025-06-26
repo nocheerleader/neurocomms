@@ -3,6 +3,9 @@ import { useAuth } from '../contexts/AuthContext';
 import { useProfile } from '../hooks/useProfile';
 import { useSubscription } from '../hooks/useSubscription';
 import { LoadingSpinner } from '../components/atoms/LoadingSpinner';
+import { WelcomeCard } from '../components/molecules/WelcomeCard';
+import { UsageOverview } from '../components/molecules/UsageOverview';
+import { QuickStats } from '../components/molecules/QuickStats';
 import { UserIcon, Cog6ToothIcon, ChartBarIcon, BookOpenIcon, ChatBubbleLeftRightIcon, SpeakerWaveIcon, ArrowRightOnRectangleIcon, CheckCircleIcon, XCircleIcon, ClockIcon } from '@heroicons/react/24/outline';
 
 export function Profile() {
@@ -131,25 +134,13 @@ export function Profile() {
         )}
 
         <div className="grid md:grid-cols-3 gap-8">
-          {/* Welcome Card */}
+          {/* Main Dashboard Content */}
           <div className="md:col-span-2">
-            <div className="bg-white rounded-lg shadow p-6 mb-6">
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">
-                Welcome back!
-              </h2>
-              <p className="text-gray-600 mb-4">
-                You're signed in as <span className="font-medium">{user?.email}</span>
-              </p>
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                <h3 className="font-medium text-blue-900 mb-2">Getting Started</h3>
-                <p className="text-blue-800 text-sm">
-                  Complete your communication assessment in Settings to get personalized suggestions.
-                </p>
-              </div>
-            </div>
+            {/* Welcome Section */}
+            <WelcomeCard />
 
             {/* Quick Actions */}
-            <div className="bg-white rounded-lg shadow p-6">
+            <div className="bg-white rounded-lg shadow p-6 mt-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <button 
@@ -203,35 +194,11 @@ export function Profile() {
 
           {/* Account Info Sidebar */}
           <div className="space-y-6">
-            {/* Account Status */}
-            <div className="bg-white rounded-lg shadow p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Account Status</h3>
-              <div className="space-y-3">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Plan</label>
-                  <p className="text-sm text-gray-900">
-                    {getSubscriptionStatusDisplay()}
-                  </p>
-                  {isPremium && subscription?.current_period_end && (
-                    <p className="text-xs text-gray-500 mt-1">
-                      {isTrialing ? 'Trial ends' : 'Renews'} {new Date(subscription.current_period_end * 1000).toLocaleDateString()}
-                    </p>
-                  )}
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Onboarding</label>
-                  <p className="text-sm text-gray-900">
-                    {profile?.onboarding_completed ? 'Complete' : 'In Progress'}
-                  </p>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Member Since</label>
-                  <p className="text-sm text-gray-900">
-                    {profile?.created_at ? new Date(profile.created_at).toLocaleDateString() : 'Unknown'}
-                  </p>
-                </div>
-              </div>
-            </div>
+            {/* Quick Stats */}
+            <QuickStats />
+
+            {/* Usage Overview */}
+            <UsageOverview />
 
             {/* Settings Link */}
             <div className="bg-white rounded-lg shadow p-6">
@@ -243,31 +210,6 @@ export function Profile() {
                 <Cog6ToothIcon className="h-4 w-4" />
                 Manage Settings
               </button>
-            </div>
-
-            {/* Usage Summary */}
-            <div className="bg-white rounded-lg shadow p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Today's Usage</h3>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600">Tone Analyses</span>
-                  <span className="text-sm font-medium text-gray-900">
-                    {isPremium ? '0 / unlimited' : '0 / 5'}
-                  </span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600">Script Generations</span>
-                  <span className="text-sm font-medium text-gray-900">
-                    {isPremium ? '0 / unlimited' : '0 / 3'}
-                  </span>
-                </div>
-                {isPremium && (
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">Voice Syntheses</span>
-                    <span className="text-sm font-medium text-gray-900">0 / 10</span>
-                  </div>
-                )}
-              </div>
             </div>
           </div>
         </div>
