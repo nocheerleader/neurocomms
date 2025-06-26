@@ -7,7 +7,7 @@ export function Hero() {
   };
 
   return (
-    <section className="bg-gradient-to-b from-accent to-card py-20">
+    <section className="bg-gradient-to-b from-accent to-card py-20 pt-32">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center">
           <h2 className="text-5xl font-bold text-foreground mb-6 leading-tight">

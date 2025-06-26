@@ -21,60 +21,78 @@ export function Header() {
   };
 
   return (
-    <header className="bg-card border-b-2 border-border">
-      <div className="max-w-7xl mx-auto px-6 py-6">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <div className="bg-primary p-2 rounded-lg">
-              <ChatBubbleLeftRightIcon className="h-8 w-8 text-primary-foreground" />
-            </div>
-            <div>
-              <h1 className="text-2xl font-bold text-foreground">ToneWise</h1>
-              <p className="text-sm text-muted-foreground">Professional Communication Tool</p>
-            </div>
+    <div className="fixed top-0 left-0 w-full z-50 py-4 px-6">
+      <header className="max-w-7xl mx-auto bg-card rounded-full shadow-lg py-3 px-6 flex items-center justify-between border border-border">
+        <div className="flex items-center space-x-3">
+          <div className="bg-primary p-2 rounded-lg">
+            <ChatBubbleLeftRightIcon className="h-6 w-6 text-primary-foreground" />
           </div>
-          <nav className="hidden md:flex space-x-8">
-            {!user ? (
-              <>
-                <a href="#features" className="text-muted-foreground hover:text-primary font-medium transition-colors">
-                  Features
-                </a>
-                <a href="#how-it-works" className="text-muted-foreground hover:text-primary font-medium transition-colors">
-                  How It Works
-                </a>
-                <button 
-                  onClick={handleGetStarted}
-                  className="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors"
-                >
-                  Log In 
-                </button>
-              </>
-            ) : (
-              <div className="flex items-center space-x-4">
-                <a
-                  href="/tone-analyzer"
-                  className="text-muted-foreground hover:text-primary font-medium transition-colors"
-                >
-                  Tone Analyzer
-                </a>
-                <button
-                  onClick={handleProfileClick}
-                  className="text-muted-foreground hover:text-primary font-medium transition-colors"
-                >
-                  Profile
-                </button>
-                <button
-                  onClick={handleSignOut}
-                  className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-muted-foreground bg-secondary border border-border rounded-lg hover:bg-secondary/80 transition-colors"
-                >
-                  <ArrowRightOnRectangleIcon className="h-4 w-4" />
-                  Sign Out
-                </button>
-              </div>
-            )}
-          </nav>
+          <div>
+            <h1 className="text-xl font-bold text-foreground">ToneWise</h1>
+            <p className="text-xs text-muted-foreground">Professional Communication Tool</p>
+          </div>
         </div>
-      </div>
-    </header>
+        
+        <nav className="hidden md:flex items-center space-x-6">
+          {!user ? (
+            <>
+              <a href="#features" className="text-muted-foreground hover:text-primary font-medium transition-colors text-sm">
+                Features
+              </a>
+              <a href="#how-it-works" className="text-muted-foreground hover:text-primary font-medium transition-colors text-sm">
+                How It Works
+              </a>
+              <button 
+                onClick={handleGetStarted}
+                className="bg-primary text-primary-foreground px-5 py-2 rounded-full font-medium hover:bg-primary/90 transition-colors text-sm"
+              >
+                Log In 
+              </button>
+            </>
+          ) : (
+            <div className="flex items-center space-x-4">
+              <a
+                href="/tone-analyzer"
+                className="text-muted-foreground hover:text-primary font-medium transition-colors text-sm"
+              >
+                Tone Analyzer
+              </a>
+              <button
+                onClick={handleProfileClick}
+                className="text-muted-foreground hover:text-primary font-medium transition-colors text-sm"
+              >
+                Profile
+              </button>
+              <button
+                onClick={handleSignOut}
+                className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-muted-foreground bg-secondary border border-border rounded-full hover:bg-secondary/80 transition-colors"
+              >
+                <ArrowRightOnRectangleIcon className="h-4 w-4" />
+                Sign Out
+              </button>
+            </div>
+          )}
+        </nav>
+        
+        {/* Mobile menu button - simplified for now */}
+        <div className="md:hidden">
+          {!user ? (
+            <button 
+              onClick={handleGetStarted}
+              className="bg-primary text-primary-foreground px-4 py-2 rounded-full font-medium hover:bg-primary/90 transition-colors text-sm"
+            >
+              Log In 
+            </button>
+          ) : (
+            <button
+              onClick={handleProfileClick}
+              className="text-muted-foreground hover:text-primary font-medium transition-colors text-sm"
+            >
+              Profile
+            </button>
+          )}
+        </div>
+      </header>
+    </div>
   );
 }
