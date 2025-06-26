@@ -174,11 +174,11 @@
 
 ### Step 37: Implement Comprehensive Keyboard Navigation
 
-[ ] Task: Add keyboard shortcuts for major actions, ensure logical tab order throughout, implement focus trapping in modals, and add skip navigation links
+[DEFER] Task: Add keyboard shortcuts for major actions, ensure logical tab order throughout, implement focus trapping in modals, and add skip navigation links
 
 ### Step 38: Add Screen Reader Optimizations
 
-[ ] Task: Implement proper ARIA labels and live regions, add screen reader only content for context, ensure form error announcements, and test with NVDA/JAWS
+[DEFER] Task: Implement proper ARIA labels and live regions, add screen reader only content for context, ensure form error announcements, and test with NVDA/JAWS
 
 ### Step 39: Optimize Performance and Bundle Size
 
