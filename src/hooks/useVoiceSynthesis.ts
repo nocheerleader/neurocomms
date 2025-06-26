@@ -44,7 +44,9 @@ export function useVoiceSynthesis() {
     } catch (err: any) {
       console.error('Voice synthesis error:', err);
       
-      if (err.message?.includes('usage limit')) {
+      if (err.message?.includes('Premium subscription required')) {
+        setError('Premium Plan Required: Voice Practice is a premium feature. Please upgrade to access AI-generated voice synthesis.');
+      } else if (err.message?.includes('usage limit')) {
         setError('Monthly usage limit reached. Your limit will reset next month.');
       } else if (err.message?.includes('timeout')) {
         setError('Voice generation timeout. Please try again with shorter text.');
