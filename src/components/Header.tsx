@@ -46,7 +46,7 @@ export function Header() {
                   onClick={handleGetStarted}
                   className="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors"
                 >
-                  Get Started
+                  Log In 
                 </button>
               </>
             ) : (
