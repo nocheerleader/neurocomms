@@ -141,7 +141,7 @@
 
 ### Step 31: Build Stripe Customer Portal Integration
 
-[ ] Task: Implement portal session creation for billing management, automatic subscription status sync, grace period handling for failed payments, and feature access updates
+[DEFER] Task: Implement portal session creation for billing management, automatic subscription status sync, grace period handling for failed payments, and feature access updates
 
 
 ## Section 9: Dashboard and Analytics
