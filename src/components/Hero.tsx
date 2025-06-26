@@ -6,11 +6,6 @@ export function Hero() {
     window.location.href = '/signup';
   };
 
-  const handleWatchDemo = () => {
-    // TODO: Implement demo functionality
-    console.log('Watch demo clicked');
-  };
-
   return (
     <section className="bg-gradient-to-b from-accent to-card py-20">
       <div className="max-w-7xl mx-auto px-6">
@@ -23,19 +18,13 @@ export function Hero() {
             Clear communication made simple with visual feedback and guided suggestions.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <div className="flex justify-center mb-12">
             <button 
               onClick={handleTryNow}
               className="bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
             >
               Try ToneWise Now
               <ArrowRightIcon className="h-5 w-5" />
-            </button>
-            <button 
-              onClick={handleWatchDemo}
-              className="border-2 border-border text-card-foreground px-8 py-4 rounded-lg font-semibold text-lg hover:border-border/80 transition-colors"
-            >
-              Watch Demo
             </button>
           </div>
 
