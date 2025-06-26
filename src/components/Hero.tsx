@@ -16,7 +16,7 @@ export function Hero() {
         <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Left Column - Text Content */}
           <div className="flex-1 text-left">
-            <h1 className="text-5xl lg:text-6xl xl:text-7xl font-extrabold text-foreground mb-6 leading-tight">
+            <h1 className="text-5xl lg:text-6xl xl:text-7xl font-funnel font-light text-foreground mb-6 leading-tight">
               Communicate with 
               <br />
               Confidence{' '}

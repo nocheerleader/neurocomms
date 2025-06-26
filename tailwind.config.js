@@ -67,6 +67,7 @@ export default {
         '2xl': 'var(--shadow-2xl)',
       },
       fontFamily: {
+        funnel: ['Funnel Display', 'sans-serif'],
         sans: ['var(--font-sans)'],
         serif: ['var(--font-serif)'],
         mono: ['var(--font-mono)'],
