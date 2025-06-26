@@ -19,10 +19,7 @@ export function Hero() {
             <h1 className="text-5xl lg:text-6xl xl:text-7xl font-funnel font-light text-foreground mb-6 leading-tight">
               Communicate with 
               <br />
-              Confidence{' '}
-              <span className="inline-block text-primary transform rotate-12 text-4xl lg:text-5xl xl:text-6xl">
-                ✱
-              </span>
+              Confidence
             </h1>
             
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl leading-relaxed">
