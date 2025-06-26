@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useAuth } from './useAuth';
 import { generateScriptAPI } from '../services/scriptGeneration';
+import { CustomError, logError } from '../utils/errorHandling';
 
 export interface ScriptGenerationResult {
   id: string;
@@ -45,7 +46,11 @@ export function useScriptGeneration() {
 
       // Validate that we received a valid generation ID
       if (!result.id || typeof result.id !== 'string') {
-        throw new Error('Server did not return a valid generation ID. Please try again.');
+        throw new CustomError(
+          'Invalid server response',
+          'server',
+          'The server returned an invalid response. Please try again.'
+        );
       }
 
       // Create the generation result object
@@ -57,15 +62,24 @@ export function useScriptGeneration() {
 
       setGenerationResult(generationResult);
 
-    } catch (err: any) {
+    } catch (err) {
       console.error('Script generation error:', err);
       
-      if (err.message?.includes('usage limit')) {
-        setError('Daily usage limit reached. Upgrade to Premium for unlimited script generations or try again tomorrow.');
-      } else if (err.message?.includes('content moderation')) {
-        setError('This content contains inappropriate language and cannot be processed.');
+      if (err instanceof CustomError) {
+        setError(err.userMessage);
+        logError(err, { 
+          action: 'generateScript', 
+          situationLength: situation.length,
+          relationshipType: relationship 
+        });
       } else {
-        setError('Failed to generate scripts. Please try again.');
+        const error = err as Error;
+        setError('An unexpected error occurred. Please try again.');
+        logError(error as any, { 
+          action: 'generateScript', 
+          situationLength: situation.length,
+          relationshipType: relationship 
+        });
       }
     } finally {
       setLoading(false);

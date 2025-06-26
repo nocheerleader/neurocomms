@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useAuth } from './useAuth';
 import { analyzeToneAPI } from '../services/toneAnalysis';
+import { CustomError, logError } from '../utils/errorHandling';
 
 export interface ToneAnalysisResult {
   id: string;
@@ -36,7 +37,11 @@ export function useToneAnalysis() {
 
       // Validate that we received a valid analysis ID
       if (!result.id || typeof result.id !== 'string') {
-        throw new Error('Server did not return a valid analysis ID. Please try again.');
+        throw new CustomError(
+          'Invalid server response',
+          'server',
+          'The server returned an invalid response. Please try again.'
+        );
       }
 
       // Create the analysis result object
@@ -51,15 +56,16 @@ export function useToneAnalysis() {
 
       setAnalysisResult(analysisResult);
 
-    } catch (err: any) {
+    } catch (err) {
       console.error('Tone analysis error:', err);
       
-      if (err.message?.includes('usage limit')) {
-        setError('Daily usage limit reached. Upgrade to Premium for unlimited analyses or try again tomorrow.');
-      } else if (err.message?.includes('content moderation')) {
-        setError('This message contains inappropriate content and cannot be analyzed.');
+      if (err instanceof CustomError) {
+        setError(err.userMessage);
+        logError(err, { action: 'analyzeTone', textLength: text.length });
       } else {
-        setError('Failed to analyze tone. Please try again.');
+        const error = err as Error;
+        setError('An unexpected error occurred. Please try again.');
+        logError(error as any, { action: 'analyzeTone', textLength: text.length });
       }
     } finally {
       setLoading(false);

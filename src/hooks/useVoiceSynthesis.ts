@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from './useAuth';
 import { synthesizeVoiceAPI } from '../services/voiceSynthesis';
+import { CustomError, logError } from '../utils/errorHandling';
 
 export function useVoiceSynthesis() {
   const { user } = useAuth();
@@ -41,17 +42,26 @@ export function useVoiceSynthesis() {
       // Update usage count
       setUsageCount(prev => prev + 1);
 
-    } catch (err: any) {
+    } catch (err) {
       console.error('Voice synthesis error:', err);
       
-      if (err.message?.includes('Premium subscription required')) {
-        setError('Premium Plan Required: Voice Practice is a premium feature. Please upgrade to access AI-generated voice synthesis.');
-      } else if (err.message?.includes('usage limit')) {
-        setError('Monthly usage limit reached. Your limit will reset next month.');
-      } else if (err.message?.includes('timeout')) {
-        setError('Voice generation timeout. Please try again with shorter text.');
+      if (err instanceof CustomError) {
+        setError(err.userMessage);
+        logError(err, { 
+          action: 'synthesizeVoice', 
+          textLength: text.length,
+          voice,
+          speed 
+        });
       } else {
-        setError('Failed to generate voice. Please try again.');
+        const error = err as Error;
+        setError('An unexpected error occurred. Please try again.');
+        logError(error as any, { 
+          action: 'synthesizeVoice', 
+          textLength: text.length,
+          voice,
+          speed 
+        });
       }
     } finally {
       setLoading(false);
