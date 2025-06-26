@@ -62,7 +62,7 @@ export function Privacy() {
               
               <h3 className="text-xl font-medium text-foreground mb-3">Personal Information</h3>
               <ul className="list-disc list-inside space-y-2 text-muted-foreground mb-6">
-                <li>Email address and account credentials</li>
+                <li>Email address and account credentials (encrypted)</li>
                 <li>Communication preferences and settings</li>
                 <li>Subscription and billing information</li>
                 <li>Usage analytics and feature preferences</li>
