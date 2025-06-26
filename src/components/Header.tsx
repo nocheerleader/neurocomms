@@ -29,7 +29,6 @@ export function Header() {
           </div>
           <div>
             <h1 className="text-xl font-bold text-foreground">ToneWise</h1>
-            <p className="text-xs text-muted-foreground">Professional Communication Tool</p>
           </div>
         </div>
         
