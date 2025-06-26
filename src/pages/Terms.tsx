@@ -39,7 +39,7 @@ export function Terms() {
             {/* Last Updated */}
             <div className="mb-8 p-4 bg-accent/50 border border-border rounded-lg">
               <p className="text-sm text-muted-foreground mb-1">Last updated:</p>
-              <p className="text-sm font-medium text-foreground">January 25, 2025</p>
+              <p className="text-sm font-medium text-foreground">June 26, 2025</p>
             </div>
 
             {/* Introduction */}
