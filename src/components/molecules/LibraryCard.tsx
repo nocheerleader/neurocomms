@@ -5,7 +5,7 @@ import {
   TrashIcon,
   ClockIcon,
   TagIcon,
-  EyeIcon 
+  EyeIcon
 } from '@heroicons/react/24/outline';
 import { CopyButton } from '../atoms/CopyButton';
 import { ScriptEditor } from '../organisms/ScriptEditor';
