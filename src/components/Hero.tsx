@@ -65,7 +65,7 @@ export function Hero() {
           <div className="flex-1 flex justify-center lg:justify-end">
             <div className="relative">
               <img
-                src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                src="/hero-img.png"
                 alt="Person using laptop for professional communication"
                 className="w-full max-w-lg h-auto rounded-2xl shadow-2xl"
               />
