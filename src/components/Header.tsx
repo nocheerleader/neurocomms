@@ -27,6 +27,7 @@ export function Header() {
   return (
     <div className="fixed top-0 left-0 w-full z-50 py-4 px-6">
       <header className="max-w-7xl mx-auto bg-card rounded-full shadow-lg py-3 px-6 flex items-center justify-between border border-border">
+      </header>
       <header className="max-w-7xl mx-auto rounded-full shadow-lg py-3 px-6 flex items-center justify-between border border-border" style={{ backgroundColor: '#ffeae4' }}>
         <div className="flex items-center space-x-3">
           <div className="bg-primary p-2 rounded-lg">
