@@ -30,7 +30,7 @@ export function Header() {
         <div className="flex items-center space-x-3">
           <img src="/logo.svg" alt="ToneWise Logo" className="h-8 w-8" />
           <div>
-            <h1 className="text-xl font-bold font-funnel text-foreground">ToneWise</h1>
+            <h1 className="text-xl font-bold font-funnel text-foreground">Elucidare</h1>
           </div>
         </div>
         
