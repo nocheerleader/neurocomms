@@ -55,6 +55,7 @@ async function checkPremiumAccess(userId: string): Promise<{ canUse: boolean; me
       .single();
 
     if (profileError) {
+      console.error('[DEBUG] Error fetching user profile:', profileError); // <-- ADD THIS
       console.error('Error fetching user profile:', profileError);
       return { canUse: false, message: 'Failed to verify user account' };
     }
