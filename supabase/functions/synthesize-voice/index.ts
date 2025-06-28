@@ -47,6 +47,7 @@ function audioResponse(audioData: ArrayBuffer) {
 async function checkPremiumAccess(userId: string): Promise<{ canUse: boolean; message?: string }> {
   try {
     // Get user's subscription tier
+    console.log(`[DEBUG] Checking premium access for user: ${userId}`); // <-- ADD THIS
     const { data: profile, error: profileError } = await supabase
       .from('user_profiles')
       .select('subscription_tier')
