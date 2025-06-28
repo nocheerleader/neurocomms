@@ -21,7 +21,7 @@ export function CallToAction() {
             Ready to Communicate with Confidence?
           </h3>
           <p className="text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-8">
-            Join professionals who use ToneWise to navigate workplace communication 
+            Join professionals who use Elucidare to navigate workplace communication 
             with clarity and confidence.
           </p>
           
@@ -29,7 +29,7 @@ export function CallToAction() {
             onClick={handleStartUsing}
             className="bg-card text-primary px-8 py-4 rounded-lg font-semibold text-lg hover:bg-card/90 transition-colors flex items-center justify-center gap-2 mx-auto mb-12"
           >
-            Start Using ToneWise
+            Start Using Elucidare
             <ArrowRightIcon className="h-5 w-5" />
           </button>
         </div>
