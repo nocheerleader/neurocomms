@@ -63,7 +63,7 @@ Leverages advanced sentiment analysis API to categorize text. Offers explanation
 Helps users generate and practice context-specific responses with varying tones, boosting confidence in social interactions.
 
 **User Story:**
-"As a neurodiverse professional, I feel anxious responding to difficult emails. I use ToneWise to generate three scripts, practice them aloud with AI-generated voice, and confidently send an appropriate reply."
+"As a neurodiverse professional, I feel anxious responding to difficult emails. I use Elucidare to generate three scripts, practice them aloud with AI-generated voice, and confidently send an appropriate reply."
 
 **Tech Explainer:**
 Uses text-to-script generation models (PicaOS OneTool) combined with ElevenLabs API for voice playback. Saves user scripts and tracks confidence ratings in Supabase.
