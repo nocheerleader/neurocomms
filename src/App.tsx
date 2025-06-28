@@ -91,17 +91,7 @@ function Router() {
     case '/roadmap':
       return <Roadmap />;
     default:
-      // If user is authenticated, redirect to profile
-      if (user) {
-        window.location.href = '/profile';
-        return (
-          <div className="min-h-screen flex items-center justify-center">
-            <LoadingSpinner />
-          </div>
-        );
-      }
-      
-      // Show landing page for unauthenticated users
+      // Show landing page for all users (authenticated and unauthenticated)
       return (
         <div className="min-h-screen bg-background">
           <Header />
