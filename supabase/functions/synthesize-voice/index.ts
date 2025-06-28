@@ -65,6 +65,7 @@ async function checkPremiumAccess(userId: string): Promise<{ canUse: boolean; me
 
     // Only premium users can use voice synthesis
     if (profile.subscription_tier !== 'premium') {
+      console.log(`[DEBUG] User is not premium. Tier: ${profile.subscription_tier}`); // <-- ADD THIS
       return { canUse: false, message: 'Premium subscription required' };
     }
 
