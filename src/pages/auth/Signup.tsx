@@ -107,6 +107,10 @@ export function Signup() {
         <div className="text-center">
           <div className="flex justify-center mb-4">
             <div>
+
+
+
+              
               <h1 className="text-2xl font-bold font-funnel text-foreground">ToneWise</h1>
               <p className="text-sm text-muted-foreground">Professional Communication Tool</p>
             </div>
