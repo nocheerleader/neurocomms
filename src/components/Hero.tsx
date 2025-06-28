@@ -31,7 +31,7 @@ export function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <button 
                 onClick={handleTryNow}
-                className="bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
+                className="bg-primary text-primary-foreground px-5 py-2 rounded-full font-medium text-sm hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
               >
                 Try ToneWise Now
                 <ArrowRightIcon className="h-5 w-5" />
@@ -39,7 +39,7 @@ export function Hero() {
               
               <button 
                 onClick={handleLearnMore}
-                className="border-2 border-primary text-primary px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary/5 transition-colors"
+                className="border-2 border-primary text-primary px-5 py-2 rounded-full font-medium text-sm hover:bg-primary/5 transition-colors"
               >
                 Learn More
               </button>
