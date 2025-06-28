@@ -60,6 +60,9 @@ async function checkPremiumAccess(userId: string): Promise<{ canUse: boolean; me
       return { canUse: false, message: 'Failed to verify user account' };
     }
 
+     console.log(`[DEBUG] User profile found:`, profile); // <-- ADD THIS
+
+
     // Only premium users can use voice synthesis
     if (profile.subscription_tier !== 'premium') {
       return { canUse: false, message: 'Premium subscription required' };
