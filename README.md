@@ -1,4 +1,4 @@
-# ToneWise
+# Elucidare
 
 **Communicate with Confidence. A communication co-pilot designed for neurodiverse professionals.**
 
@@ -16,17 +16,19 @@ Effective communication in the workplace is challenging for everyone, but it can
 
 Existing tools often provide generic advice, failing to address the specific, literal interpretation needs of the neurodiverse community.
 
-## Our Solution: ToneWise
+## Our Solution: Elucidare
 
-**ToneWise** is an AI-powered communication assistant that acts as a "co-pilot" for professional conversations. It demystifies communication by providing clear, literal, and actionable feedback.
+Elucidare is the Latin for "to make clear"
+
+**Elucidare** is an AI-powered communication assistant that acts as a "co-pilot" for professional conversations. It demystifies communication by providing clear, literal, and actionable feedback.
 
 Our platform helps users:
 *   **Analyze Message Tone:** Paste a message and get a simple, visual breakdown of its perceived tone (Professional, Friendly, Urgent, Neutral) without overwhelming jargon.
-*   **Generate Appropriate Responses:** Describe a situation, and ToneWise generates three distinct response options—Casual, Professional, and Direct—explaining *why* each one works.
+*   **Generate Appropriate Responses:** Describe a situation, and Elucidare generates three distinct response options—Casual, Professional, and Direct—explaining *why* each one works.
 *   **Build a Personal Library:** Save effective scripts to a personal library, creating a reusable toolkit for common communication challenges.
 *   **Practice with Confidence (Premium):** Use our voice synthesis feature to hear scripts spoken aloud, helping to practice tone and delivery before a real conversation.
 
-We built ToneWise with a "privacy-first" approach. User content is processed to provide the service but is not stored permanently or used for training AI models.
+We built Elucidare with a "privacy-first" approach. User content is processed to provide the service but is not stored permanently or used for training AI models.
 
 ## Key Features
 
@@ -49,7 +51,7 @@ We built ToneWise with a "privacy-first" approach. User content is processed to 
 1.  **Clone the repository:**
     ```bash
     git clone [your-repo-url]
-    cd tonewise
+    cd elucidare
     ```
 
 2.  **Install dependencies:**
