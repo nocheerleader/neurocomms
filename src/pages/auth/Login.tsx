@@ -38,7 +38,7 @@ export function Login() {
     <div className="min-h-screen bg-background flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
-          <div className="flex items-center justify-center space-x-3 mb-8">
+          <a href="/" className="flex items-center justify-center space-x-3 mb-8 hover:opacity-80 transition-opacity">
             <div className="bg-primary p-3 rounded-lg">
               <img src="/logo.svg" alt="ToneWise Logo" className="h-8 w-8" />
             </div>
@@ -46,7 +46,7 @@ export function Login() {
               <h1 className="text-2xl font-bold font-funnel text-foreground">ToneWise</h1>
               <p className="text-sm text-muted-foreground">Professional Communication Tool</p>
             </div>
-          </div>
+          </a>
           <h2 className="text-center text-3xl font-bold font-funnel text-foreground">
             Sign in to your account
           </h2>
