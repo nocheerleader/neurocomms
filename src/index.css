@@ -5,9 +5,9 @@
 @tailwind utilities;
 
 :root {
-  --background: #e8ebed;
+  --background: #ffffff;
   --foreground: #333333;
-  --card: #ffeae4;
+  --card: #ffffff;
   --card-foreground: #333333;
   --popover: #ffffff;
   --popover-foreground: #333333;
@@ -54,7 +54,7 @@
 .dark {
   --background: #1c2433;
   --foreground: #e5e5e5;
-  --card: #ffeae4;
+  --card: #ffffff;
   --card-foreground: #333333;
   --popover: #262b38;
   --popover-foreground: #e5e5e5;
