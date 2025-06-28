@@ -12,7 +12,7 @@ export function Footer() {
                 <ChatBubbleLeftRightIcon className="h-6 w-6 text-primary-foreground" />
               </div>
               <div>
-                <h4 className="text-xl font-bold font-funnel">ToneWise</h4>
+                <h4 className="text-xl font-bold font-funnel">Elucidare</h4>
                 <p className="text-muted-foreground text-sm">Professional Communication Tool</p>
               </div>
             </div>
@@ -54,7 +54,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-border mt-12 pt-8 text-center text-muted-foreground">
-          <p>&copy; 2025 ToneWise. Built for neurodiverse professionals.</p>
+          <p>&copy; 2025 Elucidare. Built for neurodiverse professionals.</p>
         </div>
       </div>
     </footer>
