@@ -91,6 +91,7 @@ async function checkPremiumAccess(userId: string): Promise<{ canUse: boolean; me
 
     return { canUse: true };
   } catch (error) {
+    console.error('[DEBUG] Error in checkPremiumAccess:', error); // <-- ADD THIS
     console.error('Error checking premium access:', error);
     return { canUse: false, message: 'Failed to verify premium access' };
   }
