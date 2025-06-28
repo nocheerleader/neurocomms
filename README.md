@@ -4,9 +4,9 @@
 
 [![Built with Bolt.new](https://storage.bolt.army/white_circle_360x360.png)](https://bolt.new/?rid=5hjt0n)
 
-*This project was built for the [Name of Hackathon] hackathon.*
+*This project was built for the Bolt.new 2025 World Record Breaking hackathon.*
 
-**Live Demo:** [Link to your deployed application]
+**Live Demo:** https://cool-zabaione-f17338.netlify.app/
 
 ---
 
