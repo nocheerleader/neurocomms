@@ -47,7 +47,6 @@ function audioResponse(audioData: ArrayBuffer) {
 async function checkPremiumAccess(userId: string): Promise<{ canUse: boolean; message?: string }> {
   try {
     // Get user's subscription tier
-    console.log(`[DEBUG] Checking premium access for user: ${userId}`); // <-- ADD THIS
     const { data: profile, error: profileError } = await supabase
       .from('user_profiles')
       .select('subscription_tier')
@@ -55,17 +54,12 @@ async function checkPremiumAccess(userId: string): Promise<{ canUse: boolean; me
       .single();
 
     if (profileError) {
-      console.error('[DEBUG] Error fetching user profile:', profileError); // <-- ADD THIS
       console.error('Error fetching user profile:', profileError);
       return { canUse: false, message: 'Failed to verify user account' };
     }
 
-     console.log(`[DEBUG] User profile found:`, profile); // <-- ADD THIS
-
-
     // Only premium users can use voice synthesis
     if (profile.subscription_tier !== 'premium') {
-      console.log(`[DEBUG] User is not premium. Tier: ${profile.subscription_tier}`); // <-- ADD THIS
       return { canUse: false, message: 'Premium subscription required' };
     }
 
@@ -76,7 +70,9 @@ async function checkPremiumAccess(userId: string): Promise<{ canUse: boolean; me
       .select('voice_syntheses_monthly')
       .eq('user_id', userId)
       .gte('date', `${currentMonth}-01`)
-      .maybeSingle();
+      .order('date', { ascending: false })
+      .limit(1)
+      .single();
 
     if (usageError) {
       console.error('Error fetching usage data:', usageError);
@@ -84,14 +80,12 @@ async function checkPremiumAccess(userId: string): Promise<{ canUse: boolean; me
     }
 
     const currentUsage = usage?.voice_syntheses_monthly || 0;
-    console.log(`[DEBUG] Current monthly voice usage: ${currentUsage}`); // <-- ADD THIS
     if (currentUsage >= 10) {
       return { canUse: false, message: 'Monthly usage limit exceeded' };
     }
 
     return { canUse: true };
   } catch (error) {
-    console.error('[DEBUG] Error in checkPremiumAccess:', error); // <-- ADD THIS
     console.error('Error checking premium access:', error);
     return { canUse: false, message: 'Failed to verify premium access' };
   }
