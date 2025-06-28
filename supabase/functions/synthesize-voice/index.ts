@@ -84,6 +84,7 @@ async function checkPremiumAccess(userId: string): Promise<{ canUse: boolean; me
     }
 
     const currentUsage = usage?.voice_syntheses_monthly || 0;
+    console.log(`[DEBUG] Current monthly voice usage: ${currentUsage}`); // <-- ADD THIS
     if (currentUsage >= 10) {
       return { canUse: false, message: 'Monthly usage limit exceeded' };
     }
