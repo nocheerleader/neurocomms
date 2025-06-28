@@ -43,7 +43,7 @@ export function Login() {
               <img src="/logo.svg" alt="ToneWise Logo" className="h-8 w-8" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold font-funnel text-foreground">ToneWise</h1>
+              <h1 className="text-2xl font-bold font-funnel text-foreground">Elucidare</h1>
               <p className="text-sm text-muted-foreground">Professional Communication Tool</p>
             </div>
           </a>
