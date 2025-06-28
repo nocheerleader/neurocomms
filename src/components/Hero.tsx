@@ -23,7 +23,7 @@ export function Hero() {
             </h1>
             
             <p className="text-sm text-muted-foreground mb-8 max-w-2xl leading-relaxed">
-              ToneWise helps neurodiverse professionals analyze message tone and generate appropriate responses. 
+              Elucidare helps neurodiverse professionals analyze message tone and generate appropriate responses. 
               Clear communication made simple with visual feedback and guided suggestions.
             </p>
             
@@ -33,7 +33,7 @@ export function Hero() {
                 onClick={handleTryNow}
                 className="bg-primary text-primary-foreground px-5 py-2 rounded-full font-medium text-sm hover:bg-primary/90 hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2"
               >
-                Try ToneWise Now
+                Try Elucidare Now
                 <ArrowRightIcon className="h-5 w-5" />
               </button>
               
