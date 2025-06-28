@@ -29,7 +29,7 @@ export function Features() {
     <section id="features" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h3 className="text-4xl font-bold text-foreground mb-4">
+          <h3 className="text-4xl font-bold font-funnel text-foreground mb-4">
             Built for Clear Communication
           </h3>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -61,7 +61,7 @@ export function Features() {
                     <feature.icon className="h-8 w-8" />
                   </div>
                   <div className="flex-1">
-                    <h4 className={`text-xl font-semibold mb-3 ${
+                    <h4 className={`text-xl font-semibold font-funnel mb-3 ${
                       isPrimaryCard ? 'text-primary-foreground' : 'text-foreground'
                     }`}>
                       {feature.title}

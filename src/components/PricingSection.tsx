@@ -65,7 +65,7 @@ const PricingSection = () => {
               <span className="mb-2 block text-lg font-semibold text-blue-700">
                 Pricing Plans
               </span>
-              <h2 className="mb-4 text-3xl font-bold leading-tight text-foreground sm:text-4xl md:text-5xl">
+              <h2 className="mb-4 text-3xl font-bold font-funnel leading-tight text-foreground sm:text-4xl md:text-5xl">
                 Choose Your Communication Plan
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed">
@@ -135,7 +135,7 @@ const PricingSection = () => {
         {/* Trial Information Banner */}
         <div className="mt-12 max-w-4xl mx-auto">
           <div className="bg-accent border border-border rounded-lg p-6 text-center">
-            <h3 className="text-lg font-semibold text-accent-foreground mb-2">
+            <h3 className="text-lg font-semibold font-funnel text-accent-foreground mb-2">
               7-Day Free Trial Included
             </h3>
             <p className="text-accent-foreground mb-4">

@@ -12,7 +12,7 @@ export function Footer() {
                 <ChatBubbleLeftRightIcon className="h-6 w-6 text-primary-foreground" />
               </div>
               <div>
-                <h4 className="text-xl font-bold">ToneWise</h4>
+                <h4 className="text-xl font-bold font-funnel">ToneWise</h4>
                 <p className="text-muted-foreground text-sm">Professional Communication Tool</p>
               </div>
             </div>
@@ -33,7 +33,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h5 className="font-semibold mb-4">Product</h5>
+            <h5 className="font-semibold font-funnel mb-4">Product</h5>
             <ul className="space-y-2 text-primary-foreground/80">
               <li><a href="#" className="hover:text-primary-foreground transition-colors">Features</a></li>
               <li><a href="#" className="hover:text-primary-foreground transition-colors">How It Works</a></li>
@@ -43,7 +43,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h5 className="font-semibold mb-4">Support</h5>
+            <h5 className="font-semibold font-funnel mb-4">Support</h5>
             <ul className="space-y-2 text-primary-foreground/80">
               <li><a href="#" className="hover:text-primary-foreground transition-colors">Help Center</a></li>
               <li><a href="#" className="hover:text-primary-foreground transition-colors">Contact Us</a></li>

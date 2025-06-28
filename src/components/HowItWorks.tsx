@@ -27,7 +27,7 @@ export function HowItWorks() {
     <section id="how-it-works" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h3 className="text-4xl font-bold text-foreground mb-4">
+          <h3 className="text-4xl font-bold font-funnel text-foreground mb-4">
             Simple Process, Clear Results
           </h3>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -47,7 +47,7 @@ export function HowItWorks() {
                   <step.icon className="h-8 w-8 text-accent-foreground" />
                 </div>
               </div>
-              <h4 className="text-xl font-semibold text-foreground mb-4">
+              <h4 className="text-xl font-semibold font-funnel text-foreground mb-4">
                 {step.title}
               </h4>
               <p className="text-muted-foreground leading-relaxed">

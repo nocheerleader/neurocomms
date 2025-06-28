@@ -17,7 +17,7 @@ export function CallToAction() {
     <section className="py-20 bg-primary">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h3 className="text-4xl font-bold text-primary-foreground mb-4">
+          <h3 className="text-4xl font-bold font-funnel text-primary-foreground mb-4">
             Ready to Communicate with Confidence?
           </h3>
           <p className="text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-8">
