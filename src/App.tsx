@@ -19,6 +19,7 @@ import { Library } from './pages/Library';
 import { VoicePractice } from './pages/VoicePractice';
 import { Privacy } from './pages/Privacy';
 import { Terms } from './pages/Terms';
+import { Roadmap } from './pages/Roadmap';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { LoadingSpinner } from './components/atoms/LoadingSpinner';
 
@@ -87,6 +88,8 @@ function Router() {
       return <Privacy />;
     case '/terms':
       return <Terms />;
+    case '/roadmap':
+      return <Roadmap />;
     default:
       // If user is authenticated, redirect to profile
       if (user) {

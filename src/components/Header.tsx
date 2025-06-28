@@ -43,7 +43,7 @@ export function Header() {
               <a href="#pricing" className="text-muted-foreground hover:text-primary font-medium transition-colors text-sm">
                 Pricing
               </a>
-              <a href="#roadmap" className="text-muted-foreground hover:text-primary font-medium transition-colors text-sm">
+              <a href="/roadmap" className="text-muted-foreground hover:text-primary font-medium transition-colors text-sm">
                 Roadmap
               </a>
               <div className="flex items-center space-x-3">
