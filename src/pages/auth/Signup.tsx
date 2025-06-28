@@ -176,15 +176,7 @@ export function Signup() {
             </div>
           </div>
 
-          <div className="bg-accent border border-border rounded-lg p-4">
-            <h4 className="font-medium text-accent-foreground mb-2">Free Plan Includes:</h4>
-            <ul className="text-sm text-accent-foreground space-y-1">
-              <li>• 10 tone analyses per month</li>
-              <li>• Basic script templates</li>
-              <li>• Email support</li>
-              <li>• Privacy-focused design</li>
-            </ul>
-          </div>
+          
 
           <div>
             <button
