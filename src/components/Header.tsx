@@ -1,12 +1,16 @@
 import React from 'react';
-import { ChatBubbleLeftRightIcon, ArrowRightOnRectangleIcon } from '@heroicons/react/24/outline';
+import { ArrowPathIcon, ArrowRightOnRectangleIcon } from '@heroicons/react/24/outline';
 import { useAuth } from '../contexts/AuthContext';
 
 export function Header() {
   const { user, signOut } = useAuth();
 
-  const handleGetStarted = () => {
+  const handleLogin = () => {
     window.location.href = '/login';
+  };
+
+  const handleSignup = () => {
+    window.location.href = '/signup';
   };
 
   const handleSignOut = async () => {
@@ -25,7 +29,7 @@ export function Header() {
       <header className="max-w-7xl mx-auto bg-card rounded-full shadow-lg py-3 px-6 flex items-center justify-between border border-border">
         <div className="flex items-center space-x-3">
           <div className="bg-primary p-2 rounded-lg">
-            <ChatBubbleLeftRightIcon className="h-6 w-6 text-primary-foreground" />
+            <ArrowPathIcon className="h-6 w-6 text-primary-foreground" />
           </div>
           <div>
             <h1 className="text-xl font-bold text-foreground">ToneWise</h1>
@@ -38,15 +42,26 @@ export function Header() {
               <a href="#features" className="text-muted-foreground hover:text-primary font-medium transition-colors text-sm">
                 Features
               </a>
-              <a href="#how-it-works" className="text-muted-foreground hover:text-primary font-medium transition-colors text-sm">
-                How It Works
+              <a href="#pricing" className="text-muted-foreground hover:text-primary font-medium transition-colors text-sm">
+                Pricing
               </a>
-              <button 
-                onClick={handleGetStarted}
-                className="bg-primary text-primary-foreground px-5 py-2 rounded-full font-medium hover:bg-primary/90 transition-colors text-sm"
-              >
-                Log In 
-              </button>
+              <a href="#roadmap" className="text-muted-foreground hover:text-primary font-medium transition-colors text-sm">
+                Roadmap
+              </a>
+              <div className="flex items-center space-x-3">
+                <button 
+                  onClick={handleLogin}
+                  className="border border-primary text-primary px-5 py-2 rounded-full font-medium hover:bg-primary/5 transition-colors text-sm"
+                >
+                  Login
+                </button>
+                <button 
+                  onClick={handleSignup}
+                  className="bg-primary text-primary-foreground px-5 py-2 rounded-full font-medium hover:bg-primary/90 transition-colors text-sm"
+                >
+                  Signup
+                </button>
+              </div>
             </>
           ) : (
             <div className="flex items-center space-x-4">
@@ -76,12 +91,20 @@ export function Header() {
         {/* Mobile menu button - simplified for now */}
         <div className="md:hidden">
           {!user ? (
-            <button 
-              onClick={handleGetStarted}
-              className="bg-primary text-primary-foreground px-4 py-2 rounded-full font-medium hover:bg-primary/90 transition-colors text-sm"
-            >
-              Log In 
-            </button>
+            <div className="flex items-center space-x-2">
+              <button 
+                onClick={handleLogin}
+                className="border border-primary text-primary px-3 py-1 rounded-full font-medium hover:bg-primary/5 transition-colors text-sm"
+              >
+                Login
+              </button>
+              <button 
+                onClick={handleSignup}
+                className="bg-primary text-primary-foreground px-3 py-1 rounded-full font-medium hover:bg-primary/90 transition-colors text-sm"
+              >
+                Signup
+              </button>
+            </div>
           ) : (
             <button
               onClick={handleProfileClick}
