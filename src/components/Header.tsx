@@ -51,13 +51,13 @@ export function Header() {
               <div className="flex items-center space-x-3">
                 <button 
                   onClick={handleLogin}
-                  className="border border-primary text-primary px-5 py-2 rounded-full font-medium hover:bg-primary/5 transition-colors text-sm"
+                  className="border border-primary text-primary px-5 py-2 rounded-full font-medium hover:bg-primary/5 hover:shadow-md transition-all duration-200 text-sm"
                 >
                   Login
                 </button>
                 <button 
                   onClick={handleSignup}
-                  className="bg-primary text-primary-foreground px-5 py-2 rounded-full font-medium hover:bg-primary/90 transition-colors text-sm"
+                  className="bg-primary text-primary-foreground px-5 py-2 rounded-full font-medium hover:bg-primary/90 hover:shadow-md transition-all duration-200 text-sm"
                 >
                   Signup
                 </button>
@@ -79,7 +79,7 @@ export function Header() {
               </button>
               <button
                 onClick={handleSignOut}
-                className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-muted-foreground bg-secondary border border-border rounded-full hover:bg-secondary/80 transition-colors"
+                className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-muted-foreground bg-secondary border border-border rounded-full hover:bg-secondary/80 hover:shadow-md transition-all duration-200"
               >
                 <ArrowRightOnRectangleIcon className="h-4 w-4" />
                 Sign Out
@@ -94,13 +94,13 @@ export function Header() {
             <div className="flex items-center space-x-2">
               <button 
                 onClick={handleLogin}
-                className="border border-primary text-primary px-3 py-1 rounded-full font-medium hover:bg-primary/5 transition-colors text-sm"
+                className="border border-primary text-primary px-3 py-1 rounded-full font-medium hover:bg-primary/5 hover:shadow-md transition-all duration-200 text-sm"
               >
                 Login
               </button>
               <button 
                 onClick={handleSignup}
-                className="bg-primary text-primary-foreground px-3 py-1 rounded-full font-medium hover:bg-primary/90 transition-colors text-sm"
+                className="bg-primary text-primary-foreground px-3 py-1 rounded-full font-medium hover:bg-primary/90 hover:shadow-md transition-all duration-200 text-sm"
               >
                 Signup
               </button>
@@ -108,7 +108,7 @@ export function Header() {
           ) : (
             <button
               onClick={handleProfileClick}
-              className="text-muted-foreground hover:text-primary font-medium transition-colors text-sm"
+              className="text-muted-foreground hover:text-primary hover:shadow-md font-medium transition-all duration-200 text-sm"
             >
               Profile
             </button>
