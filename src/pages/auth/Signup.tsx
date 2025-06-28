@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { LoadingSpinner } from '../../components/atoms/LoadingSpinner';
 import { PasswordStrength } from '../../components/atoms/PasswordStrength';
-import { ChatBubbleLeftRightIcon, EyeIcon, EyeSlashIcon, CheckCircleIcon, PlayIcon } from '@heroicons/react/24/outline';
+import { EyeIcon, EyeSlashIcon, CheckCircleIcon, PlayIcon } from '@heroicons/react/24/outline';
 
 export function Signup() {
   const [email, setEmail] = useState('');
@@ -107,14 +107,14 @@ export function Signup() {
         <div>
           <div className="flex items-center justify-center space-x-3 mb-8">
             <div className="bg-primary p-3 rounded-lg">
-              <ChatBubbleLeftRightIcon className="h-8 w-8 text-primary-foreground" />
+              <img src="/logo.svg" alt="ToneWise Logo" className="h-8 w-8" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-foreground">ToneWise</h1>
+              <h1 className="text-2xl font-bold font-funnel text-foreground">ToneWise</h1>
               <p className="text-sm text-muted-foreground">Professional Communication Tool</p>
             </div>
           </div>
-          <h2 className="text-center text-3xl font-bold text-foreground">
+          <h2 className="text-center text-3xl font-bold font-funnel text-foreground">
             Create your account
           </h2>
           <p className="mt-2 text-center text-sm text-muted-foreground">
