@@ -2,6 +2,8 @@
 
 # Name (working): ToneWise (consider a punchier, more distinctive alternative later).
 
+## UPDATED NAME: Elucidare 
+
 ## Purpose: Help neurodiverse (ND) individuals decode and improve written and verbal communication, empowering them to respond confidently in personal and professional scenarios.
 
 ## Platform & Stack:
