@@ -1,4 +1,4 @@
-# ToneWise User Journey Maps
+# Elucidare User Journey Maps
 
 ## Persona 1: Sarah - Neurodiverse Professional
 
