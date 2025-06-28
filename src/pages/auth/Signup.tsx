@@ -110,7 +110,7 @@ export function Signup() {
               <img src="/logo.svg" alt="ToneWise Logo" className="h-8 w-8" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold font-funnel text-foreground">ToneWise</h1>
+              <h1 className="text-2xl font-bold font-funnel text-foreground">Elucidare</h1>
               <p className="text-sm text-muted-foreground">Professional Communication Tool</p>
             </div>
           </a>
@@ -118,7 +118,7 @@ export function Signup() {
             Create your account
           </h2>
           <p className="mt-2 text-center text-sm text-muted-foreground">
-            Join ToneWise and start communicating with confidence.
+            Join Elucidare and start communicating with confidence.
           </p>
         </div>
 
