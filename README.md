@@ -1,10 +1,3 @@
-Of course! A great README is crucial for a hackathon. It's the first thing judges see and tells them how to understand and appreciate your work.
-
-Here is a README template tailored specifically for ToneWise. It's designed to be clear, concise, and professional, highlighting the project's strengths and its important mission.
-
-Just copy and paste this into your README.md file.
-
-Generated markdown
 # ToneWise
 
 **Communicate with Confidence. A communication co-pilot designed for neurodiverse professionals.**
