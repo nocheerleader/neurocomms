@@ -20,7 +20,7 @@ export function CallToAction() {
           <h3 className="text-4xl font-bold font-funnel text-primary-foreground mb-4">
             Decode Workplace Messages. Craft Confident Responses.
           </h3>
-          <p className="text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-8">
+          <p className="text-base text-primary-foreground/80 max-w-2xl mx-auto mb-8">
             Join a community of neurodiverse professionals who use Elucidare to understand message tone and respond appropriately in workplace situations.
           </p>
           
