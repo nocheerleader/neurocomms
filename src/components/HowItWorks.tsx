@@ -3,17 +3,17 @@ import React from 'react';
 const steps = [
   {
     number: '1',
-    title: 'Choose Your Tool',
-    description: 'Paste a message to analyze its tone, describe a situation to generate response options or practice scripted conversations.'
+    title: 'Start With Any Message',
+    description: 'Paste confusing emails, texts, or Slack messages. Or describe a situation you need to respond to.'
   },
   {
     number: '2',
-    title: 'Get Instant Results',
-    description: 'See visual feedback about tone, formality level and how your response message might be received.'
+    title: 'Understand the Context',
+    description: 'Get instant tone analysis: "Direct but not angry" or "Urgent deadline request" plus response suggestions.'
   },
   {
     number: '3',
-    title: 'Communicate with Confidence',
+    title: 'Reply with Confidence',
     description: 'Use the suggestions to refine your message or generate a new response that matches your goals.'
   }
 ];
@@ -27,7 +27,7 @@ export function HowItWorks() {
             Three Tools, Three Simple Steps
           </h3>
           <p className="text-base text-muted-foreground max-w-2xl mx-auto">
-            No complex setup or confusing interfaces. Whether you're analyzing confusing messages or crafting responses, the process is always straightforward.
+            No complex setup or confusing interfaces. Handle any workplace communication challenge in three clear steps.
           </p>
         </div>
 
