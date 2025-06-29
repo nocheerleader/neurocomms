@@ -30,7 +30,7 @@ export function Features() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h3 className="text-4xl font-bold font-funnel text-foreground mb-4">
-            "Is This Email Angry or Just Direct?"
+            Communicate with Confidence
           </h3>
           <p className="text-base text-muted-foreground max-w-2xl mx-auto">
             Every feature is designed with neurodiverse professionals in mind, providing the clarity and confidence you need in professional communication.
