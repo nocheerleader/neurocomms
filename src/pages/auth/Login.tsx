@@ -40,7 +40,7 @@ export function Login() {
         <div>
           <a href="/" className="flex items-center justify-center space-x-3 mb-8 hover:opacity-80 transition-opacity">
             <div className="bg-primary p-3 rounded-lg">
-              <img src="/logo.svg" alt="ToneWise Logo" className="h-8 w-8" />
+              <img src="/logo.svg" alt="Elucidare Logo" className="h-8 w-8" />
             </div>
             <div>
               <h1 className="text-2xl font-bold font-funnel text-foreground">Elucidare</h1>
