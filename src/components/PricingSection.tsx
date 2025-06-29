@@ -132,32 +132,6 @@ const PricingSection = () => {
           </div>
         </div>
 
-        {/* Trial Information Banner */}
-        <div className="mt-12 max-w-4xl mx-auto">
-          <div className="bg-accent border border-border rounded-lg p-6 text-center">
-            <h3 className="text-lg font-semibold font-funnel text-accent-foreground mb-2">
-              7-Day Free Trial Included
-            </h3>
-            <p className="text-accent-foreground mb-4">
-              Start your Premium subscription with a full week to explore all features at no cost. 
-              Cancel anytime during your trial period with no charges.
-            </p>
-            <div className="flex flex-wrap justify-center gap-6 text-sm text-accent-foreground">
-              <div className="flex items-center gap-2">
-                <CheckIcon className="h-4 w-4" />
-                <span>No credit card required for trial</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckIcon className="h-4 w-4" />
-                <span>Full access to all Premium features</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckIcon className="h-4 w-4" />
-                <span>Cancel anytime</span>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
