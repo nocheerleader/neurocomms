@@ -26,7 +26,7 @@ export function Header() {
 
   return (
     <div className="fixed top-0 left-0 w-full z-50 py-4 px-6">
-      <header className="max-w-7xl mx-auto rounded-full shadow-lg py-3 px-6 flex items-center justify-between border border-border" style={{ backgroundColor: '#ffeae4' }}>
+      <header className="max-w-7xl mx-auto rounded-full shadow-lg py-3 px-6 flex items-center justify-between border border-border" style={{ backgroundColor: '#FBDCE2' }}>
         <div className="flex items-center space-x-3">
           <img src="/logo.svg" alt="ToneWise Logo" className="h-8 w-8" />
           <div>
