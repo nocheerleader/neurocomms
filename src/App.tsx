@@ -20,6 +20,7 @@ import { VoicePractice } from './pages/VoicePractice';
 import { Privacy } from './pages/Privacy';
 import { Terms } from './pages/Terms';
 import { Roadmap } from './pages/Roadmap';
+import { ContactUs } from './pages/ContactUs';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { LoadingSpinner } from './components/atoms/LoadingSpinner';
 
@@ -90,6 +91,8 @@ function Router() {
       return <Terms />;
     case '/roadmap':
       return <Roadmap />;
+    case '/contact-us':
+      return <ContactUs />;
     default:
       // Show landing page for all users (authenticated and unauthenticated)
       return (
