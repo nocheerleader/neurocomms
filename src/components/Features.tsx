@@ -33,8 +33,8 @@ export function Features() {
             "Is This Email Angry or Just Direct?"
           </h3>
           <p className="text-base text-muted-foreground max-w-2xl mx-auto">
-            Every feature is designed with neurodiverse professionals in mind, 
-            providing the clarity and confidence you need in professional communication.
+            Stop second-guessing workplace messages. Every feature is designed with neurodiverse professionals in mind. 
+            Elucidare shows you exactly what tone someone is using and gives you 3 response options that match the situation.
           </p>
         </div>
 
