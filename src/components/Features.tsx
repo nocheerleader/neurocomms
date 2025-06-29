@@ -32,7 +32,7 @@ export function Features() {
           <h3 className="text-4xl font-bold font-funnel text-foreground mb-4">
             Built for Clear Communication
           </h3>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base text-muted-foreground max-w-2xl mx-auto">
             Every feature is designed with neurodiverse professionals in mind, 
             providing the clarity and confidence you need in professional communication.
           </p>
