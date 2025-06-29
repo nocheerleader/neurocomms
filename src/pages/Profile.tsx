@@ -140,7 +140,7 @@ export function Profile() {
             <WelcomeCard />
 
             {/* Quick Actions */}
-            <div className="bg-white rounded-lg shadow p-6 mt-6">
+            <div className="bg-white rounded-lg shadow-lg p-6 mt-6 border border-black/5">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <button 
