@@ -18,7 +18,7 @@ export function CallToAction() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
           <h3 className="text-4xl font-bold font-funnel text-primary-foreground mb-4">
-            Ready to Communicate with Confidence?
+            Decode Workplace Messages. Craft Confident Responses.
           </h3>
           <p className="text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-8">
             Join professionals who use Elucidare to navigate workplace communication 
