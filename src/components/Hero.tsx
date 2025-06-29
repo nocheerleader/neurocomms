@@ -16,7 +16,7 @@ export function Hero() {
         <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Left Column - Text Content */}
           <div className="flex-1 text-left">
-            <p className="text-sm text-chart-3 mb-4 ">
+            <p className="text-sm text-chart-3 mb-4">
               Elucidare from the Latin: to make clear
             </p>
             
