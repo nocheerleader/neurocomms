@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="bg-primary p-2 rounded-lg">
+              <div className="bg-white p-2 rounded-lg">
                 <img src="/logo.svg" alt="ToneWise Logo" className="h-8 w-8" />
               </div>
               <div>
