@@ -42,7 +42,7 @@ export function Features() {
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className="p-8 rounded-xl border-2 border-border shadow-lg transition-all duration-300 hover:shadow-xl bg-[#FBDCE2]"
+              className="p-8 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl bg-[#FBDCE2]"
             >
               <div className="flex items-start gap-6">
                 <div className="p-4 rounded-full flex-shrink-0 bg-primary text-primary-foreground">
