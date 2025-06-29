@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircleIcon, ArrowPathIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { CheckCircleIcon, ArrowPathIcon, XMarkIcon } from '@heroicons/react/24/solid';
 import { ScriptCard } from '../molecules/ScriptCard';
 import { ScriptGenerationResult } from '../../hooks/useScriptGeneration';
 
@@ -19,12 +19,12 @@ export function ScriptResults({
   onRegenerate
 }: ScriptResultsProps) {
   return (
-    <div className="bg-white rounded-lg shadow">
+    <>
       {/* Header */}
-      <div className="px-6 py-4 border-b border-gray-200">
+      <div className="px-6 py-4 border-b border-black/5">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <CheckCircleIcon className="h-6 w-6 text-green-500" />
+            <CheckCircleIcon className="h-7 w-7 text-green-500" />
             <div>
               <h3 className="text-lg font-semibold text-gray-900">Scripts Generated</h3>
               <p className="text-sm text-gray-600">
@@ -35,14 +35,14 @@ export function ScriptResults({
           <div className="flex items-center space-x-2">
             <button
               onClick={onRegenerate}
-              className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-lg hover:bg-gray-200 transition-colors"
+              className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
             >
               <ArrowPathIcon className="h-4 w-4" />
               Regenerate
             </button>
             <button
               onClick={onClear}
-              className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
+              className="p-2 text-gray-400 hover:text-gray-600 transition-colors rounded-full"
             >
               <XMarkIcon className="h-5 w-5" />
             </button>
@@ -52,7 +52,7 @@ export function ScriptResults({
 
       <div className="p-6 space-y-6">
         {/* Context Summary */}
-        <div className="bg-gray-50 rounded-lg p-4">
+        <div className="bg-slate-50/50 rounded-lg p-4 border border-black/5">
           <h4 className="text-sm font-semibold text-gray-900 mb-2">Your Situation</h4>
           <p className="text-gray-800 text-sm mb-2">"{situationContext}"</p>
           <p className="text-gray-600 text-xs">
@@ -97,6 +97,6 @@ export function ScriptResults({
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
