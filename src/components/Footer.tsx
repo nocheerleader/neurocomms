@@ -20,7 +20,7 @@ export function Footer() {
               Empowering neurodiverse professionals with clear, confident communication tools. 
               Built with accessibility and privacy in mind.
             </p>
-            <div className="flex items-center gap-4 text-sm text-sidebar-foreground">
+            <div className="flex items-center gap-4 text-sm text-sidebar-foreground font-semibold">
               <div className="flex items-center gap-2">
                 <ShieldCheckIcon className="h-4 w-4" />
                 <span>Privacy First</span>
