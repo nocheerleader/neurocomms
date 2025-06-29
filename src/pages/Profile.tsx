@@ -145,7 +145,7 @@ export function Profile() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <button 
                   onClick={() => window.location.href = '/tone-analyzer'}
-                  className="flex items-center gap-3 p-4 border border-gray-300 rounded-lg hover:border-gray-400 transition-colors text-left"
+                  className="flex flex-col items-start gap-3 p-4 bg-slate-50 rounded-lg hover:bg-primary/10 hover:shadow-lg hover:-translate-y-1 border border-transparent hover:border-primary/20 transition-all duration-300 text-left"
                 >
                   <ChartBarIcon className="h-6 w-6 text-primary" />
                   <div>
