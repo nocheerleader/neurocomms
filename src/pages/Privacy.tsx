@@ -46,7 +46,7 @@ export function Privacy() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-foreground mb-4">Introduction</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                At ToneWise, we are committed to protecting your privacy and ensuring the security of your personal information. 
+                At Elucidare, we are committed to protecting your privacy and ensuring the security of your personal information. 
                 This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our 
                 communication assistance platform designed for neurodiverse professionals.
               </p>
@@ -156,7 +156,7 @@ export function Privacy() {
                 If you have questions about this Privacy Policy or wish to exercise your privacy rights, please contact us:
               </p>
               <div className="bg-accent/50 border border-border rounded-lg p-4">
-                <p className="text-foreground"><strong>Email:</strong> privacy@tonewise.app</p>
+                <p className="text-foreground"><strong>Email:</strong> privacy@elucidare.io</p>
                 <p className="text-foreground"><strong>Subject Line:</strong> Privacy Policy Inquiry</p>
                 <p className="text-muted-foreground text-sm mt-2">
                   We will respond to privacy-related inquiries within 30 days.
@@ -169,7 +169,7 @@ export function Privacy() {
               <h2 className="text-2xl font-semibold text-foreground mb-4">Changes to This Policy</h2>
               <p className="text-muted-foreground leading-relaxed">
                 We may update this Privacy Policy periodically to reflect changes in our practices or applicable laws. 
-                We will notify you of significant changes by email or through our platform. Your continued use of ToneWise 
+                We will notify you of significant changes by email or through our platform. Your continued use of Elucidare 
                 after such modifications constitutes acceptance of the updated Privacy Policy.
               </p>
             </section>
