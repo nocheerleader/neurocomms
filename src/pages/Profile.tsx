@@ -69,7 +69,7 @@ export function Profile() {
   return (
     <div className="min-h-screen bg-[#FDF6F8]">
       {/* Header */}
-      <div className="bg-[#FBDCE2] shadow">
+      <div className="bg-transparent border-b border-primary/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
             <div className="flex items-center space-x-3">
