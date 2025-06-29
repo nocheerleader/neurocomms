@@ -21,9 +21,9 @@ export function Hero() {
             </p>
             
             <h1 className="text-4xl lg:text-5xl xl:text-6xl font-funnel font-light text-foreground mb-6 leading-tight">
-              Is This Email Angry 
+              Decode Workplace Messages. 
               <br />
-              or Just Direct?
+              Respond Appropriately.
             </h1>
             
             <p className="text-base text-muted-foreground mb-8 max-w-2xl leading-relaxed">
