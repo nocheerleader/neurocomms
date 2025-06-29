@@ -41,7 +41,7 @@ export function Roadmap() {
               What's Coming Next
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              We're expanding ToneWise to serve organizations supporting neurodiverse teams. 
+              We're expanding Elucidare to serve organizations supporting neurodiverse teams. 
               Here are the enterprise features we're developing to help workplaces become more inclusive.
             </p>
           </div>
