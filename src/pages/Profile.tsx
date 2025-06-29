@@ -155,7 +155,7 @@ export function Profile() {
                 </button>
                 <button 
                   onClick={() => window.location.href = '/script-generator'}
-                  className="flex items-center gap-3 p-4 border border-gray-300 rounded-lg hover:border-gray-400 transition-colors text-left"
+                  className="flex flex-col items-start gap-3 p-4 bg-slate-50 rounded-lg hover:bg-primary/10 hover:shadow-lg hover:-translate-y-1 border border-transparent hover:border-primary/20 transition-all duration-300 text-left"
                 >
                   <ChatBubbleLeftRightIcon className="h-6 w-6 text-primary" />
                   <div>
@@ -165,7 +165,7 @@ export function Profile() {
                 </button>
                 <button 
                   onClick={() => window.location.href = '/library'}
-                  className="flex items-center gap-3 p-4 border border-gray-300 rounded-lg hover:border-gray-400 transition-colors text-left"
+                 className="flex flex-col items-start gap-3 p-4 bg-slate-50 rounded-lg hover:bg-primary/10 hover:shadow-lg hover:-translate-y-1 border border-transparent hover:border-primary/20 transition-all duration-300 text-left"
                 >
                   <BookOpenIcon className="h-6 w-6 text-primary" />
                   <div>
@@ -175,7 +175,7 @@ export function Profile() {
                 </button>
                 <button 
                   onClick={() => window.location.href = '/voice-practice'}
-                  className="flex items-center gap-3 p-4 border border-gray-300 rounded-lg hover:border-gray-400 transition-colors text-left relative"
+                  className="flex flex-col items-start gap-3 p-4 bg-slate-50 rounded-lg hover:bg-primary/10 hover:shadow-lg hover:-translate-y-1 border border-transparent hover:border-primary/20 transition-all duration-300 text-left"
                 >
                   <SpeakerWaveIcon className="h-6 w-6 text-primary" />
                   <div>
