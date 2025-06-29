@@ -6,6 +6,7 @@ import { LoadingSpinner } from '../components/atoms/LoadingSpinner';
 import { WelcomeCard } from '../components/molecules/WelcomeCard';
 import { UsageOverview } from '../components/molecules/UsageOverview';
 import { QuickStats } from '../components/molecules/QuickStats';
+import { GettingStartedCard } from '../components/organisms/GettingStartedCard';
 import { UserIcon, Cog6ToothIcon, ChartBarIcon, BookOpenIcon, ChatBubbleLeftRightIcon, SpeakerWaveIcon, ArrowRightOnRectangleIcon, CheckCircleIcon, XCircleIcon, ClockIcon } from '@heroicons/react/24/outline';
 
 export function Profile() {
