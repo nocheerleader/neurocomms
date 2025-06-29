@@ -53,7 +53,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-border mt-12 pt-8 text-center text-primary-foreground">
-          <p>&copy; 2025 Elucidare. Built for neurodiverse professionals.</p>
+          <p>&copy; 2025 Elucidare. Built for neurodiverse professionals by a neurodiverse professional.</p>
         </div>
       </div>
     </footer>
