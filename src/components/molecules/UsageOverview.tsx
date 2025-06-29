@@ -44,7 +44,7 @@ export function UsageOverview() {
   };
 
   return (
-    <div className="bg-card rounded-lg shadow p-6">
+    <div className="bg-white rounded-lg shadow-lg p-6 mt-6 border border-black/5">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold text-foreground">Today's Usage</h3>
         {!isPremium && (nearLimit || hitLimit) && (
