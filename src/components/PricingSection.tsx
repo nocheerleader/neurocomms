@@ -118,7 +118,7 @@ const PricingSection = () => {
               type="Enterprise"
               price="Custom"
               subscription="contact us"
-              description="Team dashboards and admin controls for organizations supporting neurodiverse professionals."
+              description="Team and admin controls for organizations supporting neurodiverse professionals."
               buttonText="Contact Sales"
               buttonAction={() => window.location.href = 'mailto:sales@tonewise.app'}
             >
