@@ -45,7 +45,7 @@ export function QuickStats() {
   ];
 
   return (
-    <div className="bg-card rounded-lg shadow p-6">
+    <div className="bg-white rounded-lg shadow-lg p-6 mt-6 border border-black/5">
       <h3 className="text-lg font-semibold text-foreground mb-4">Quick Stats</h3>
       <div className="space-y-4">
         {stats.map((stat, index) => (
