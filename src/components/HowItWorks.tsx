@@ -26,7 +26,7 @@ export function HowItWorks() {
           <h3 className="text-4xl font-bold font-funnel text-foreground mb-4">
             Simple Process, Clear Results
           </h3>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base text-muted-foreground max-w-2xl mx-auto">
             No complex setup or confusing interfaces. Just straightforward tools 
             that help you communicate effectively.
           </p>
