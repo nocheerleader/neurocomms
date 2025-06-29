@@ -40,7 +40,7 @@ export function QuickStats() {
       icon: BookOpenIcon,
       label: 'Account Type',
       value: profile?.subscription_tier === 'premium' ? 'Premium' : 'Free',
-      color: profile?.subscription_tier === 'premium' ? 'text-primary'
+      color: profile?.subscription_tier === 'premium' ? 'text-chart-5' : 'text-muted-foreground' 
     }
   ];
 
