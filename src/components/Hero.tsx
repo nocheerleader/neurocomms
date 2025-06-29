@@ -23,7 +23,7 @@ export function Hero() {
             </h1>
             
             <p className="text-sm text-muted-foreground mb-8 max-w-2xl leading-relaxed">
-              Elucidare, Latin for "to make clear", helps neurodiverse professionals analyze message tone and generate appropriate responses. 
+              Elucidare helps neurodiverse professionals analyze message tone and generate appropriate responses. 
               Clear communication made simple with visual feedback and guided suggestions.
             </p>
             
