@@ -38,8 +38,7 @@ export function Footer() {
               <li><a href="#" className="hover:text-primary-foreground transition-colors">Features</a></li>
               <li><a href="#" className="hover:text-primary-foreground transition-colors">How It Works</a></li>
               <li><a href="#" className="hover:text-primary-foreground transition-colors">Pricing</a></li>
-              <li><a href="#" className="hover:text-primary-foreground transition-colors">FAQ</a></li>
-            </ul>
+              </ul>
           </div>
 
           <div>
