@@ -49,7 +49,7 @@ export function Header() {
               <div className="flex items-center space-x-3">
                 <button 
                   onClick={handleLogin}
-                  className="border border-primary text-primary px-5 py-2 rounded-full font-medium hover:bg-primary/5 hover:shadow-md transition-all duration-200 text-sm"
+                  className="border border-primary text-primary px-5 py-2 rounded-full font-medium hover:bg-primary/5 hover:shadow-md transition-all duration-500 text-sm"
                 >
                   Login
                 </button>
