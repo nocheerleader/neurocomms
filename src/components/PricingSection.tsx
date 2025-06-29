@@ -213,12 +213,12 @@ const PricingCard = ({
         <button
           onClick={buttonAction}
           disabled={disabled}
-          className={`block w-full rounded-lg border p-3 text-center text-base font-medium transition-all ${
+          className={`block w-full rounded-full border px-5 py-2 text-center text-sm font-medium transition-all duration-200 hover:shadow-md ${
             disabled
               ? 'border-border bg-secondary text-muted-foreground cursor-not-allowed'
               : active
-              ? 'border-primary bg-primary text-primary-foreground hover:bg-primary/90 hover:border-primary/90'
-              : 'border-border bg-transparent text-primary hover:border-primary hover:bg-primary hover:text-primary-foreground'
+              ? 'border-primary bg-primary text-primary-foreground hover:bg-primary/90'
+              : 'border-2 border-primary bg-transparent text-primary hover:bg-primary/5'
           }`}
         >
           {buttonText}
