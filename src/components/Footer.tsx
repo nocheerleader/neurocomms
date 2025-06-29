@@ -44,7 +44,6 @@ export function Footer() {
           <div>
             <h5 className="primary-foreground font-funnel text-sidebar-foreground mb-4">Support</h5>
             <ul className="space-y-2 text-primary-foreground">
-              <li><a href="#" className="hover:text-chart-3 transition-colors">Help Center</a></li>
               <li><a href="#" className="hover:text-chart-3 transition-colors">Contact Us</a></li>
               <li><a href="/privacy" className="hover:text-chart-3 transition-colors">Privacy Policy</a></li>
               <li><a href="/terms" className="hover:text-chart-3 transition-colors">Terms of Service</a></li>
