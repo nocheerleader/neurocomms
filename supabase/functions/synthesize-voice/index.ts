@@ -240,14 +240,24 @@ Deno.serve(async (req) => {
       return corsResponse({ error: 'Invalid speed (must be between 0.5 and 2.0)' }, 400);
     }
 
-    // Check premium access and usage limits
-    const accessCheck = await checkPremiumAccess(user.id);
-    if (!accessCheck.canUse) {
-      return corsResponse({ 
-        error: 'Access denied',
-        message: accessCheck.message 
-      }, accessCheck.message?.includes('Premium') ? 403 : 429);
+   // START: Add this new block in the same place
+
+    // First, check if the user is our special demo user.
+    if (user.email !== 'demo@elucidare.app') {
+      // If it's a regular user, perform the standard premium check.
+      const accessCheck = await checkPremiumAccess(user.id);
+      if (!accessCheck.canUse) {
+        return corsResponse({
+          error: 'Access denied',
+          message: accessCheck.message
+        }, accessCheck.message?.includes('Premium') ? 403 : 429);
+      }
+    } else {
+      // It IS the demo user, so we log it and skip the check, letting them proceed.
+      console.log('Demo user detected, bypassing premium check for voice synthesis.');
     }
+
+// END: Add this new block
 
     // Synthesize voice
     const audioData = await synthesizeWithElevenLabs(text, voice, speed);
