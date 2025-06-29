@@ -140,6 +140,13 @@ export function Profile() {
             {/* Welcome Section */}
             <WelcomeCard />
 
+                        {/* Getting Started Guide for New Users */}
+            {profile && !profile.onboarding_completed && (
+              <div className="mt-6">
+                <GettingStartedCard />
+              </div>
+            )}
+
             {/* Quick Actions */}
             <div className="bg-white rounded-lg shadow-lg p-6 mt-6 border border-black/5">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
