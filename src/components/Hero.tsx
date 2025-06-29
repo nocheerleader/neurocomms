@@ -21,14 +21,13 @@ export function Hero() {
             </p>
             
             <h1 className="text-4xl lg:text-5xl xl:text-6xl font-funnel font-light text-foreground mb-6 leading-tight">
-              Communicate with 
+              Is This Email Angry 
               <br />
-              Confidence
+              or Just Direct?
             </h1>
             
             <p className="text-base text-muted-foreground mb-8 max-w-2xl leading-relaxed">
-              Elucidare helps neurodiverse professionals analyze message tone and generate appropriate responses. 
-              Clear communication made simple with visual feedback and guided suggestions.
+              Stop second-guessing workplace and social messages. Elucidare shows you exactly what tone someone is using and gives you 3 response options that match the situation. Built to help neurodiverse professionals. 
             </p>
             
             {/* Action Buttons */}
