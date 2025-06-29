@@ -201,7 +201,7 @@ export function Profile() {
             <UsageOverview />
 
             {/* Settings Link */}
-            <div className="bg-white rounded-lg shadow p-6">
+            <div className="bg-white rounded-lg shadow-lg p-6 mt-6 border border-black/5">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Settings</h3>
               <button
                 onClick={handleSettingsClick}
