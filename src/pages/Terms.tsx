@@ -18,7 +18,7 @@ export function Terms() {
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-foreground">Terms of Service</h1>
-                <p className="text-sm text-muted-foreground">Your agreement for using ToneWise</p>
+                <p className="text-sm text-muted-foreground">Your agreement for using Elucidare</p>
               </div>
             </div>
             <button
@@ -46,7 +46,7 @@ export function Terms() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-foreground mb-4">Introduction</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Welcome to ToneWise! These Terms of Service ("Terms") govern your use of the ToneWise platform, 
+                Welcome to Elucidare! These Terms of Service ("Terms") govern your use of the Elucidare platform, 
                 a communication assistance tool designed specifically for neurodiverse professionals. By creating an 
                 account or using our services, you agree to be bound by these Terms.
               </p>
@@ -60,7 +60,7 @@ export function Terms() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-foreground mb-4">Service Description</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                ToneWise provides AI-powered communication assistance services, including:
+                Elucidare provides AI-powered communication assistance services, including:
               </p>
               <ul className="list-disc list-inside space-y-2 text-muted-foreground">
                 <li>Message tone analysis and interpretation</li>
@@ -96,7 +96,7 @@ export function Terms() {
               
               <h3 className="text-xl font-medium text-foreground mb-3">Permitted Uses</h3>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                ToneWise is designed to help you communicate more effectively in personal and professional settings. 
+                Elucidare is designed to help you communicate more effectively in personal and professional settings. 
                 You may use our services for:
               </p>
               <ul className="list-disc list-inside space-y-2 text-muted-foreground mb-6">
@@ -107,7 +107,7 @@ export function Terms() {
               </ul>
 
               <h3 className="text-xl font-medium text-foreground mb-3">Prohibited Uses</h3>
-              <p className="text-muted-foreground leading-relaxed mb-4">You may not use ToneWise to:</p>
+              <p className="text-muted-foreground leading-relaxed mb-4">You may not use Elucidare to:</p>
               <ul className="list-disc list-inside space-y-2 text-muted-foreground">
                 <li>Generate or analyze content that is harmful, threatening, or harassing</li>
                 <li>Create misleading, deceptive, or fraudulent communications</li>
@@ -160,13 +160,13 @@ export function Terms() {
               
               <h3 className="text-xl font-medium text-foreground mb-3">Your Content</h3>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                You retain ownership of all content you input into ToneWise. We only use your content to provide 
+                You retain ownership of all content you input into Elucidare. We only use your content to provide 
                 our services and do not claim ownership of your messages, scripts, or personal data.
               </p>
 
               <h3 className="text-xl font-medium text-foreground mb-3">Our Platform</h3>
               <p className="text-muted-foreground leading-relaxed">
-                ToneWise and all related technologies, algorithms, and intellectual property are owned by us or our 
+                Elucidare and all related technologies, algorithms, and intellectual property are owned by us or our 
                 licensors. You may not copy, modify, distribute, or create derivative works based on our platform.
               </p>
             </section>
@@ -192,14 +192,14 @@ export function Terms() {
               
               <h3 className="text-xl font-medium text-foreground mb-3">Service Disclaimer</h3>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                ToneWise is a communication assistance tool that uses AI to provide suggestions and analysis. 
+                Elucidare is a communication assistance tool that uses AI to provide suggestions and analysis. 
                 While we strive for accuracy, our services are provided "as is" and should not be considered 
                 infallible or a substitute for professional advice.
               </p>
 
               <h3 className="text-xl font-medium text-foreground mb-3">Limitation of Liability</h3>
               <p className="text-muted-foreground leading-relaxed">
-                To the fullest extent permitted by law, ToneWise and its team shall not be liable for any indirect, 
+                To the fullest extent permitted by law, Elucidare and its team shall not be liable for any indirect, 
                 incidental, special, or consequential damages arising from your use of our services. Our total 
                 liability is limited to the amount you paid for our services in the 12 months preceding the claim.
               </p>
@@ -229,7 +229,7 @@ export function Terms() {
                 If you have questions about these Terms of Service, please contact us:
               </p>
               <div className="bg-accent/50 border border-border rounded-lg p-4">
-                <p className="text-foreground"><strong>Email:</strong> legal@tonewise.app</p>
+                <p className="text-foreground"><strong>Email:</strong> legal@elucidare.io</p>
                 <p className="text-foreground"><strong>Subject Line:</strong> Terms of Service Inquiry</p>
                 <p className="text-muted-foreground text-sm mt-2">
                   We will respond to legal inquiries within 5 business days.
@@ -243,7 +243,7 @@ export function Terms() {
               <p className="text-muted-foreground leading-relaxed">
                 We may update these Terms periodically to reflect changes in our services or applicable laws. 
                 Material changes will be communicated via email or platform notification at least 30 days before 
-                they take effect. Your continued use of ToneWise after such changes constitutes acceptance of the 
+                they take effect. Your continued use of Elucidare after such changes constitutes acceptance of the 
                 updated Terms.
               </p>
             </section>
