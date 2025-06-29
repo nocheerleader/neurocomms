@@ -147,7 +147,7 @@ export function Profile() {
                   onClick={() => window.location.href = '/tone-analyzer'}
                   className="flex items-center gap-3 p-4 border border-gray-300 rounded-lg hover:border-gray-400 transition-colors text-left"
                 >
-                  <ChartBarIcon className="h-6 w-6 text-blue-700" />
+                  <ChartBarIcon className="h-6 w-6 text-primary" />
                   <div>
                     <h4 className="font-medium text-gray-900">Analyze Tone</h4>
                     <p className="text-sm text-gray-600">Understand message sentiment</p>
