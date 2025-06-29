@@ -17,7 +17,7 @@ export function CallToAction() {
     <section className="py-20 bg-[#FBDCE2]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h3 className="text-4xl font-bold font-funnel text-primary-foreground mb-4">
+          <h3 className="text-4xl font-bold font-funnel text-foreground mb-4">
             Decode Workplace Messages. Craft Confident Responses.
           </h3>
           <p className="text-base text-primary-foreground/80 max-w-2xl mx-auto mb-8">
