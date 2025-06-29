@@ -9,7 +9,7 @@ const steps = [
   {
     number: '2',
     title: 'Get Instant Results',
-    description: 'See visual feedback about tone, formality level, and how your message might be received.'
+    description: 'See visual feedback about tone, formality level and how your response message might be received.'
   },
   {
     number: '3',
