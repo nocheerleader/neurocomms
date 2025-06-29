@@ -78,7 +78,7 @@ export function Profile() {
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-gray-900">Profile</h1>
-                <p className="text-sm text-gray-600">Manage your ToneWise account</p>
+                <p className="text-sm text-gray-600">Manage your Elucidare account</p>
               </div>
             </div>
             <button
