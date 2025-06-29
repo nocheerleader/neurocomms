@@ -9,7 +9,7 @@ export function Footer() {
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
               <div className="bg-primary p-2 rounded-lg">
-                <ChatBubbleLeftRightIcon className="h-6 w-6 text-primary-foreground" />
+                <div className="flex items-center space-x-3">
               </div>
               <div>
                 <h4 className="text-xl font-bold font-funnel">Elucidare</h4>
