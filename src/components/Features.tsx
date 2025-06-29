@@ -33,7 +33,7 @@ export function Features() {
             Communicate with Confidence
           </h3>
           <p className="text-base text-muted-foreground max-w-2xl mx-auto">
-            Every feature is designed with neurodiverse professionals in mind, providing the clarity and confidence you need in professional communication.
+            Every feature is designed with neurodiverse professionals in mind. Elucidare offers three tools that decode workplace communication and help you respond appropriately every time.
           </p>
         </div>
 
