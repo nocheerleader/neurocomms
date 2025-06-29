@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useProfile } from '../hooks/useProfile';
 import { LoadingSpinner } from '../components/atoms/LoadingSpinner';
 import { CommunicationAssessment } from '../components/organisms/CommunicationAssessment';
-import { UserIcon, Cog6ToothIcon, BellIcon, DocumentCheckIcon, ArrowLeftIcon } from '@heroicons/react/24/outline';
+import { UserIcon, Cog6ToothIcon, BellIcon, DocumentCheckIcon, ArrowLeftIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
 
 export function Settings() {
   const { profile, loading, updateProfile } = useProfile();
@@ -17,7 +17,7 @@ export function Settings() {
     if (!profile) return;
 
     setSaving(true);
-    const currentPreferences = profile.ui_preferences as any || {};
+    const currentPreferences = (profile.ui_preferences as any) || {};
     const newPreferences = { ...currentPreferences, [key]: value };
 
     const { error } = await updateProfile({
@@ -27,7 +27,7 @@ export function Settings() {
     if (error) {
       setMessage('Error saving preferences');
     } else {
-      setMessage('Preferences saved');
+      setMessage('Preferences saved successfully!');
     }
 
     setSaving(false);
@@ -36,7 +36,7 @@ export function Settings() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen bg-[#FDF6F8] flex items-center justify-center">
         <LoadingSpinner />
       </div>
     );
@@ -44,30 +44,31 @@ export function Settings() {
 
   if (!profile) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p>Unable to load profile</p>
+      <div className="min-h-screen bg-[#FDF6F8] flex items-center justify-center">
+        <p>Unable to load profile.</p>
       </div>
     );
   }
 
-  const preferences = profile.ui_preferences as any || {};
+  const preferences = (profile.ui_preferences as any) || {};
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-[#FDF6F8] py-8">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white shadow rounded-lg">
-          <div className="px-6 py-6 border-b border-gray-200">
+        <div className="bg-white rounded-lg shadow-xl border border-black/5">
+          {/* Header */}
+          <div className="px-6 py-5 border-b border-black/5">
             <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <Cog6ToothIcon className="h-6 w-6 text-gray-900 mr-3" />
-                <h1 className="text-2xl font-bold text-gray-900">Settings</h1>
+              <div className="flex items-center gap-3">
+                <Cog6ToothIcon className="h-7 w-7 text-primary" />
+                <h1 className="text-2xl font-bold text-gray-800">Settings</h1>
               </div>
               <button
                 onClick={handleBackToDashboard}
-                className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-blue-700 bg-blue-50 border border-blue-200 rounded-lg hover:bg-blue-100 transition-colors"
+                className="flex items-center gap-2 px-4 py-2 text-sm font-bold text-primary bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors"
               >
                 <ArrowLeftIcon className="h-4 w-4" />
-                Back to Dashboard
+                <span>Back to Dashboard</span>
               </button>
             </div>
           </div>
@@ -75,26 +76,26 @@ export function Settings() {
           <div className="p-6 space-y-8">
             {/* Account Information */}
             <section>
-              <div className="flex items-center mb-4">
-                <UserIcon className="h-5 w-5 text-gray-900 mr-2" />
-                <h2 className="text-lg font-semibold text-gray-900">Account Information</h2>
+              <div className="flex items-center mb-3">
+                <UserIcon className="h-5 w-5 text-primary mr-2" />
+                <h2 className="text-lg font-semibold text-gray-800">Account Information</h2>
               </div>
-              <div className="bg-gray-50 rounded-lg p-4">
+              <div className="bg-slate-50/50 rounded-lg p-4 border border-black/5">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700">
+                    <label className="block text-sm font-medium text-gray-600">
                       Subscription Plan
                     </label>
-                    <p className="mt-1 text-sm text-gray-900 capitalize">
+                    <p className="mt-1 text-sm font-semibold text-gray-800 capitalize">
                       {profile.subscription_tier}
                     </p>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700">
+                    <label className="block text-sm font-medium text-gray-600">
                       Onboarding Status
                     </label>
-                    <p className="mt-1 text-sm text-gray-900">
-                      {profile.onboarding_completed ? 'Completed' : 'In Progress'}
+                    <p className="mt-1 text-sm font-semibold text-gray-800">
+                      {profile.onboarding_completed ? 'Completed' : 'Pending Assessment'}
                     </p>
                   </div>
                 </div>
@@ -103,22 +104,22 @@ export function Settings() {
 
             {/* Preferences */}
             <section>
-              <div className="flex items-center mb-4">
-                <BellIcon className="h-5 w-5 text-gray-900 mr-2" />
-                <h2 className="text-lg font-semibold text-gray-900">Preferences</h2>
+              <div className="flex items-center mb-3">
+                <BellIcon className="h-5 w-5 text-primary mr-2" />
+                <h2 className="text-lg font-semibold text-gray-800">Preferences</h2>
               </div>
-              <div className="space-y-4">
+              <div className="space-y-4 bg-slate-50/50 rounded-lg p-4 border border-black/5">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="text-sm font-medium text-gray-900">Auto-save scripts</h3>
-                    <p className="text-sm text-gray-500">
-                      Automatically save successful scripts to your library
+                    <h3 className="text-sm font-medium text-gray-800">Auto-save scripts</h3>
+                    <p className="text-sm text-gray-600">
+                      Automatically save successful scripts to your library.
                     </p>
                   </div>
                   <button
                     onClick={() => handlePreferenceChange('auto_save', !preferences.auto_save)}
-                    className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2 ${
-                      preferences.auto_save ? 'bg-blue-700' : 'bg-gray-200'
+                    className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${
+                      preferences.auto_save ? 'bg-primary' : 'bg-gray-300'
                     }`}
                     disabled={saving}
                   >
@@ -132,15 +133,15 @@ export function Settings() {
 
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="text-sm font-medium text-gray-900">Email notifications</h3>
-                    <p className="text-sm text-gray-500">
-                      Receive updates about new features and tips
+                    <h3 className="text-sm font-medium text-gray-800">Email notifications</h3>
+                    <p className="text-sm text-gray-600">
+                      Receive updates about new features and product tips.
                     </p>
                   </div>
                   <button
                     onClick={() => handlePreferenceChange('notifications', !preferences.notifications)}
-                    className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2 ${
-                      preferences.notifications ? 'bg-blue-700' : 'bg-gray-200'
+                    className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${
+                      preferences.notifications ? 'bg-primary' : 'bg-gray-300'
                     }`}
                     disabled={saving}
                   >
@@ -157,17 +158,21 @@ export function Settings() {
             {/* Communication Assessment */}
             {!profile.onboarding_completed && (
               <section>
-                <h2 className="text-lg font-semibold text-gray-900 mb-4">
-                  Communication Style Assessment
-                </h2>
-                <CommunicationAssessment />
+                <div className="flex items-center mb-3">
+                    <DocumentCheckIcon className="h-5 w-5 text-primary mr-2" />
+                    <h2 className="text-lg font-semibold text-gray-800">Communication Style Assessment</h2>
+                </div>
+                <div className="bg-slate-50/50 rounded-lg p-6 border border-black/5">
+                    <p className="text-gray-600 text-sm mb-4">This short assessment helps us personalize your script and tone suggestions. Your answers will only be used to improve your experience.</p>
+                    <CommunicationAssessment />
+                </div>
               </section>
             )}
 
             {/* Success Message */}
             {message && (
-              <div className="flex items-center text-sm text-green-700 bg-green-50 p-3 rounded-lg">
-                <DocumentCheckIcon className="h-4 w-4 mr-2" />
+              <div className="flex items-center justify-center text-sm font-semibold text-green-700 bg-green-50 p-3 rounded-lg border border-green-200">
+                <CheckCircleIcon className="h-5 w-5 mr-2" />
                 {message}
               </div>
             )}
