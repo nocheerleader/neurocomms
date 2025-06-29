@@ -17,7 +17,7 @@ export function Hero() {
           {/* Left Column - Text Content */}
           <div className="flex-1 text-left">
             <p className="text-sm text-primary mb-4 font-bold">
-              Elucidare. From the Latin elucidate: to make clear
+              Elucidare from the Latin: to make clear
             </p>
             
             <h1 className="text-4xl lg:text-5xl xl:text-6xl font-funnel font-light text-foreground mb-6 leading-tight">
