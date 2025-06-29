@@ -4,7 +4,7 @@ const steps = [
   {
     number: '1',
     title: 'Choose Your Tool',
-    description: 'Copy and paste the message you want to analyze or the situation you need to respond to.'
+    description: 'Paste a message to analyze its tone, describe a situation to generate response options or practice scripted conversations.'
   },
   {
     number: '2',
