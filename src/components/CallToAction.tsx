@@ -35,7 +35,7 @@ export function CallToAction() {
 
         <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {benefits.map((benefit, index) => (
-            <div key={index} className="flex items-center gap-3 text-primary-foreground">
+            <div key={index} className="flex items-center gap-3 text-foreground">
               <CheckCircleIcon className="h-6 w-6 text-chart-2 flex-shrink-0" />
               <span className="text-lg">{benefit}</span>
             </div>
