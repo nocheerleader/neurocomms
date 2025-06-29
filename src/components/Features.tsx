@@ -14,13 +14,13 @@ const features = [
   },
   {
     icon: ChatBubbleLeftRightIcon,
-    title: 'Smart Response Generation',
+    title: 'Response Options for Every Situation',
     description: 'Generate professional responses with adjustable tone settings. Choose from formal, friendly, direct, or empathetic styles.'
   },
   {
     icon: CursorArrowRaysIcon,
-    title: 'Context-Aware Suggestions',
-    description: 'Get specific recommendations based on the situation, recipient, and desired outcome of your communication.'
+    title: 'Hear How Your Response Sounds',
+    description: 'Practice your response with natural voice playback before sending. Perfect for important emails or difficult conversations.'
   }
 ];
 
