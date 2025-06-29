@@ -200,8 +200,8 @@ export function Profile() {
             {/* Usage Overview */}
             <UsageOverview />
 
-                      {/* Settings Link */}
-          <div className="bg-gradient-to-r from-primary to-primary/90 rounded-lg shadow-lg p-6 text-white">
+           {/* Settings Link */}
+          <div className="bg-primary rounded-lg shadow-lg p-6 text-white">
             <div className="flex items-center gap-3 mb-2">
               <Cog6ToothIcon className="h-6 w-6 text-white" />
               <h3 className="text-xl font-bold">Personalize Your Experience</h3>
