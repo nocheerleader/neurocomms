@@ -30,49 +30,25 @@ export function Signup() {
     setLoading(false);
   };
 
-  const handleDemoLogin = async () => {
+    const handleDemoLogin = async () => {
     setDemoLoading(true);
     setError('');
 
-    const demoEmail = 'demo@tonewise.app';
-    const demoPassword = 'demopassword123';
+    // Use the new, pre-seeded credentials
+    const demoEmail = 'demo@elucidare.app';
+    const demoPassword = 'demopassword123'; // Make sure this matches the password you set in Supabase
 
-    // First try to sign in with demo credentials
+    // Directly attempt to sign in
     const { error: signInError } = await signIn(demoEmail, demoPassword);
-    
-    if (!signInError) {
-      // Successful login, redirect to main app
-      window.location.href = '/';
+
+    if (signInError) {
+      setError('Demo login failed. Please contact the hackathon team.');
       setDemoLoading(false);
-      return;
-    }
-
-    // If sign in failed, try to create the demo account first
-    if (signInError.message.includes('Invalid login credentials')) {
-      const { error: signUpError } = await signUp(demoEmail, demoPassword);
-      
-      if (signUpError) {
-        // If signup also fails, show error
-        setError('Demo setup failed. Please try creating a regular account.');
-        setDemoLoading(false);
-        return;
-      }
-
-      // Account created, now try to sign in again
-      const { error: secondSignInError } = await signIn(demoEmail, demoPassword);
-      
-      if (secondSignInError) {
-        setError('Demo login failed after account creation. Please try creating a regular account.');
-      } else {
-        // Successful demo login
-        window.location.href = '/';
-      }
     } else {
-      // Some other error occurred
-      setError('Demo login failed. Please try creating a regular account.');
+      // Successful login, redirect to the user's profile dashboard
+      window.location.href = '/profile';
     }
-    
-    setDemoLoading(false);
+    // No need to set loading to false here, as the page will redirect
   };
 
   if (success) {
