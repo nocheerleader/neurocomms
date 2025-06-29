@@ -61,7 +61,7 @@ export function ContactUs() {
                   Questions about features, account issues, or general help using Elucidare.
                 </p>
                 <div className="space-y-2">
-                  <p className="text-foreground font-medium">Email: support@tonewise.app</p>
+                  <p className="text-foreground font-medium">Email: support@elucidare.io</p>
                   <p className="text-muted-foreground text-sm">Response time: Within 24 hours</p>
                 </div>
               </div>
@@ -78,7 +78,7 @@ export function ContactUs() {
                   Bugs, errors, or problems with the app not working as expected.
                 </p>
                 <div className="space-y-2">
-                  <p className="text-foreground font-medium">Email: tech@tonewise.app</p>
+                  <p className="text-foreground font-medium">Email: tech@elucidare.io</p>
                   <p className="text-muted-foreground text-sm">Response time: Within 12 hours</p>
                 </div>
               </div>
@@ -95,7 +95,7 @@ export function ContactUs() {
                   Team dashboards, admin controls, and enterprise features for organizations.
                 </p>
                 <div className="space-y-2">
-                  <p className="text-foreground font-medium">Email: enterprise@tonewise.app</p>
+                  <p className="text-foreground font-medium">Email: enterprise@elucidare.io</p>
                   <p className="text-muted-foreground text-sm">Response time: Within 4 hours</p>
                 </div>
               </div>
@@ -112,7 +112,7 @@ export function ContactUs() {
                   Ideas for new features or feedback on existing functionality.
                 </p>
                 <div className="space-y-2">
-                  <p className="text-foreground font-medium">Email: feedback@tonewise.app</p>
+                  <p className="text-foreground font-medium">Email: feedback@elucidare.io</p>
                   <p className="text-muted-foreground text-sm">Response time: Within 48 hours</p>
                 </div>
               </div>
