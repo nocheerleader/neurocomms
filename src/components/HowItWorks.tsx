@@ -3,17 +3,17 @@ import React from 'react';
 const steps = [
   {
     number: '1',
-    title: 'Paste Your Message',
+    title: 'Choose Your Tool',
     description: 'Copy and paste the message you want to analyze or the situation you need to respond to.'
   },
   {
     number: '2',
-    title: 'Get Clear Analysis',
+    title: 'Get Instant Results',
     description: 'See visual feedback about tone, formality level, and how your message might be received.'
   },
   {
     number: '3',
-    title: 'Send with Confidence',
+    title: 'Communicate with Confidence',
     description: 'Use the suggestions to refine your message or generate a new response that matches your goals.'
   }
 ];
@@ -24,7 +24,7 @@ export function HowItWorks() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h3 className="text-4xl font-bold font-funnel text-foreground mb-4">
-            Two Tools, Three Simple Steps
+            Three Tools, Three Simple Steps
           </h3>
           <p className="text-base text-muted-foreground max-w-2xl mx-auto">
             No complex setup or confusing interfaces. Whether you're analyzing confusing messages or crafting responses, the process is always straightforward.
