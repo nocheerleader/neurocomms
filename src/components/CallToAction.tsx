@@ -27,7 +27,7 @@ export function CallToAction() {
           
           <button 
             onClick={handleStartUsing}
-            className="bg-[#FBDCE2] text-foreground px-5 py-2 rounded-full font-bold text-sm hover:bg-primary/90 hover:shadow-md transition-all duration-500 flex items-center justify-center gap-2 mx-auto mb-12"
+            className="bg-[#FBDCE2] text-foreground px-5 py-2 rounded-full font-bold text-sm hover:bg-primary/90 hover:shadow-2xl transition-all duration-700 flex items-center justify-center gap-2 mx-auto mb-12"
           >
             Start Using Elucidare
             <ArrowRightIcon className="h-5 w-5" />
