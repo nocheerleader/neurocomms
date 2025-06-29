@@ -31,7 +31,7 @@ export function SuccessPage() {
           </h2>
           
           <p className="text-lg text-muted-foreground mb-6">
-            Welcome to ToneWise Premium! Your subscription has been activated and you now have access to all premium features.
+            Welcome to Elucidare Premium! Your subscription has been activated and you now have access to all premium features.
           </p>
 
           <div className="bg-chart-2/10 border border-chart-2/20 rounded-lg p-4 mb-8">
