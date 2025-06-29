@@ -21,8 +21,7 @@ export function CallToAction() {
             Decode Workplace Messages. Craft Confident Responses.
           </h3>
           <p className="text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-8">
-            Join professionals who use Elucidare to navigate workplace communication 
-            with clarity and confidence.
+            Join a community of neurodiverse professionals who use Elucidare to understand message tone and respond appropriately in workplace situations.
           </p>
           
           <button 
