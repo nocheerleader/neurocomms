@@ -57,7 +57,7 @@ const PricingSection = () => {
   };
 
   return (
-    <section className="relative z-10 overflow-hidden bg-white pb-12 pt-20 lg:pb-20 lg:pt-32">
+    <section id="pricing" className="relative z-10 overflow-hidden bg-white pb-12 pt-20 lg:pb-20 lg:pt-32">
       <div className="container mx-auto max-w-7xl px-6">
         <div className="flex flex-wrap">
           <div className="w-full">
