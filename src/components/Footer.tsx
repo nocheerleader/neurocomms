@@ -34,7 +34,7 @@ export function Footer() {
 
           <div>
             <h5 className="font-semibold font-funnel text-sidebar-foreground mb-4">Product</h5>
-            <ul className="space-y-2 text-sidebar-foreground">
+            <ul className="space-y-2 text-primary-foreground">
               <li><a href="#" className="hover:text-primary-foreground transition-colors">Features</a></li>
               <li><a href="#" className="hover:text-primary-foreground transition-colors">How It Works</a></li>
               <li><a href="#" className="hover:text-primary-foreground transition-colors">Pricing</a></li>
@@ -43,7 +43,7 @@ export function Footer() {
 
           <div>
             <h5 className="font-semibold font-funnel text-sidebar-foreground mb-4">Support</h5>
-            <ul className="space-y-2 text-sidebar-foreground">
+            <ul className="space-y-2 text-primary-foreground">
               <li><a href="#" className="hover:text-primary-foreground transition-colors">Help Center</a></li>
               <li><a href="#" className="hover:text-primary-foreground transition-colors">Contact Us</a></li>
               <li><a href="/privacy" className="hover:text-primary-foreground transition-colors">Privacy Policy</a></li>
