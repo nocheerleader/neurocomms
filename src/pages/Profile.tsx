@@ -7,6 +7,7 @@ import { WelcomeCard } from '../components/molecules/WelcomeCard';
 import { UsageOverview } from '../components/molecules/UsageOverview';
 import { QuickStats } from '../components/molecules/QuickStats';
 import { GettingStartedCard } from '../components/organisms/GettingStartedCard';
+import { HelpCard } from '../components/organisms/HelpCard'; // <-- IMPORT THE NEW CARD
 import { UserIcon, Cog6ToothIcon, ChartBarIcon, BookOpenIcon, ChatBubbleLeftRightIcon, SpeakerWaveIcon, ArrowRightOnRectangleIcon, CheckCircleIcon, XCircleIcon, ClockIcon } from '@heroicons/react/24/outline';
 
 export function Profile() {
@@ -38,10 +39,6 @@ export function Profile() {
     }
   };
 
-  const handleSettingsClick = () => {
-    window.location.href = '/settings';
-  };
-
   if (profileLoading || subscriptionLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -49,23 +46,6 @@ export function Profile() {
       </div>
     );
   }
-
-  const getSubscriptionStatusDisplay = () => {
-    if (!subscription?.subscription_status) return 'Free';
-    
-    switch (subscription.subscription_status) {
-      case 'active':
-        return 'Premium (Active)';
-      case 'trialing':
-        return `Premium (Trial - ${trialDaysRemaining} days left)`;
-      case 'past_due':
-        return 'Premium (Past Due)';
-      case 'canceled':
-        return 'Premium (Canceled)';
-      default:
-        return 'Free';
-    }
-  };
 
   return (
     <div className="min-h-screen bg-[#FDF6F8]">
@@ -134,60 +114,56 @@ export function Profile() {
           </div>
         )}
 
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* This is the alignment fix: added md:items-start */}
+        <div className="grid md:grid-cols-3 gap-8 md:items-start">
           {/* Main Dashboard Content */}
-          <div className="md:col-span-2">
-            {/* Welcome Section */}
+          <div className="md:col-span-2 space-y-6">
             <WelcomeCard />
 
-                        {/* Getting Started Guide for New Users */}
             {profile && !profile.onboarding_completed && (
-              <div className="mt-6">
-                <GettingStartedCard />
-              </div>
+              <GettingStartedCard />
             )}
 
-            {/* Quick Actions */}
-            <div className="bg-white rounded-lg shadow-lg p-6 mt-6 border border-black/5">
+            <div className="bg-white rounded-lg shadow-lg p-6 border border-black/5">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <button 
                   onClick={() => window.location.href = '/tone-analyzer'}
-                  className="flex flex-col items-start gap-3 p-4 bg-slate-50 rounded-lg hover:bg-primary/10 hover:shadow-lg hover:-translate-y-1 border border-transparent hover:border-primary/20 transition-all duration-300 text-left"
+                  className="flex flex-col items-start gap-3 p-4 bg-slate-50/50 rounded-lg hover:bg-primary/10 hover:shadow-lg hover:-translate-y-1 border border-black/5 hover:border-primary/20 transition-all duration-300 text-left"
                 >
-                  <ChartBarIcon className="h-6 w-6 text-primary" />
+                  <ChartBarIcon className="h-7 w-7 text-primary" />
                   <div>
-                    <h4 className="font-medium text-gray-900">Analyze Tone</h4>
+                    <h4 className="font-semibold text-gray-900">Analyze Tone</h4>
                     <p className="text-sm text-gray-600">Understand message sentiment</p>
                   </div>
                 </button>
                 <button 
                   onClick={() => window.location.href = '/script-generator'}
-                  className="flex flex-col items-start gap-3 p-4 bg-slate-50 rounded-lg hover:bg-primary/10 hover:shadow-lg hover:-translate-y-1 border border-transparent hover:border-primary/20 transition-all duration-300 text-left"
+                  className="flex flex-col items-start gap-3 p-4 bg-slate-50/50 rounded-lg hover:bg-primary/10 hover:shadow-lg hover:-translate-y-1 border border-black/5 hover:border-primary/20 transition-all duration-300 text-left"
                 >
-                  <ChatBubbleLeftRightIcon className="h-6 w-6 text-primary" />
+                  <ChatBubbleLeftRightIcon className="h-7 w-7 text-primary" />
                   <div>
-                    <h4 className="font-medium text-gray-900">Generate Script</h4>
+                    <h4 className="font-semibold text-gray-900">Generate Script</h4>
                     <p className="text-sm text-gray-600">Create response options</p>
                   </div>
                 </button>
                 <button 
                   onClick={() => window.location.href = '/library'}
-                 className="flex flex-col items-start gap-3 p-4 bg-slate-50 rounded-lg hover:bg-primary/10 hover:shadow-lg hover:-translate-y-1 border border-transparent hover:border-primary/20 transition-all duration-300 text-left"
+                 className="flex flex-col items-start gap-3 p-4 bg-slate-50/50 rounded-lg hover:bg-primary/10 hover:shadow-lg hover:-translate-y-1 border border-black/5 hover:border-primary/20 transition-all duration-300 text-left"
                 >
-                  <BookOpenIcon className="h-6 w-6 text-primary" />
+                  <BookOpenIcon className="h-7 w-7 text-primary" />
                   <div>
-                    <h4 className="font-medium text-gray-900">Script Library</h4>
+                    <h4 className="font-semibold text-gray-900">Script Library</h4>
                     <p className="text-sm text-gray-600">Manage saved scripts</p>
                   </div>
                 </button>
                 <button 
                   onClick={() => window.location.href = '/voice-practice'}
-                  className="flex flex-col items-start gap-3 p-4 bg-slate-50 rounded-lg hover:bg-primary/10 hover:shadow-lg hover:-translate-y-1 border border-transparent hover:border-primary/20 transition-all duration-300 text-left"
+                  className="flex flex-col items-start gap-3 p-4 bg-slate-50/50 rounded-lg hover:bg-primary/10 hover:shadow-lg hover:-translate-y-1 border border-black/5 hover:border-primary/20 transition-all duration-300 text-left"
                 >
-                  <SpeakerWaveIcon className="h-6 w-6 text-primary" />
+                  <SpeakerWaveIcon className="h-7 w-7 text-primary" />
                   <div>
-                    <h4 className="font-medium text-gray-900">Voice Practice</h4>
+                    <h4 className="font-semibold text-gray-900">Voice Practice</h4>
                     <p className="text-sm text-gray-600">Practice with AI voice</p>
                   </div>
                   {isPremium && (
@@ -202,28 +178,10 @@ export function Profile() {
 
           {/* Account Info Sidebar */}
           <div className="space-y-6">
-            {/* Quick Stats */}
             <QuickStats />
-
-            {/* Usage Overview */}
             <UsageOverview />
-
-           {/* Settings Link */}
-          <div className="bg-primary rounded-lg shadow-lg p-6 text-white">
-            <div className="flex items-center gap-3 mb-2">
-              <Cog6ToothIcon className="h-6 w-6 text-white" />
-              <h3 className="text-xl font-bold">Personalize Your Experience</h3>
-            </div>
-            <p className="text-white/80 mb-4 pl-9">
-              Adjust your communication preferences and manage your account details.
-            </p>
-            <button
-              onClick={handleSettingsClick}
-              className="w-full text-center px-4 py-2 bg-white text-primary font-bold rounded-lg hover:bg-white/90 transition-all duration-200 shadow-md"
-            >
-              Go to Settings
-            </button>
-          </div>
+            {/* This is the replacement for the redundant settings card */}
+            <HelpCard />
           </div>
         </div>
       </div>
