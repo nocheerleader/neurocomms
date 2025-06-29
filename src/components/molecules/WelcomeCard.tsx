@@ -16,20 +16,14 @@ export function WelcomeCard() {
     return 'Good evening';
   };
 
-  const getDisplayName = () => {
-    if (user?.email) {
-      return user.email.split('@')[0];
-    }
-    return 'there';
-  };
-
+  
   return (
     <div className="bg-primary rounded-lg shadow p-6 text-primary-foreground">
       <div className="flex items-center gap-3 mb-4">
         <SparklesIcon className="h-8 w-8" />
         <div>
           <h2 className="text-2xl font-bold">
-            {getWelcomeMessage()}, {getDisplayName()}!
+            {getWelcomeMessage()}!
           </h2>
           <p className="text-primary-foreground/80">
             Ready to communicate with confidence?
