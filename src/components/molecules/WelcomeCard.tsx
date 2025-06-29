@@ -24,7 +24,7 @@ export function WelcomeCard() {
   };
 
   return (
-    <div className="bg-gradient-to-r from-primary to-primary/90 rounded-lg shadow p-6 text-primary-foreground">
+    <div className="bg-primary rounded-lg shadow p-6 text-primary-foreground">
       <div className="flex items-center gap-3 mb-4">
         <SparklesIcon className="h-8 w-8" />
         <div>
