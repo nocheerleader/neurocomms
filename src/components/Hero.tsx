@@ -22,7 +22,7 @@ export function Hero() {
             
             <h1 className="text-4xl lg:text-5xl xl:text-6xl font-funnel font-light text-foreground mb-6 leading-tight">
               Decode Workplace Messages. 
-              <br />
+              
               Respond Appropriately.
             </h1>
             
