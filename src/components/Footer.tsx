@@ -33,7 +33,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h5 className="font-semibold font-funnel mb-4">Product</h5>
+            <h5 className="font-semibold font-funnel text-sidebar-foreground mb-4">Product</h5>
             <ul className="space-y-2 text-sidebar-foreground">
               <li><a href="#" className="hover:text-primary-foreground transition-colors">Features</a></li>
               <li><a href="#" className="hover:text-primary-foreground transition-colors">How It Works</a></li>
