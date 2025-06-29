@@ -37,7 +37,7 @@ export function Header() {
         <nav className="hidden md:flex items-center space-x-6">
           {!user ? (
             <>
-              <a href="#features" className="text-foreground hover:text-primary font-medium transition-colors text-sm">
+              <a href="#features" className="text-primary hover:text-primary font-medium transition-colors text-sm">
                 Features
               </a>
               <a href="#pricing" className="text-muted-foreground hover:text-primary font-medium transition-colors text-sm">
