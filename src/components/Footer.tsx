@@ -9,7 +9,7 @@ export function Footer() {
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
               <div className="bg-primary p-2 rounded-lg">
-                <div className="flex items-center space-x-3">
+                <img src="/logo.svg" alt="ToneWise Logo" className="h-8 w-8" />
               </div>
               <div>
                 <h4 className="text-xl font-bold font-funnel">Elucidare</h4>
