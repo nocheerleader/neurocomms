@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeftIcon, ClockIcon, MicrophoneIcon, CircleStackIcon } from '@heroicons/react/24/outline';
+import { ArrowLeftIcon, ClockIcon, UsersIcon, ChartBarIcon, AcademicCapIcon, CogIcon } from '@heroicons/react/24/outline';
 
 export function Roadmap() {
   const handleBackToHome = () => {
@@ -41,65 +41,119 @@ export function Roadmap() {
               What's Coming Next
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              We're continuously improving ToneWise based on feedback from our neurodiverse community. 
-              Here are the exciting features we're working on to make communication even easier.
+              We're expanding ToneWise to serve organizations supporting neurodiverse teams. 
+              Here are the enterprise features we're developing to help workplaces become more inclusive.
             </p>
           </div>
 
           {/* Upcoming Features */}
           <div className="space-y-8">
             <h3 className="text-2xl font-semibold font-funnel text-foreground mb-6" style={{ color: '#e05d38' }}>
-              Upcoming Features
+              Enterprise Features in Development
             </h3>
 
-            {/* Feature 1: Instant CueCards */}
+            {/* Feature 1: Team Management Dashboard */}
             <div className="bg-card rounded-lg shadow-sm border border-border p-8">
               <div className="flex items-start gap-6">
                 <div className="p-4 rounded-lg flex-shrink-0" style={{ backgroundColor: '#e05d38' }}>
-                  <MicrophoneIcon className="h-8 w-8 text-white" />
+                  <UsersIcon className="h-8 w-8 text-white" />
                 </div>
                 <div className="flex-1">
                   <h4 className="text-xl font-semibold font-funnel text-foreground mb-3">
-                    Instant CueCards
+                    Team Management Dashboard
                   </h4>
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    Provides real-time voice-powered prompts and affirmations to assist users during live conversations, 
-                    meetings, or phone calls, reducing anxiety and cognitive overwhelm.
+                    A comprehensive dashboard for HR teams and managers to oversee ToneWise usage across their organization. 
+                    Monitor adoption, identify users who might benefit from additional support, and track communication improvement metrics.
                   </p>
                   <div className="space-y-2">
                     <h5 className="font-medium text-foreground">Key Benefits:</h5>
                     <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                      <li>Real-time conversation support</li>
-                      <li>Reduces social anxiety during important calls</li>
-                      <li>Voice-activated prompts for smooth conversations</li>
-                      <li>Personalized affirmations and talking points</li>
+                      <li>View team-wide usage analytics and adoption rates</li>
+                      <li>Identify patterns in communication challenges</li>
+                      <li>Support team members who need additional assistance</li>
+                      <li>Track progress and improvement over time</li>
                     </ul>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Feature 2: Limitless Pendant Integration */}
+            {/* Feature 2: Admin Controls & Reporting */}
             <div className="bg-card rounded-lg shadow-sm border border-border p-8">
               <div className="flex items-start gap-6">
                 <div className="p-4 rounded-lg flex-shrink-0" style={{ backgroundColor: '#e05d38' }}>
-                  <CircleStackIcon className="h-8 w-8 text-white" />
+                  <ChartBarIcon className="h-8 w-8 text-white" />
                 </div>
                 <div className="flex-1">
                   <h4 className="text-xl font-semibold font-funnel text-foreground mb-3">
-                    Limitless Pendant Integration
+                    Admin Controls & Reporting
                   </h4>
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    Integrates conversation recordings from Limitless Pendant to provide personalized, 
-                    actionable insights on user's own communication patterns.
+                    Powerful administrative tools and detailed reporting capabilities for enterprise customers. 
+                    Generate insights about workplace communication patterns and measure the impact of neurodiversity support initiatives.
                   </p>
                   <div className="space-y-2">
                     <h5 className="font-medium text-foreground">Key Benefits:</h5>
                     <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                      <li>Analyze your own conversation patterns</li>
-                      <li>Identify areas for communication improvement</li>
-                      <li>Track progress over time</li>
-                      <li>Personalized recommendations based on real conversations</li>
+                      <li>Detailed usage reports and communication analytics</li>
+                      <li>User access management and permission controls</li>
+                      <li>Data export capabilities for compliance and HR reporting</li>
+                      <li>Integration with existing HR systems and workflows</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Feature 3: Training Modules */}
+            <div className="bg-card rounded-lg shadow-sm border border-border p-8">
+              <div className="flex items-start gap-6">
+                <div className="p-4 rounded-lg flex-shrink-0" style={{ backgroundColor: '#e05d38' }}>
+                  <AcademicCapIcon className="h-8 w-8 text-white" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="text-xl font-semibold font-funnel text-foreground mb-3">
+                    Training Modules
+                  </h4>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    Interactive training content designed to help neurodiverse employees build communication confidence 
+                    and help neurotypical colleagues better understand and support their neurodiverse teammates.
+                  </p>
+                  <div className="space-y-2">
+                    <h5 className="font-medium text-foreground">Key Benefits:</h5>
+                    <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
+                      <li>Self-paced learning modules for neurodiverse communication skills</li>
+                      <li>Manager training on supporting neurodiverse team members</li>
+                      <li>Workplace communication best practices and guidelines</li>
+                      <li>Progress tracking and completion certificates</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Feature 4: Custom Integrations */}
+            <div className="bg-card rounded-lg shadow-sm border border-border p-8">
+              <div className="flex items-start gap-6">
+                <div className="p-4 rounded-lg flex-shrink-0" style={{ backgroundColor: '#e05d38' }}>
+                  <CogIcon className="h-8 w-8 text-white" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="text-xl font-semibold font-funnel text-foreground mb-3">
+                    Custom Integrations
+                  </h4>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    Seamless integration with existing workplace tools and platforms. 
+                    Bring ToneWise functionality directly into the applications your team already uses every day.
+                  </p>
+                  <div className="space-y-2">
+                    <h5 className="font-medium text-foreground">Key Benefits:</h5>
+                    <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
+                      <li>Microsoft Teams and Slack integration for real-time assistance</li>
+                      <li>Email client plugins for Gmail and Outlook</li>
+                      <li>API access for custom internal tool development</li>
+                      <li>Single sign-on (SSO) integration with existing identity providers</li>
                     </ul>
                   </div>
                 </div>
@@ -116,12 +170,12 @@ export function Roadmap() {
               <div className="flex items-center gap-3">
                 <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#e05d38' }}></div>
                 <span className="text-foreground font-medium">Q1 2025:</span>
-                <span className="text-muted-foreground">Instant CueCards beta testing</span>
+                <span className="text-muted-foreground">Team Management Dashboard and Admin Controls</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-3 h-3 rounded-full border-2" style={{ borderColor: '#e05d38' }}></div>
                 <span className="text-foreground font-medium">Q2 2025:</span>
-                <span className="text-muted-foreground">Limitless Pendant integration development</span>
+                <span className="text-muted-foreground">Training Modules and Custom Integrations</span>
               </div>
             </div>
           </div>
@@ -129,18 +183,18 @@ export function Roadmap() {
           {/* Feedback Section */}
           <div className="text-center mt-12 p-8 bg-card rounded-lg shadow-sm border border-border">
             <h3 className="text-xl font-semibold font-funnel text-foreground mb-4">
-              Want to Shape Our Roadmap?
+              Interested in Enterprise Features?
             </h3>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              Your feedback helps us prioritize features that matter most to the neurodiverse community. 
-              Let us know what communication challenges you'd like us to solve next.
+              If your organization is interested in supporting neurodiverse employees with ToneWise Enterprise, 
+              we'd love to discuss your specific needs and timeline.
             </p>
             <a
-              href="mailto:feedback@tonewise.app"
+              href="mailto:enterprise@tonewise.app"
               className="inline-flex items-center px-6 py-3 text-white rounded-lg font-medium hover:opacity-90 transition-colors"
               style={{ backgroundColor: '#e05d38' }}
             >
-              Share Your Ideas
+              Contact Enterprise Sales
             </a>
           </div>
         </div>
