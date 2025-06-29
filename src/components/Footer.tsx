@@ -36,18 +36,18 @@ export function Footer() {
             <h5 className="font-semibold font-funnel text-sidebar-foreground mb-4">Product</h5>
             <ul className="space-y-2 text-primary-foreground">
               <li><a href="#features" className="hover:text-chart-3 transition-colors">Features</a></li>
-              <li><a href="#how-it-works" className="hover:text-primary-foreground transition-colors">How It Works</a></li>
-              <li><a href="#pricing" className="hover:text-primary-foreground transition-colors">Pricing</a></li>
+              <li><a href="#how-it-works" className="hover:text-chart-3 transition-colors">How It Works</a></li>
+              <li><a href="#pricing" className="hover:text-chart-3 transition-colors">Pricing</a></li>
               </ul>
           </div>
 
           <div>
             <h5 className="primary-foreground font-funnel text-sidebar-foreground mb-4">Support</h5>
             <ul className="space-y-2 text-primary-foreground">
-              <li><a href="#" className="hover:text-primary-foreground transition-colors">Help Center</a></li>
-              <li><a href="#" className="hover:text-primary-foreground transition-colors">Contact Us</a></li>
-              <li><a href="/privacy" className="hover:text-primary-foreground transition-colors">Privacy Policy</a></li>
-              <li><a href="/terms" className="hover:text-primary-foreground transition-colors">Terms of Service</a></li>
+              <li><a href="#" className="hover:text-chart-3 transition-colors">Help Center</a></li>
+              <li><a href="#" className="hover:text-chart-3 transition-colors">Contact Us</a></li>
+              <li><a href="/privacy" className="hover:text-chart-3 transition-colors">Privacy Policy</a></li>
+              <li><a href="/terms" className="hover:text-chart-3 transition-colors">Terms of Service</a></li>
             </ul>
           </div>
         </div>
