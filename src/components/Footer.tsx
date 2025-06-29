@@ -13,7 +13,7 @@ export function Footer() {
               </div>
               <div>
                 <h4 className="text-xl font-bold font-funnel">Elucidare</h4>
-                <p className="text-sidebar-foreground text-sm">Professional Communication Tool</p>
+                <p className="text-sidebar-foreground text-sm font-semibold">Professional Communication Tool</p>
               </div>
             </div>
             <p className="text-primary-foreground/80 leading-relaxed mb-6">
@@ -42,7 +42,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h5 className="font-semibold font-funnel text-sidebar-foreground mb-4">Support</h5>
+            <h5 className="primary-foreground font-funnel text-sidebar-foreground mb-4">Support</h5>
             <ul className="space-y-2 text-primary-foreground">
               <li><a href="#" className="hover:text-primary-foreground transition-colors">Help Center</a></li>
               <li><a href="#" className="hover:text-primary-foreground transition-colors">Contact Us</a></li>
