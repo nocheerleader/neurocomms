@@ -1,11 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { 
-  PlayIcon, 
-  PauseIcon, 
-  ArrowDownTrayIcon, 
-  XMarkIcon,
-  SpeakerWaveIcon 
-} from '@heroicons/react/24/outline';
+import { PlayIcon, PauseIcon, ArrowDownTrayIcon, XMarkIcon, SpeakerWaveIcon } from '@heroicons/react/24/outline';
 import { TextHighlighter } from '../molecules/TextHighlighter';
 
 interface AudioPlayerProps {
@@ -28,16 +22,11 @@ export function AudioPlayer({ audioUrl, text, playbackSpeed, onClose }: AudioPla
 
     const updateTime = () => setCurrentTime(audio.currentTime);
     const updateDuration = () => setDuration(audio.duration);
-    const handleEnded = () => {
-      setIsPlaying(false);
-      setCurrentWordIndex(-1);
-    };
+    const handleEnded = () => { setIsPlaying(false); setCurrentWordIndex(-1); };
 
     audio.addEventListener('timeupdate', updateTime);
     audio.addEventListener('loadedmetadata', updateDuration);
     audio.addEventListener('ended', handleEnded);
-
-    // Set playback rate
     audio.playbackRate = playbackSpeed;
 
     return () => {
@@ -47,7 +36,6 @@ export function AudioPlayer({ audioUrl, text, playbackSpeed, onClose }: AudioPla
     };
   }, [playbackSpeed]);
 
-  // Calculate word highlighting based on audio progress
   useEffect(() => {
     if (duration > 0 && text) {
       const words = text.split(/\s+/);
@@ -60,19 +48,13 @@ export function AudioPlayer({ audioUrl, text, playbackSpeed, onClose }: AudioPla
   const togglePlayPause = () => {
     const audio = audioRef.current;
     if (!audio) return;
-
-    if (isPlaying) {
-      audio.pause();
-    } else {
-      audio.play();
-    }
+    isPlaying ? audio.pause() : audio.play();
     setIsPlaying(!isPlaying);
   };
 
   const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
     const audio = audioRef.current;
     if (!audio) return;
-
     const newTime = (parseFloat(e.target.value) / 100) * duration;
     audio.currentTime = newTime;
     setCurrentTime(newTime);
@@ -81,7 +63,7 @@ export function AudioPlayer({ audioUrl, text, playbackSpeed, onClose }: AudioPla
   const handleDownload = () => {
     const link = document.createElement('a');
     link.href = audioUrl;
-    link.download = `voice-practice-${Date.now()}.mp3`;
+    link.download = `elucidare-voice-practice.mp3`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -94,40 +76,30 @@ export function AudioPlayer({ audioUrl, text, playbackSpeed, onClose }: AudioPla
   };
 
   const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
+  const primaryColor = '#E05D38';
 
   return (
     <div className="space-y-6">
-      {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="bg-purple-100 p-2 rounded-lg">
-            <SpeakerWaveIcon className="h-5 w-5 text-purple-700" />
+          <div className="bg-primary/10 p-2 rounded-lg">
+            <SpeakerWaveIcon className="h-5 w-5 text-primary" />
           </div>
-          <h3 className="text-lg font-semibold text-gray-900">Voice Practice Player</h3>
+          <h3 className="text-lg font-semibold text-gray-900">Audio Player</h3>
         </div>
-        <button
-          onClick={onClose}
-          className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
-        >
+        <button onClick={onClose} className="p-2 text-gray-400 hover:text-gray-600 transition-colors rounded-full">
           <XMarkIcon className="h-5 w-5" />
         </button>
       </div>
 
-      {/* Audio Element */}
-      <audio ref={audioRef} src={audioUrl} preload="metadata" />
+      <audio ref={audioRef} src={audioUrl} preload="metadata" autoPlay />
 
-      {/* Text with Highlighting */}
-      <div className="bg-gray-50 rounded-lg p-4">
+      <div className="bg-slate-50/50 rounded-lg p-4">
         <h4 className="text-sm font-medium text-gray-700 mb-3">Practice Text</h4>
-        <TextHighlighter 
-          text={text} 
-          currentWordIndex={isPlaying ? currentWordIndex : -1} 
-        />
+        <TextHighlighter text={text} currentWordIndex={isPlaying ? currentWordIndex : -1} />
       </div>
 
-      {/* Audio Controls */}
-      <div className="bg-white border border-gray-200 rounded-lg p-4">
-        {/* Progress Bar */}
+      <div className="bg-slate-50/50 rounded-lg p-4">
         <div className="mb-4">
           <div className="flex justify-between text-sm text-gray-600 mb-2">
             <span>{formatTime(currentTime)}</span>
@@ -139,54 +111,24 @@ export function AudioPlayer({ audioUrl, text, playbackSpeed, onClose }: AudioPla
             max="100"
             value={progress}
             onChange={handleSeek}
-            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
             style={{
-              background: `linear-gradient(to right, #7c3aed 0%, #7c3aed ${progress}%, #e5e7eb ${progress}%, #e5e7eb 100%)`
+              background: `linear-gradient(to right, ${primaryColor} 0%, ${primaryColor} ${progress}%, #e5e7eb ${progress}%, #e5e7eb 100%)`
             }}
           />
         </div>
-
-        {/* Control Buttons */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            {/* Play/Pause Button */}
-            <button
-              onClick={togglePlayPause}
-              className="flex items-center justify-center w-12 h-12 bg-purple-700 text-white rounded-full hover:bg-purple-800 transition-colors"
-            >
-              {isPlaying ? (
-                <PauseIcon className="h-6 w-6" />
-              ) : (
-                <PlayIcon className="h-6 w-6 ml-1" />
-              )}
+            <button onClick={togglePlayPause} className="flex items-center justify-center w-12 h-12 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors shadow-lg">
+              {isPlaying ? <PauseIcon className="h-6 w-6" /> : <PlayIcon className="h-6 w-6 ml-1" />}
             </button>
-
-            {/* Speed Display */}
-            <div className="text-sm text-gray-600">
-              Speed: {playbackSpeed}x
-            </div>
+            <div className="text-sm text-gray-600">Speed: {playbackSpeed}x</div>
           </div>
-
-          {/* Download Button */}
-          <button
-            onClick={handleDownload}
-            className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-lg hover:bg-gray-200 transition-colors"
-          >
+          <button onClick={handleDownload} className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
             <ArrowDownTrayIcon className="h-4 w-4" />
             Download
           </button>
         </div>
-      </div>
-
-      {/* Usage Tip */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-        <h4 className="font-medium text-blue-900 mb-2">Practice Tips</h4>
-        <ul className="text-blue-800 text-sm space-y-1">
-          <li>• Follow along with the highlighted text as it plays</li>
-          <li>• Practice speaking along with the audio</li>
-          <li>• Repeat sections by dragging the progress bar</li>
-          <li>• Download the audio to practice offline</li>
-        </ul>
       </div>
     </div>
   );
