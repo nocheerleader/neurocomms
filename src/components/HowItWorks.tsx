@@ -20,7 +20,7 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-20 bg-[#FBDCE2]">
+    <section id="#features" className="py-20 bg-[#FBDCE2]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h3 className="text-4xl font-bold font-funnel text-foreground mb-4">
