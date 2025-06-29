@@ -62,7 +62,7 @@ const PricingSection = () => {
         <div className="flex flex-wrap">
           <div className="w-full">
             <div className="mx-auto mb-16 max-w-2xl text-center">
-              <span className="mb-2 block text-lg font-semibold text-blue-700">
+              <span className="mb-2 block text-lg font-semibold text-primary">
                 Pricing Plans
               </span>
               <h2 className="mb-4 text-3xl font-bold font-funnel leading-tight text-foreground sm:text-4xl md:text-5xl">
