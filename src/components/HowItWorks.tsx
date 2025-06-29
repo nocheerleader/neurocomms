@@ -24,11 +24,10 @@ export function HowItWorks() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h3 className="text-4xl font-bold font-funnel text-foreground mb-4">
-            Simple Process, Clear Results
+            Two Tools, Three Simple Steps
           </h3>
           <p className="text-base text-muted-foreground max-w-2xl mx-auto">
-            No complex setup or confusing interfaces. Just straightforward tools 
-            that help you communicate effectively.
+            No complex setup or confusing interfaces. Whether you're analyzing confusing messages or crafting responses, the process is always straightforward.
           </p>
         </div>
 
