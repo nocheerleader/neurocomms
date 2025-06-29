@@ -16,7 +16,7 @@ export function Hero() {
         <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Left Column - Text Content */}
           <div className="flex-1 text-left">
-            <p className="text-sm text-primary mb-4 font-medium">
+            <p className="text-sm text-primary mb-4 font-bold">
               Elucidare. From the Latin elucidate: to make clear
             </p>
             
