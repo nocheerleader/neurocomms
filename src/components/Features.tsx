@@ -4,12 +4,12 @@ import { ChartBarIcon, ChatBubbleLeftRightIcon, BookOpenIcon, CursorArrowRaysIco
 const features = [
   {
     icon: ChartBarIcon,
-    title: 'Visual Tone Analysis',
-    description: 'See exactly how your message will be perceived with clear visual indicators for tone, formality, and emotional impact.'
+    title: 'Instant Message Decoder',
+    description: 'Paste any email or message to see exactly what tone the sender is using with clear visual indicators for tone, formality and emotional impact.'
   },
   {
     icon: BookOpenIcon,
-    title: 'Template Library',
+    title: 'Save What Works',
     description: 'Save and organize your most effective responses. Build a personal library of communication templates that work.'
   },
   {
