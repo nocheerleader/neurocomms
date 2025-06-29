@@ -50,18 +50,18 @@ export function WelcomeCard() {
         )}
       </div>
 
-      {/* Onboarding Status */}
+    {/* Onboarding Status */}
       {!profile?.onboarding_completed && (
-        <div className="mt-4 p-3 bg-primary/20 rounded-lg border border-primary-foreground/20">
-          <p className="text-sm font-medium mb-2">Complete your setup</p>
-          <p className="text-xs text-primary-foreground/80 mb-3">
-            Take the communication assessment to get personalized suggestions.
+        <div className="mt-4 p-4 bg-white/20 rounded-lg border border-white/30 backdrop-blur-sm">
+          <h4 className="text-md font-semibold text-white mb-2">Complete Your Setup</h4>
+          <p className="text-sm text-white/90 mb-4">
+            Take our quick communication assessment to get personalized suggestions for your tone and scripts.
           </p>
           <button
             onClick={() => window.location.href = '/settings'}
-            className="text-xs font-medium text-primary-foreground bg-primary/30 hover:bg-primary/40 px-3 py-1 rounded transition-colors"
+            className="w-full text-center px-4 py-2 bg-white text-primary font-bold rounded-lg hover:bg-white/90 transition-all duration-200 shadow-lg"
           >
-            Complete Assessment
+            Start Communication Assessment
           </button>
         </div>
       )}
