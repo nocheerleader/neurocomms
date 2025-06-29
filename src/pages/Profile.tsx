@@ -200,17 +200,22 @@ export function Profile() {
             {/* Usage Overview */}
             <UsageOverview />
 
-            {/* Settings Link */}
-            <div className="bg-white rounded-lg shadow-lg p-6 mt-6 border border-black/5">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Settings</h3>
-              <button
-                onClick={handleSettingsClick}
-                className="flex items-center gap-2 w-full px-4 py-2 text-sm font-medium text-blue-700 bg-blue-50 border border-blue-200 rounded-lg hover:bg-blue-100 transition-colors"
-              >
-                <Cog6ToothIcon className="h-4 w-4" />
-                Manage Settings
-              </button>
+                      {/* Settings Link */}
+          <div className="bg-gradient-to-r from-primary to-primary/90 rounded-lg shadow-lg p-6 text-white">
+            <div className="flex items-center gap-3 mb-2">
+              <Cog6ToothIcon className="h-6 w-6 text-white" />
+              <h3 className="text-xl font-bold">Personalize Your Experience</h3>
             </div>
+            <p className="text-white/80 mb-4 pl-9">
+              Adjust your communication preferences and manage your account details.
+            </p>
+            <button
+              onClick={handleSettingsClick}
+              className="w-full text-center px-4 py-2 bg-white text-primary font-bold rounded-lg hover:bg-white/90 transition-all duration-200 shadow-md"
+            >
+              Go to Settings
+            </button>
+          </div>
           </div>
         </div>
       </div>
