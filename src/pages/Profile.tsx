@@ -83,7 +83,7 @@ export function Profile() {
             </div>
             <button
               onClick={handleSignOut}
-              className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-chart-3 bg-[#FBDCE2] border border-gray-300 rounded-lg hover:bg-gray-200 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-chart-3 bg-[#FBDCE2] border border-chart-3 rounded-lg hover:bg-gray-200 transition-colors"
             >
               <ArrowRightOnRectangleIcon className="h-4 w-4" />
               Sign Out
