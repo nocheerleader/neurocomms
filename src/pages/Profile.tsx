@@ -157,7 +157,7 @@ export function Profile() {
                   onClick={() => window.location.href = '/script-generator'}
                   className="flex items-center gap-3 p-4 border border-gray-300 rounded-lg hover:border-gray-400 transition-colors text-left"
                 >
-                  <ChatBubbleLeftRightIcon className="h-6 w-6 text-blue-700" />
+                  <ChatBubbleLeftRightIcon className="h-6 w-6 text-primary" />
                   <div>
                     <h4 className="font-medium text-gray-900">Generate Script</h4>
                     <p className="text-sm text-gray-600">Create response options</p>
@@ -167,7 +167,7 @@ export function Profile() {
                   onClick={() => window.location.href = '/library'}
                   className="flex items-center gap-3 p-4 border border-gray-300 rounded-lg hover:border-gray-400 transition-colors text-left"
                 >
-                  <BookOpenIcon className="h-6 w-6 text-blue-700" />
+                  <BookOpenIcon className="h-6 w-6 text-primary" />
                   <div>
                     <h4 className="font-medium text-gray-900">Script Library</h4>
                     <p className="text-sm text-gray-600">Manage saved scripts</p>
@@ -177,7 +177,7 @@ export function Profile() {
                   onClick={() => window.location.href = '/voice-practice'}
                   className="flex items-center gap-3 p-4 border border-gray-300 rounded-lg hover:border-gray-400 transition-colors text-left relative"
                 >
-                  <SpeakerWaveIcon className="h-6 w-6 text-purple-700" />
+                  <SpeakerWaveIcon className="h-6 w-6 text-primary" />
                   <div>
                     <h4 className="font-medium text-gray-900">Voice Practice</h4>
                     <p className="text-sm text-gray-600">Practice with AI voice</p>
