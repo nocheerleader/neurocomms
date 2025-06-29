@@ -40,7 +40,7 @@ export function Header() {
               <a href="#features" className="text-primary hover:text-chart-3 font-medium transition-colors text-sm">
                 Features
               </a>
-              <a href="#PricingSection" className="text-primary hover:text-chart-3 font-medium transition-colors text-sm">
+              <a href="#pricing" className="text-primary hover:text-chart-3 font-medium transition-colors text-sm">
                 Pricing
               </a>
               <a href="/roadmap" className="text-primary hover:text-chart-3 font-medium transition-colors text-sm">
