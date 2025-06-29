@@ -63,7 +63,7 @@ export function Roadmap() {
                     Team Management Dashboard
                   </h4>
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    A comprehensive dashboard for HR teams and managers to oversee ToneWise usage across their organization. 
+                    A comprehensive dashboard for HR teams and managers to oversee Elucidare usage across their organization. 
                     Monitor adoption, identify users who might benefit from additional support, and track communication improvement metrics.
                   </p>
                   <div className="space-y-2">
@@ -145,7 +145,7 @@ export function Roadmap() {
                   </h4>
                   <p className="text-muted-foreground leading-relaxed mb-4">
                     Seamless integration with existing workplace tools and platforms. 
-                    Bring ToneWise functionality directly into the applications your team already uses every day.
+                    Bring Elucidare functionality directly into the applications your team already uses every day.
                   </p>
                   <div className="space-y-2">
                     <h5 className="font-medium text-foreground">Key Benefits:</h5>
@@ -186,7 +186,7 @@ export function Roadmap() {
               Interested in Enterprise Features?
             </h3>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              If your organization is interested in supporting neurodiverse employees with ToneWise Enterprise, 
+              If your organization is interested in supporting neurodiverse employees with Elucidare Enterprise, 
               we'd love to discuss your specific needs and timeline.
             </p>
             <a
