@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BookOpenIcon, ArrowLeftIcon } from '@heroicons/react/24/outline';
+import { BookOpenIcon, ArrowLeftIcon, FolderPlusIcon } from '@heroicons/react/24/outline';
 import { ScriptGrid } from '../components/organisms/ScriptGrid';
 import { LibraryFilters } from '../components/organisms/LibraryFilters';
 import { CategoryManager } from '../components/organisms/CategoryManager';
@@ -66,20 +66,20 @@ export function Library() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen bg-[#FDF6F8] flex items-center justify-center">
         <LoadingSpinner />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[#FDF6F8]">
       {/* Header */}
-      <div className="bg-white shadow">
+      <div className="bg-transparent border-b border-primary/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
-            <div className="flex items-center space-x-3">
-              <div className="bg-blue-700 p-2 rounded-lg">
+            <div className="flex items-center gap-3">
+              <div className="bg-primary p-2 rounded-lg">
                 <BookOpenIcon className="h-6 w-6 text-white" />
               </div>
               <div>
@@ -92,16 +92,17 @@ export function Library() {
             <div className="flex items-center gap-3">
               <button
                 onClick={() => setShowCategoryManager(true)}
-                className="px-4 py-2 text-sm font-medium text-blue-700 bg-blue-50 border border-blue-200 rounded-lg hover:bg-blue-100 transition-colors"
+                className="flex items-center gap-2 px-4 py-2 text-sm font-bold text-primary bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors"
               >
-                Manage Categories
+                <FolderPlusIcon className="h-4 w-4" />
+                <span>Manage Categories</span>
               </button>
               <button
                 onClick={handleBackToDashboard}
-                className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                className="flex items-center gap-2 px-4 py-2 text-sm font-bold text-primary bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors"
               >
                 <ArrowLeftIcon className="h-4 w-4" />
-                Back to Dashboard
+                <span>Back to Dashboard</span>
               </button>
             </div>
           </div>
@@ -125,31 +126,28 @@ export function Library() {
             availableTags={[...new Set(scripts.flatMap(s => s.tags || []))]}
           />
 
-          {/* Scripts Grid */}
-          <ScriptGrid scripts={filteredScripts} categories={categories} />
-
-          {/* Empty State */}
-          {scripts.length === 0 && (
-            <div className="text-center py-12">
+          {scripts.length > 0 ? (
+            <ScriptGrid scripts={filteredScripts} categories={categories} />
+          ) : (
+            <div className="text-center py-16 bg-white rounded-lg shadow-xl border border-black/5">
               <BookOpenIcon className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-              <h3 className="text-lg font-medium text-gray-900 mb-2">No scripts saved yet</h3>
-              <p className="text-gray-600 mb-6">
-                Start by generating scripts and saving your favorites to build your personal library.
+              <h3 className="text-xl font-medium text-gray-800 mb-2">Your Library is Empty</h3>
+              <p className="text-gray-600 mb-6 max-w-md mx-auto">
+                As you analyze messages and generate responses, you can save the most effective ones here to build your personal communication toolkit.
               </p>
               <button
                 onClick={() => window.location.href = '/script-generator'}
-                className="px-4 py-2 bg-blue-700 text-white rounded-lg font-medium hover:bg-blue-800 transition-colors"
+                className="px-6 py-2 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-colors shadow-lg"
               >
                 Generate Your First Script
               </button>
             </div>
           )}
 
-          {/* No Results */}
           {scripts.length > 0 && filteredScripts.length === 0 && (
-            <div className="text-center py-12">
+            <div className="text-center py-16 bg-white rounded-lg shadow-xl border border-black/5">
               <BookOpenIcon className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-              <h3 className="text-lg font-medium text-gray-900 mb-2">No scripts match your filters</h3>
+              <h3 className="text-xl font-medium text-gray-800 mb-2">No Scripts Match Your Filters</h3>
               <p className="text-gray-600 mb-6">
                 Try adjusting your search terms or filters to find what you're looking for.
               </p>
@@ -159,7 +157,7 @@ export function Library() {
                   setSelectedCategory('');
                   setSelectedTags([]);
                 }}
-                className="px-4 py-2 bg-gray-700 text-white rounded-lg font-medium hover:bg-gray-800 transition-colors"
+                className="px-6 py-2 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-colors shadow-lg"
               >
                 Clear All Filters
               </button>
