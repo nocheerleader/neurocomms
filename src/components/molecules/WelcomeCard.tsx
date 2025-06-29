@@ -23,7 +23,7 @@ export function WelcomeCard() {
         <SparklesIcon className="h-8 w-8" />
         <div>
           <h2 className="text-2xl font-bold">
-            {getWelcomeMessage()}!
+            {getWelcomeMessage()}!, welcome!
           </h2>
           <p className="text-primary-foreground/80">
             Ready to communicate with confidence?
