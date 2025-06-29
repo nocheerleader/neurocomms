@@ -3,7 +3,7 @@ import { ChatBubbleLeftRightIcon, EnvelopeIcon, ShieldCheckIcon } from '@heroico
 
 export function Footer() {
   return (
-    <footer className="bg-foreground text-primary-foreground py-16">
+    <footer className="bg-primary text-primary-foreground py-16">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
