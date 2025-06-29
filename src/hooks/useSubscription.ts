@@ -20,6 +20,32 @@ export function useSubscription() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+   // --- START OF NEW "GOLDEN TICKET" LOGIC ---
+  // If the user is the demo user, grant permanent premium access
+  if (user?.email === 'demo@elucidare.app') {
+    return {
+      subscription: { // Mock a subscription object for consistency
+        customer_id: 'cus_demo',
+        subscription_id: 'sub_demo',
+        subscription_status: 'active',
+        price_id: 'price_premium_demo',
+        current_period_start: Date.now() / 1000,
+        current_period_end: (Date.now() / 1000) + (30 * 24 * 60 * 60), // 30 days from now
+        cancel_at_period_end: false,
+        payment_method_brand: 'visa',
+        payment_method_last4: '4242',
+      },
+      loading: false, // Not loading
+      error: null,    // No error
+      isActive: true, // They are active
+      isTrialing: false, // Not in a trial
+      isPremium: true,   // They are premium!
+      trialDaysRemaining: null,
+      refetch: () => Promise.resolve(), // Dummy refetch function
+    };
+  }
+  // --- END OF NEW "GOLDEN TICKET" LOGIC ---
+
   useEffect(() => {
     if (user) {
       fetchSubscription();
