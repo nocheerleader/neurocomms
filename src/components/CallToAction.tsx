@@ -2,10 +2,10 @@ import React from 'react';
 import { ArrowRightIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
 
 const benefits = [
-  'No account required to start',
-  'Privacy-focused - your messages stay private',
-  'Designed specifically for neurodiverse professionals',
-  'Clear, visual feedback without overwhelming information'
+  'Understand if emails are urgent, friendly, or professional in seconds',
+  'Generate 3 response options for any workplace or social situation ',
+  'Your messages are never stored or shared - complete privacy',
+  'Practice responses with voice playback (Premium)'
 ];
 
 export function CallToAction() {
@@ -28,7 +28,7 @@ export function CallToAction() {
             onClick={handleStartUsing}
             className="border border-foreground text-foreground px-5 py-2 rounded-full font-bold text-sm hover:bg-primary/5 hover:shadow-2xl transition-all duration-700 flex items-center justify-center gap-2 mx-auto mb-12"
           >
-            Start Using Elucidare
+            Analyze Your First Message
             <ArrowRightIcon className="h-5 w-5" />
           </button>
         </div>
