@@ -26,7 +26,7 @@ export function Hero() {
               Confidence
             </h1>
             
-            <p className="text-sm text-muted-foreground mb-8 max-w-2xl leading-relaxed">
+            <p className="text-base text-muted-foreground mb-8 max-w-2xl leading-relaxed">
               Elucidare helps neurodiverse professionals analyze message tone and generate appropriate responses. 
               Clear communication made simple with visual feedback and guided suggestions.
             </p>
