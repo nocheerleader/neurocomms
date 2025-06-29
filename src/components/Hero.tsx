@@ -27,7 +27,7 @@ export function Hero() {
             </h1>
             
             <p className="text-base text-muted-foreground mb-8 max-w-2xl leading-relaxed">
-              Stop second-guessing workplace and social messages. Elucidare shows you exactly what tone someone is using and gives you 3 response options that match the situation. Built to help neurodiverse professionals. 
+              Stop second-guessing workplace and social messages. Elucidare shows you exactly what tone someone is using and gives you 3 response options that match the situation. Elucidare offers a set of tools to help neurodiverse professionals. 
             </p>
             
             {/* Action Buttons */}
