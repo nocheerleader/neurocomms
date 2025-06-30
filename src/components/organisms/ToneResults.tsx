@@ -17,7 +17,8 @@ export function ToneResults({
   onClear, 
   onReanalyze
 }: ToneResultsProps) {
-  
+
+  // This logic is from the UX improvement for the Tone Breakdown, which is safe to keep.
   const dominantTone = Object.entries(result.tones).reduce((a, b) => a[1] > b[1] ? a : b);
   const toneDescriptions = {
     professional: 'Formal, business-like communication',
@@ -31,10 +32,6 @@ export function ToneResults({
     urgent: 'text-red-700',
     neutral: 'text-gray-700'
   };
-
-  // --- THIS IS THE FIX ---
-  // Ensure 'explanation' is always an array, even if the API returns a string.
-  const explanationPoints = Array.isArray(result.explanation) ? result.explanation : [result.explanation];
 
   return (
     <>
@@ -83,7 +80,7 @@ export function ToneResults({
           <ConfidenceIndicator score={result.confidence} />
         </div>
 
-        {/* Revised: Tone Breakdown */}
+        {/* Tone Breakdown */}
         <div>
           <h4 className="text-md font-semibold text-gray-900 mb-3">Tone Breakdown</h4>
           <div className="bg-slate-50/50 p-4 rounded-lg border border-black/5 space-y-4">
@@ -102,19 +99,11 @@ export function ToneResults({
           </div>
         </div>
 
-        {/* Explanation */}
+        {/* REVERTED Explanation Section */}
         <div>
           <h4 className="text-md font-semibold text-gray-900 mb-3">What This Means</h4>
-          <div className="bg-slate-50/50 rounded-lg p-4 space-y-3">
-            <ul className="space-y-2">
-              {/* Use the new, safe 'explanationPoints' variable here */}
-              {explanationPoints.map((point, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <CheckCircleIcon className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-800 leading-relaxed">{point}</span>
-                </li>
-              ))}
-            </ul>
+          <div className="bg-slate-50/50 rounded-lg p-4">
+            <p className="text-gray-800 leading-relaxed">{result.explanation}</p>
           </div>
         </div>
 
