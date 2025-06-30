@@ -331,14 +331,22 @@ Deno.serve(async (req) => {
       }, 400);
     }
 
-    // Check usage limits
-    const usageCheck = await checkUsageLimit(user.id);
-    if (!usageCheck.canUse) {
-      return corsResponse({ 
-        error: 'Usage limit exceeded',
-        message: usageCheck.message 
-      }, 429);
+    // --- START: DEMO USER BYPASS ---
+    // First, check if the user is our special demo user.
+    if (user.email !== 'demo@elucidare.app') {
+        // If it's a regular user, perform the standard usage check.
+        const usageCheck = await checkUsageLimit(user.id);
+        if (!usageCheck.canUse) {
+            return corsResponse({
+                error: 'Usage limit exceeded',
+                message: usageCheck.message
+            }, 429);
+        }
+    } else {
+        // It IS the demo user, so we log it and skip the check.
+        console.log('Demo user detected, bypassing usage check for script generation.');
     }
+    // --- END: DEMO USER BYPASS ---
 
     // Generate scripts
     const startTime = Date.now();
