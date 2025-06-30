@@ -24,17 +24,7 @@ export function ToneInput({ value, onChange, onAnalyze, loading, disabled }: Ton
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (value.trim() && !loading) {
-      Sentry.startSpan(
-        {
-          op: 'ui.action',
-          name: 'Analyze Tone Button Click',
-        },
-        (span) => {
-          span.setAttribute('text_length', value.length);
-          span.setAttribute('is_premium', isPremium);
-          onAnalyze(value);
-        }
-      );
+      onAnalyze(value);
     }
   };
 
@@ -68,7 +58,10 @@ export function ToneInput({ value, onChange, onAnalyze, loading, disabled }: Ton
           className="flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-bold hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-lg min-w-[160px] justify-center"
         >
           {loading ? (
-            <LoadingSpinner />
+            <>
+              <LoadingSpinner size="h-5 w-5" color="border-white" />
+              Analyzing...
+            </>
           ) : (
             <>
               <ChartBarIcon className="h-5 w-5" />
