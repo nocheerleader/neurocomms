@@ -35,21 +35,11 @@ export function SituationInput({
 }: SituationInputProps) {
   
   const maxLength = 1000;
-  
-  const handleSubmit = (e: React.FormEvent) => {
+
+ const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (situationContext.trim() && relationshipType && !loading) {
-      Sentry.startSpan(
-        {
-          op: 'ui.action',
-          name: 'Generate Scripts Button Click',
-        },
-        (span) => {
-          span.setAttribute('situation_length', situationContext.length);
-          span.setAttribute('relationship_type', relationshipType);
-          onGenerate(situationContext, relationshipType);
-        }
-      );
+      onGenerate(situationContext, relationshipType);
     }
   };
 
@@ -116,7 +106,10 @@ export function SituationInput({
           className="flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-bold hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-lg min-w-[180px] justify-center"
         >
           {loading ? (
-            <LoadingSpinner />
+            <>
+              <LoadingSpinner size="h-5 w-5" color="border-white" />
+              Generating...
+            </>
           ) : (
             <>
               <ChatBubbleLeftRightIcon className="h-5 w-5" />
@@ -127,4 +120,5 @@ export function SituationInput({
       </div>
     </form>
   );
-}
+} 
+  
