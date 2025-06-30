@@ -8,6 +8,7 @@ import { HowItWorks } from './components/HowItWorks';
 import PricingSection from './components/PricingSection';
 import { CallToAction } from './components/CallToAction';
 import { Footer } from './components/Footer';
+import { FAQ } from './components/FAQ';
 import { Login } from './pages/auth/Login';
 import { Signup } from './pages/auth/Signup';
 import { Profile } from './pages/Profile';
