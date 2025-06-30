@@ -58,12 +58,30 @@ export function ScriptGenerator() {
         <div className="space-y-8">
           {/* Input Section */}
           <div className="bg-white rounded-lg shadow-xl p-6 border border-black/5">
-            <h2 className="text-lg font-semibold text-gray-900 mb-2">
-              Describe Your Situation
-            </h2>
-            <p className="text-gray-600 mb-6 text-sm">
-              Tell us about the situation you need to respond to. We'll generate three different response options tailored to the relationship and context.
-            </p>
+           <h2 className="text-lg font-semibold text-gray-900 mb-4">
+  How to Get Your Scripts
+</h2>
+<div className="bg-slate-50/50 border border-black/5 rounded-lg p-4 mb-6 text-sm text-gray-700 space-y-3">
+    <p>
+        This tool helps you find the right words. Just follow these two steps to get your response suggestions.
+    </p>
+    <div className="flex items-start gap-3">
+        <span className="bg-primary text-white font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+        <p>
+            <strong>Describe the situation:</strong> In the box below, explain the message or event you need to respond to. 
+            <br/><em>Example: "I need to ask my manager for a deadline extension."</em>
+        </p>
+    </div>
+    <div className="flex items-start gap-3">
+        <span className="bg-primary text-white font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+        <p>
+            <strong>Select the relationship:</strong> Choose who you are talking to (e.g., 'Manager', 'Friend', 'Client').
+        </p>
+    </div>
+    <p className="pt-2 font-medium text-gray-800">
+        We will then create three clear response options for you: one Casual, one Professional, and one Direct.
+    </p>
+</div>
             
             <SituationInput
               situationContext={situationContext}
