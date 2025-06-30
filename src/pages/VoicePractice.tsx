@@ -87,6 +87,32 @@ export function VoicePractice() {
               </div>
             )}
 
+            {/* MOVED & IMPROVED INSTRUCTIONS - ONLY SHOWS ON INITIAL LOAD */}
+            {!audioUrl && !loading && (
+              <div className="bg-slate-50/50 border border-black/5 rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-primary mb-4">
+                  Practice Speaking with Confidence
+                </h3>
+                <div className="text-sm text-gray-700 space-y-3">
+                    <p className="mb-4">
+                        Knowing what to write is the first step. This tool helps with the next one: saying it out loud. Hearing your words spoken in a clear, confident tone can help you practice your own delivery for important calls or meetings.
+                    </p>
+                    <div className="flex items-start gap-3">
+                        <span className="bg-primary text-white font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                        <p>Enter the text you want to practice in the box below.</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                        <span className="bg-primary text-white font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                        <p>Choose a voice style (e.g., Professional, Friendly) that fits the situation.</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                        <span className="bg-primary text-white font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+                        <p>Click "Generate Voice" to create the audio.</p>
+                    </div>
+                </div>
+              </div>
+            )}
+
             <div className="bg-white rounded-lg shadow-xl p-6 border border-black/5">
               <VoiceControls
                 inputText={inputText}
@@ -112,36 +138,7 @@ export function VoicePractice() {
                 />
               </div>
             )}
-
-            {!audioUrl && !loading && (
-              <div className="bg-slate-50/50 border border-black/5 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-primary mb-4">
-                  How to Use Voice Practice
-                </h3>
-                <div className="space-y-3 text-gray-700">
-                  <div className="flex items-start gap-3">
-                    <span className="bg-primary text-white text-sm font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
-                    <p>Type or paste the text you want to practice speaking.</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="bg-primary text-white text-sm font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
-                    <p>Choose a voice style that matches your communication goal.</p>
-                  </div>
-                   <div className="flex items-start gap-3">
-                    <span className="bg-primary text-white text-sm font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
-                    <p>Adjust the playback speed to your comfort level.</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="bg-primary text-white text-sm font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
-                    <p>Click "Generate Voice" to create your practice audio.</p>
-                  </div>
-                   <div className="flex items-start gap-3">
-                    <span className="bg-primary text-white text-sm font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">5</span>
-                    <p>Listen and practice along with the synchronized text highlighting.</p>
-                  </div>
-                </div>
-              </div>
-            )}
+            
           </div>
         )}
       </div>
