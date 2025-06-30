@@ -51,14 +51,24 @@ export function ScriptResults({
       </div>
 
       <div className="p-6 space-y-6">
-        {/* Context Summary */}
-        <div className="bg-slate-50/50 rounded-lg p-4 border border-black/5">
-          <h4 className="text-sm font-semibold text-gray-900 mb-2">Your Situation</h4>
-          <p className="text-gray-800 text-sm mb-2">"{situationContext}"</p>
-          <p className="text-gray-600 text-xs">
-            Relationship: <span className="capitalize font-medium">{relationshipType}</span>
-          </p>
+     {/* Context Summary */}
+<div className="bg-slate-50/50 rounded-lg p-4 border border-black/5">
+    <h4 className="text-sm font-semibold text-gray-900 mb-3">Analysis of Your Request</h4>
+    <div className="space-y-2 text-sm">
+        <div>
+            <span className="font-medium text-gray-600">Your Input:</span>
+            <p className="text-gray-800 italic">"{situationContext}"</p>
         </div>
+        <div>
+            <span className="font-medium text-gray-600">For a Conversation with a:</span>
+            <p className="text-gray-800 capitalize font-semibold">{relationshipType}</p>
+        </div>
+        <div className="pt-1">
+            <span className="font-medium text-gray-600">Goal of the Response:</span>
+            <p className="text-primary font-semibold">To create a clear and appropriate message that respects this relationship.</p>
+        </div>
+    </div>
+</div>
 
         {/* Response Options */}
         <div>
