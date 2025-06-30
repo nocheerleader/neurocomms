@@ -99,13 +99,20 @@ export function ToneResults({
           </div>
         </div>
 
-        {/* Explanation */}
-        <div>
-          <h4 className="text-md font-semibold text-gray-900 mb-3">What This Means</h4>
-          <div className="bg-slate-50/50 rounded-lg p-4">
-            <p className="text-gray-800 leading-relaxed">{result.explanation}</p>
-          </div>
-        </div>
+       {/* Explanation */}
+<div>
+  <h4 className="text-md font-semibold text-gray-900 mb-3">What This Means</h4>
+  <div className="bg-slate-50/50 rounded-lg p-4 space-y-3">
+    <ul className="space-y-2">
+      {result.explanation.map((point, index) => (
+        <li key={index} className="flex items-start gap-3">
+          <CheckCircleIcon className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
+          <span className="text-gray-800 leading-relaxed">{point}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
 
         {/* Suggestions */}
         <div>
