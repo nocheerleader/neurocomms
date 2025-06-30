@@ -2,6 +2,7 @@ import React from 'react';
 import { ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline';
 import { LoadingSpinner } from '../atoms/LoadingSpinner';
 import { TemplateSelector } from '../molecules/TemplateSelector';
+import * as Sentry from '@sentry/react';
 
 interface SituationInputProps {
   situationContext: string;
@@ -38,7 +39,17 @@ export function SituationInput({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (situationContext.trim() && relationshipType && !loading) {
-      onGenerate(situationContext, relationshipType);
+      Sentry.startSpan(
+        {
+          op: 'ui.action',
+          name: 'Generate Scripts Button Click',
+        },
+        (span) => {
+          span.setAttribute('situation_length', situationContext.length);
+          span.setAttribute('relationship_type', relationshipType);
+          onGenerate(situationContext, relationshipType);
+        }
+      );
     }
   };
 

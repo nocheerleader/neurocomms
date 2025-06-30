@@ -1,5 +1,6 @@
 import { supabase } from '../lib/supabase';
 import { handleApiError, withRetry, CustomError, ErrorType } from '../utils/errorHandling';
+import * as Sentry from '@sentry/react';
 
 export interface ToneAnalysisResponse {
   id: string;
@@ -48,15 +49,23 @@ export async function analyzeToneAPI(text: string): Promise<ToneAnalysisResponse
       const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
 
       try {
-        const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/analyze-tone`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${session.access_token}`,
+        const response = await Sentry.startSpan(
+          {
+            op: 'http.client',
+            name: 'POST /analyze-tone',
           },
-          body: JSON.stringify({ text }),
-          signal: controller.signal,
-        });
+          async () => {
+            return await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/analyze-tone`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${session.access_token}`,
+              },
+              body: JSON.stringify({ text }),
+              signal: controller.signal,
+            });
+          }
+        );
         if (!response.ok) {
           const errorData = await response.json().catch(() => ({ error: 'Unknown server error' }));
           

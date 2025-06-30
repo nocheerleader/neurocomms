@@ -1,5 +1,6 @@
 import { supabase } from '../lib/supabase';
 import { handleApiError, withRetry, CustomError, ErrorType } from '../utils/errorHandling';
+import * as Sentry from '@sentry/react';
 
 export async function synthesizeVoiceAPI(text: string, voice: string, speed: number): Promise<Blob> {
   try {
@@ -34,19 +35,27 @@ export async function synthesizeVoiceAPI(text: string, voice: string, speed: num
       const timeoutId = setTimeout(() => controller.abort(), 60000); // 60 second timeout
 
       try {
-        const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/synthesize-voice`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${session.access_token}`,
+        const response = await Sentry.startSpan(
+          {
+            op: 'http.client',
+            name: 'POST /synthesize-voice',
           },
-          body: JSON.stringify({ 
-            text,
-            voice,
-            speed
-          }),
-          signal: controller.signal,
-        });
+          async () => {
+            return await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/synthesize-voice`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${session.access_token}`,
+              },
+              body: JSON.stringify({ 
+                text,
+                voice,
+                speed
+              }),
+              signal: controller.signal,
+            });
+          }
+        );
         if (!response.ok) {
           const errorData = await response.json().catch(() => ({ error: 'Unknown server error' }));
           

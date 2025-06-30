@@ -44,6 +44,7 @@ We built Elucidare with a "privacy-first" approach. User content is processed to
 -   **Backend:** Supabase (Auth, Database, Edge Functions)
 -   **AI / ML:** OpenAI API (for tone analysis and script generation), ElevenLabs API (for voice synthesis)
 -   **Payments:** Stripe for premium subscriptions
+-   **Monitoring:** Sentry for error tracking and performance monitoring
 -   **Deployment:** Netlify (Frontend), Supabase (Backend)
 
 ## How to Run the Project Locally

@@ -1,3 +1,5 @@
+import * as Sentry from '@sentry/react';
+
 // Error types for better categorization
 export enum ErrorType {
   NETWORK = 'network',
@@ -239,6 +241,20 @@ export async function withRetry<T>(
 
 // Log errors (could be extended to send to external service)
 export function logError(error: AppError, context?: Record<string, any>) {
+  // Capture error in Sentry
+  Sentry.captureException(error, {
+    tags: {
+      errorType: error.type,
+      statusCode: error.statusCode?.toString(),
+    },
+    contexts: {
+      errorDetails: {
+        userMessage: error.userMessage,
+        context: { ...error.context, ...context },
+      },
+    },
+  });
+
   const errorData = {
     message: error.message,
     type: error.type,

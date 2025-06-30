@@ -1,5 +1,6 @@
 import { supabase } from '../lib/supabase';
 import { handleApiError, withRetry, CustomError, ErrorType } from '../utils/errorHandling';
+import * as Sentry from '@sentry/react';
 
 interface CreateCheckoutSessionParams {
   priceId: string;
@@ -35,20 +36,28 @@ export async function createCheckoutSession({
       const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
 
       try {
-        const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/stripe-checkout`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${session.access_token}`,
+        const response = await Sentry.startSpan(
+          {
+            op: 'http.client',
+            name: 'POST /stripe-checkout',
           },
-          body: JSON.stringify({
-            price_id: priceId,
-            mode,
-            success_url: successUrl,
-            cancel_url: cancelUrl,
-          }),
-          signal: controller.signal,
-        });
+          async () => {
+            return await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/stripe-checkout`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${session.access_token}`,
+              },
+              body: JSON.stringify({
+                price_id: priceId,
+                mode,
+                success_url: successUrl,
+                cancel_url: cancelUrl,
+              }),
+              signal: controller.signal,
+            });
+          }
+        );
 
         clearTimeout(timeoutId);
 

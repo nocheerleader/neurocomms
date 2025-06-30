@@ -2,6 +2,7 @@ import React from 'react';
 import { ChartBarIcon } from '@heroicons/react/24/outline';
 import { LoadingSpinner } from '../atoms/LoadingSpinner';
 import { useSubscription } from '../../hooks/useSubscription';
+import * as Sentry from '@sentry/react';
 
 interface ToneInputProps {
   value: string;
@@ -23,7 +24,17 @@ export function ToneInput({ value, onChange, onAnalyze, loading, disabled }: Ton
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (value.trim() && !loading) {
-      onAnalyze(value);
+      Sentry.startSpan(
+        {
+          op: 'ui.action',
+          name: 'Analyze Tone Button Click',
+        },
+        (span) => {
+          span.setAttribute('text_length', value.length);
+          span.setAttribute('is_premium', isPremium);
+          onAnalyze(value);
+        }
+      );
     }
   };
 

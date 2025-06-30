@@ -1,5 +1,6 @@
 import { supabase } from '../lib/supabase';
 import { handleApiError, withRetry, CustomError, ErrorType } from '../utils/errorHandling';
+import * as Sentry from '@sentry/react';
 
 export interface ScriptGenerationResponse {
   id: string;
@@ -64,18 +65,26 @@ export async function generateScriptAPI(situationContext: string, relationshipTy
       const timeoutId = setTimeout(() => controller.abort(), 45000); // 45 second timeout
 
       try {
-        const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/generate-scripts`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${session.access_token}`,
+        const response = await Sentry.startSpan(
+          {
+            op: 'http.client',
+            name: 'POST /generate-scripts',
           },
-          body: JSON.stringify({ 
-            situation_context: situationContext,
-            relationship_type: relationshipType
-          }),
-          signal: controller.signal,
-        });
+          async () => {
+            return await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/generate-scripts`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${session.access_token}`,
+              },
+              body: JSON.stringify({ 
+                situation_context: situationContext,
+                relationship_type: relationshipType
+              }),
+              signal: controller.signal,
+            });
+          }
+        );
         if (!response.ok) {
           const errorData = await response.json().catch(() => ({ error: 'Unknown server error' }));
           
