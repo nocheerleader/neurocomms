@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircleIcon, ArrowPathIcon, XMarkIcon } from '@heroicons/react/24/solid'; // Using solid icons for better visual weight
+import { CheckCircleIcon, ArrowPathIcon, XMarkIcon } from '@heroicons/react/24/solid';
 import { ToneCategory } from '../molecules/ToneCategory';
 import { ConfidenceIndicator } from '../atoms/ConfidenceIndicator';
 import { ToneAnalysisResult } from '../../hooks/useToneAnalysis';
@@ -17,6 +17,22 @@ export function ToneResults({
   onClear, 
   onReanalyze
 }: ToneResultsProps) {
+  
+  // Find the dominant tone to highlight it
+  const dominantTone = Object.entries(result.tones).reduce((a, b) => a[1] > b[1] ? a : b);
+  const toneDescriptions = {
+    professional: 'Formal, business-like communication',
+    friendly: 'Warm, approachable, positive',
+    urgent: 'Time-sensitive, demanding attention',
+    neutral: 'Factual, emotionally neutral'
+  };
+  const toneColors = {
+    professional: 'text-blue-700',
+    friendly: 'text-green-700',
+    urgent: 'text-red-700',
+    neutral: 'text-gray-700'
+  };
+
   return (
     <>
       {/* Header */}
@@ -50,40 +66,36 @@ export function ToneResults({
       </div>
 
       <div className="p-6 space-y-6">
+        {/* NEW: Dominant Tone Summary */}
+        <div className="bg-slate-50/50 p-4 rounded-lg border border-black/5">
+            <h4 className="text-sm font-medium text-gray-700 mb-1">Primary Tone Detected:</h4>
+            <p className={`text-lg font-bold capitalize ${toneColors[dominantTone[0] as keyof typeof toneColors]}`}>
+                {dominantTone[0]}
+            </p>
+        </div>
+        
         {/* Confidence Score */}
-        <div className="flex items-center justify-between bg-slate-50/50 p-3 rounded-lg">
+        <div className="flex items-center justify-between bg-slate-50/50 p-3 rounded-lg border border-black/5">
           <span className="text-sm font-medium text-gray-700">Analysis Confidence</span>
           <ConfidenceIndicator score={result.confidence} />
         </div>
 
-        {/* Tone Breakdown */}
+        {/* REVISED: Tone Breakdown */}
         <div>
           <h4 className="text-md font-semibold text-gray-900 mb-3">Tone Breakdown</h4>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <ToneCategory
-              name="Professional"
-              percentage={result.tones.professional}
-              color="blue"
-              description="Formal, business-like communication"
-            />
-            <ToneCategory
-              name="Friendly"
-              percentage={result.tones.friendly}
-              color="green"
-              description="Warm, approachable, positive"
-            />
-            <ToneCategory
-              name="Urgent"
-              percentage={result.tones.urgent}
-              color="red"
-              description="Time-sensitive, demanding attention"
-            />
-            <ToneCategory
-              name="Neutral"
-              percentage={result.tones.neutral}
-              color="gray"
-              description="Factual, emotionally neutral"
-            />
+          <div className="bg-slate-50/50 p-4 rounded-lg border border-black/5 space-y-4">
+              {Object.entries(result.tones)
+                  .sort((a, b) => b[1] - a[1]) // Sort from highest to lowest score
+                  .map(([name, percentage]) => (
+                      <ToneCategory
+                          key={name}
+                          name={name.charAt(0).toUpperCase() + name.slice(1)} // Capitalize name
+                          percentage={percentage}
+                          // @ts-ignore - a bit of a hack for the color mapping, but safe here
+                          color={name === 'professional' ? 'blue' : name === 'friendly' ? 'green' : name === 'urgent' ? 'red' : 'gray'}
+                          description={toneDescriptions[name as keyof typeof toneDescriptions]}
+                      />
+                  ))}
           </div>
         </div>
 
