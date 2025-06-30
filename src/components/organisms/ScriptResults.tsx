@@ -63,7 +63,7 @@ export function ScriptResults({
         {/* Response Options */}
         <div>
           <h4 className="text-lg font-semibold text-gray-900 mb-4">Response Options</h4>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="space-y-6">
             <ScriptCard
               type="casual"
               title="Casual Response"
