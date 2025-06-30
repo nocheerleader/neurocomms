@@ -103,6 +103,7 @@ function Router() {
           <Features />
           <HowItWorks />
           <PricingSection />
+          <FAQ /> 
           <CallToAction />
           <Footer />
         </div>
