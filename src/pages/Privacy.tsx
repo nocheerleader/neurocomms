@@ -14,7 +14,7 @@ export function Privacy() {
           <div className="flex items-center justify-between py-6">
             <div className="flex items-center space-x-3">
               <div className="bg-accent p-2 rounded-lg">
-                <ShieldCheckIcon className="h-6 w-6 text-accent-foreground" />
+                <ShieldCheckIcon className="h-6 w-6 text-primary" />
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-foreground">Privacy Policy</h1>
