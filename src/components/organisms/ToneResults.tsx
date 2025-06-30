@@ -18,7 +18,6 @@ export function ToneResults({
   onReanalyze
 }: ToneResultsProps) {
   
-  // Find the dominant tone to highlight it
   const dominantTone = Object.entries(result.tones).reduce((a, b) => a[1] > b[1] ? a : b);
   const toneDescriptions = {
     professional: 'Formal, business-like communication',
@@ -32,6 +31,10 @@ export function ToneResults({
     urgent: 'text-red-700',
     neutral: 'text-gray-700'
   };
+
+  // --- THIS IS THE FIX ---
+  // Ensure 'explanation' is always an array, even if the API returns a string.
+  const explanationPoints = Array.isArray(result.explanation) ? result.explanation : [result.explanation];
 
   return (
     <>
@@ -66,7 +69,7 @@ export function ToneResults({
       </div>
 
       <div className="p-6 space-y-6">
-        {/* NEW: Dominant Tone Summary */}
+        {/* Dominant Tone Summary */}
         <div className="bg-slate-50/50 p-4 rounded-lg border border-black/5">
             <h4 className="text-sm font-medium text-gray-700 mb-1">Primary Tone Detected:</h4>
             <p className={`text-lg font-bold capitalize ${toneColors[dominantTone[0] as keyof typeof toneColors]}`}>
@@ -80,39 +83,40 @@ export function ToneResults({
           <ConfidenceIndicator score={result.confidence} />
         </div>
 
-        {/* REVISED: Tone Breakdown */}
+        {/* Revised: Tone Breakdown */}
         <div>
           <h4 className="text-md font-semibold text-gray-900 mb-3">Tone Breakdown</h4>
           <div className="bg-slate-50/50 p-4 rounded-lg border border-black/5 space-y-4">
               {Object.entries(result.tones)
-                  .sort((a, b) => b[1] - a[1]) // Sort from highest to lowest score
+                  .sort((a, b) => b[1] - a[1]) 
                   .map(([name, percentage]) => (
                       <ToneCategory
                           key={name}
-                          name={name.charAt(0).toUpperCase() + name.slice(1)} // Capitalize name
-                          percentage={percentage}
-                          // @ts-ignore - a bit of a hack for the color mapping, but safe here
+                          name={name.charAt(0).toUpperCase() + name.slice(1)}
+                          // @ts-ignore
                           color={name === 'professional' ? 'blue' : name === 'friendly' ? 'green' : name === 'urgent' ? 'red' : 'gray'}
+                          percentage={percentage}
                           description={toneDescriptions[name as keyof typeof toneDescriptions]}
                       />
                   ))}
           </div>
         </div>
 
-       {/* Explanation */}
-<div>
-  <h4 className="text-md font-semibold text-gray-900 mb-3">What This Means</h4>
-  <div className="bg-slate-50/50 rounded-lg p-4 space-y-3">
-    <ul className="space-y-2">
-      {result.explanation.map((point, index) => (
-        <li key={index} className="flex items-start gap-3">
-          <CheckCircleIcon className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-          <span className="text-gray-800 leading-relaxed">{point}</span>
-        </li>
-      ))}
-    </ul>
-  </div>
-</div>
+        {/* Explanation */}
+        <div>
+          <h4 className="text-md font-semibold text-gray-900 mb-3">What This Means</h4>
+          <div className="bg-slate-50/50 rounded-lg p-4 space-y-3">
+            <ul className="space-y-2">
+              {/* Use the new, safe 'explanationPoints' variable here */}
+              {explanationPoints.map((point, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <CheckCircleIcon className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-800 leading-relaxed">{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
 
         {/* Suggestions */}
         <div>
