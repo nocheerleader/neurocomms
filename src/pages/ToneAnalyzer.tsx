@@ -54,14 +54,45 @@ export function ToneAnalyzer() {
         )}
 
         <div className="space-y-8">
+        
+          {/* NEW INSTRUCTION BLOCK AT THE TOP */}
+          {!analysisResult && !loading && (
+            <div className="bg-slate-50/50 border border-black/5 rounded-lg p-6">
+              <h3 className="text-lg font-semibold text-primary mb-4">
+                How to Use the Tone Analyzer
+              </h3>
+              <div className="text-sm text-gray-700 space-y-3">
+                 <p>This tool helps you understand the hidden meaning in messages. Just follow these steps.</p>
+                <div className="flex items-start gap-3">
+                  <span className="bg-primary text-white text-sm font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                  <p>
+                    <strong>Copy and paste the message</strong> you received (like an email or text) into the box below.
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="bg-primary text-white text-sm font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                  <p>
+                    <strong>Click "Analyze Tone"</strong> to see a breakdown of how the message might be perceived.
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="bg-primary text-white text-sm font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+                  <p>
+                    <strong>Review the results</strong>, which include an explanation and suggestions for how to respond.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Input Section */}
           <div className="bg-white rounded-lg shadow-xl p-6 border border-black/5">
+            {/* The title here is now simpler */}
             <h2 className="text-lg font-semibold text-gray-900 mb-2">
-              Analyze Message Tone
+              Paste Your Message to Analyze
             </h2>
             <p className="text-gray-600 mb-6 text-sm">
-              Paste the message you want to analyze below. We'll help you understand 
-              the tone and suggest how to respond appropriately.
+              We'll help you understand the tone and suggest how to respond. Your text is not stored.
             </p>
             
             <ToneInput
@@ -85,28 +116,7 @@ export function ToneAnalyzer() {
             </div>
           )}
 
-          {/* Getting Started Guide (when no results) */}
-          {!analysisResult && !loading && (
-            <div className="bg-slate-50/50 border border-black/5 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-primary mb-4">
-                How to Use the Tone Analyzer
-              </h3>
-              <div className="space-y-3 text-gray-700">
-                <div className="flex items-start gap-3">
-                  <span className="bg-primary text-white text-sm font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
-                  <p>Copy and paste the message you want to analyze into the text box above.</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="bg-primary text-white text-sm font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
-                  <p>Click "Analyze Tone" to see how the message might be perceived.</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="bg-primary text-white text-sm font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
-                  <p>Review the tone breakdown and use this information to craft your response.</p>
-                </div>
-              </div>
-            </div>
-          )}
+          {/* Old Getting Started Guide has been removed */}
         </div>
       </div>
     </div>
