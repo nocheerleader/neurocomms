@@ -120,6 +120,20 @@ export function Profile() {
           <div className="md:col-span-2 space-y-6">
             <WelcomeCard />
 
+            {/* Sentry Test Button - Remove after testing */}
+            <div className="bg-white rounded-lg shadow-lg p-6 border border-black/5">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Sentry Test</h3>
+              <p className="text-gray-600 mb-4 text-sm">
+                Click this button to test that Sentry error tracking is working correctly.
+              </p>
+              <button 
+                onClick={() => {throw new Error("This is your first error!");}}
+                className="px-4 py-2 bg-red-600 text-white font-medium rounded-lg hover:bg-red-700 transition-colors"
+              >
+                Break the world
+              </button>
+            </div>
+
             {profile && !profile.onboarding_completed && (
               <GettingStartedCard />
             )}
