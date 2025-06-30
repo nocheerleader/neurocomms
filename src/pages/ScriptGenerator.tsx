@@ -56,32 +56,43 @@ export function ScriptGenerator() {
         )}
 
         <div className="space-y-8">
+        
+          {/* THIS IS THE NEW TOP SECTION - IT ONLY SHOWS ON THE INITIAL PAGE LOAD */}
+          {!generationResult && !loading && (
+            <div className="bg-slate-50/50 border border-black/5 rounded-lg p-6">
+              <h3 className="text-lg font-semibold text-primary mb-4">
+                How to Use the Script Generator
+              </h3>
+              <div className="text-sm text-gray-700 space-y-3">
+                <p>
+                    This tool helps you find the right words. Just follow these two steps to get your response suggestions.
+                </p>
+                <div className="flex items-start gap-3">
+                    <span className="bg-primary text-white font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                    <p>
+                        <strong>Describe the situation:</strong> In the box below, explain the message or event you need to respond to. 
+                        <br/><em>Example: "I need to ask my manager for a deadline extension."</em>
+                    </p>
+                </div>
+                <div className="flex items-start gap-3">
+                    <span className="bg-primary text-white font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                    <p>
+                        <strong>Select the relationship:</strong> Choose who you are talking to (e.g., 'Manager', 'Friend', 'Client').
+                    </p>
+                </div>
+                <p className="pt-2 font-medium text-gray-800">
+                    We will then create three clear response options for you: one Casual, one Professional, and one Direct.
+                </p>
+              </div>
+            </div>
+          )}
+
           {/* Input Section */}
           <div className="bg-white rounded-lg shadow-xl p-6 border border-black/5">
-           <h2 className="text-lg font-semibold text-gray-900 mb-4">
-  How to Get Your Scripts
-</h2>
-<div className="bg-slate-50/50 border border-black/5 rounded-lg p-4 mb-6 text-sm text-gray-700 space-y-3">
-    <p>
-        This tool helps you find the right words. Just follow these two steps to get your response suggestions.
-    </p>
-    <div className="flex items-start gap-3">
-        <span className="bg-primary text-white font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
-        <p>
-            <strong>Describe the situation:</strong> In the box below, explain the message or event you need to respond to. 
-            <br/><em>Example: "I need to ask my manager for a deadline extension."</em>
-        </p>
-    </div>
-    <div className="flex items-start gap-3">
-        <span className="bg-primary text-white font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
-        <p>
-            <strong>Select the relationship:</strong> Choose who you are talking to (e.g., 'Manager', 'Friend', 'Client').
-        </p>
-    </div>
-    <p className="pt-2 font-medium text-gray-800">
-        We will then create three clear response options for you: one Casual, one Professional, and one Direct.
-    </p>
-</div>
+            {/* The title here is now much simpler */}
+            <h2 className="text-lg font-semibold text-gray-900 mb-4">
+              Enter Your Details Below
+            </h2>
             
             <SituationInput
               situationContext={situationContext}
@@ -107,32 +118,7 @@ export function ScriptGenerator() {
             </div>
           )}
 
-          {/* Getting Started Guide (when no results) */}
-          {!generationResult && !loading && (
-            <div className="bg-slate-50/50 border border-black/5 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-primary mb-4">
-                How to Use the Script Generator
-              </h3>
-              <div className="space-y-3 text-gray-700">
-                <div className="flex items-start gap-3">
-                  <span className="bg-primary text-white text-sm font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
-                  <p>Choose a template or describe your situation in the text box above.</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="bg-primary text-white text-sm font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
-                  <p>Select your relationship to the person you're responding to.</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="bg-primary text-white text-sm font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
-                  <p>Click "Generate Scripts" to get three response options: casual, professional, and direct.</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="bg-primary text-white text-sm font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
-                  <p>Copy the response that works best or save it to your library for future use.</p>
-                </div>
-              </div>
-            </div>
-          )}
+          {/* The old "Getting Started Guide" has been removed from the bottom, as it's now at the top */}
         </div>
       </div>
     </div>
