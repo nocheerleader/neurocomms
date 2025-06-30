@@ -6,7 +6,17 @@
 
 *This project was built for the Bolt.new 2025 World Record Breaking hackathon.*
 
-**Live Demo:** https://cool-zabaione-f17338.netlify.app/
+**Live Demo:** https://elucidare.io/
+
+## Demo Credentials
+
+To make evaluation easy, you can use the pre-configured demo account to explore all features, including premium ones.
+
+-   **Email:** `demo@elucidare.app`
+-   **Password:** `demopassword123`
+
+Alternatively, you can access the demo account directly via the "Continue as Demo User" button on the signup page.
+
 
 ---
 
@@ -74,13 +84,5 @@ We built Elucidare with a "privacy-first" approach. User content is processed to
     ```
     The application will be available at `http://localhost:5173`.
 
-## Demo Credentials
-
-To make evaluation easy, you can use the pre-configured demo account to explore all features, including premium ones.
-
--   **Email:** `demo@elucidare.app`
--   **Password:** `demopassword123`
-
-Alternatively, you can access the demo account directly via the "Continue as Demo User" button on the signup page.
 
 
