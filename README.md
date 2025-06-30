@@ -6,7 +6,7 @@
 
 *This project was built for the Bolt.new 2025 World Record Breaking hackathon.*
 
-**Live Demo:** https://elucidare.io/
+**Live Demo:** https://elucidare.io
 
 ## Demo Credentials
 
