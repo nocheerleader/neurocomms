@@ -1,9 +1,19 @@
 import React from 'react';
 
-export function LoadingSpinner() {
+interface LoadingSpinnerProps {
+  size?: string;
+  color?: string;
+}
+
+export function LoadingSpinner({ 
+  size = 'h-8 w-8', 
+  color = 'border-blue-700' 
+}: LoadingSpinnerProps) {
   return (
     <div className="flex items-center justify-center">
-      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-700"></div>
+      <div 
+        className={`animate-spin rounded-full border-b-2 ${size} ${color}`}
+      ></div>
     </div>
   );
 }
