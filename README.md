@@ -62,7 +62,7 @@ We built Elucidare with a "privacy-first" approach. User content is processed to
 1.  **Clone the repository:**
     ```bash
     git clone [your-repo-url]
-    cd elucidare
+    cd tonewise
     ```
 
 2.  **Install dependencies:**
