@@ -1,32 +1,71 @@
 import React from 'react';
-import { ArrowLeftIcon, EnvelopeIcon, ClockIcon, ChatBubbleLeftRightIcon, QuestionMarkCircleIcon } from '@heroicons/react/24/outline';
+import { 
+  ArrowLeftIcon, 
+  EnvelopeIcon, 
+  ClockIcon, 
+  ChatBubbleLeftRightIcon, 
+  QuestionMarkCircleIcon,
+  BuildingOffice2Icon,
+  LightBulbIcon
+} from '@heroicons/react/24/outline';
 
 export function ContactUs() {
-  const handleBackToHome = () => {
-    window.location.href = '/';
+  const handleBackToDashboard = () => {
+    window.location.href = '/profile';
   };
 
+  const contactMethods = [
+    {
+      icon: ChatBubbleLeftRightIcon,
+      title: 'General Support',
+      description: 'Questions about features, account issues, or general help using Elucidare.',
+      email: 'support@elucidare.app',
+      response: 'Within 24 hours'
+    },
+    {
+      icon: QuestionMarkCircleIcon,
+      title: 'Technical Issues',
+      description: 'Bugs, errors, or problems with the app not working as expected.',
+      email: 'tech@elucidare.app',
+      response: 'Within 12 hours'
+    },
+    {
+      icon: BuildingOffice2Icon,
+      title: 'Enterprise & Sales',
+      description: 'Team dashboards, admin controls, and features for organizations.',
+      email: 'enterprise@elucidare.app',
+      response: 'Within 4 hours'
+    },
+    {
+      icon: LightBulbIcon,
+      title: 'Feedback & Ideas',
+      description: 'Ideas for new features or feedback on existing functionality.',
+      email: 'feedback@elucidare.app',
+      response: 'Within 48 hours'
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#FDF6F8]">
       {/* Header */}
-      <div className="bg-card shadow-sm border-b border-border">
+      <div className="bg-transparent border-b border-primary/20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between py-6">
-            <div className="flex items-center space-x-3">
-              <div className="bg-accent p-2 rounded-lg">
-                <EnvelopeIcon className="h-6 w-6 text-accent-foreground" />
+          <div className="flex justify-between items-center py-6">
+            <div className="flex items-center gap-3">
+              <div className="bg-primary p-2 rounded-lg">
+                <EnvelopeIcon className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-foreground">Contact Us</h1>
-                <p className="text-sm text-muted-foreground">Get help and support</p>
+                <h1 className="text-2xl font-bold text-gray-900">Contact Us</h1>
+                <p className="text-sm text-gray-600">We're here to help you</p>
               </div>
             </div>
             <button
-              onClick={handleBackToHome}
-              className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-muted-foreground bg-secondary border border-border rounded-lg hover:bg-secondary/80 transition-colors"
+              onClick={handleBackToDashboard}
+              className="flex items-center gap-2 px-4 py-2 text-sm font-bold text-primary bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors"
             >
               <ArrowLeftIcon className="h-4 w-4" />
-              Back to Home
+              <span>Back to Dashboard</span>
             </button>
           </div>
         </div>
@@ -34,150 +73,82 @@ export function ContactUs() {
 
       {/* Main Content */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="bg-card rounded-lg shadow-sm border border-border p-8 lg:p-12">
-          <div className="space-y-8">
+        <div className="bg-white rounded-lg shadow-xl border border-black/5 p-8 lg:p-12">
+          <div className="space-y-10">
             {/* Introduction */}
-            <section className="text-center mb-8">
-              <h2 className="text-3xl font-bold font-funnel text-foreground mb-4">
-                We're Here to Help
+            <section className="text-center">
+              <h2 className="text-3xl font-bold text-gray-800 mb-4">
+                Get in Touch
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                Whether you have questions about using Elucidare, need technical support, or want to share feedback, 
-                we're committed to helping you communicate with confidence.
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                Whether you have questions, need support, or want to share feedback, 
+                our team is ready to assist you.
               </p>
             </section>
 
             {/* Contact Methods */}
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* General Support */}
-              <div className="bg-accent/20 border border-accent/30 rounded-lg p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="bg-accent p-2 rounded-lg">
-                    <ChatBubbleLeftRightIcon className="h-6 w-6 text-accent-foreground" />
+            <div className="grid md:grid-cols-2 gap-6">
+              {contactMethods.map((method, index) => (
+                <div key={index} className="bg-slate-50/50 rounded-lg p-6 border border-black/5">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="bg-primary/10 p-3 rounded-lg">
+                      <method.icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-gray-800">{method.title}</h3>
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground">General Support</h3>
-                </div>
-                <p className="text-muted-foreground mb-4">
-                  Questions about features, account issues, or general help using Elucidare.
-                </p>
-                <div className="space-y-2">
-                  <p className="text-foreground font-medium">Email: support@elucidare.io</p>
-                  <p className="text-muted-foreground text-sm">Response time: Within 24 hours</p>
-                </div>
-              </div>
-
-              {/* Technical Issues */}
-              <div className="bg-destructive/10 border border-destructive/20 rounded-lg p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="bg-destructive/20 p-2 rounded-lg">
-                    <QuestionMarkCircleIcon className="h-6 w-6 text-destructive" />
+                  <p className="text-sm text-gray-600 mb-4">{method.description}</p>
+                  <div className="text-sm">
+                    <p className="font-medium text-gray-900">
+                      <a href={`mailto:${method.email}`} className="hover:text-primary transition-colors">{method.email}</a>
+                    </p>
+                    <p className="text-gray-500">Response time: {method.response}</p>
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground">Technical Issues</h3>
                 </div>
-                <p className="text-muted-foreground mb-4">
-                  Bugs, errors, or problems with the app not working as expected.
-                </p>
-                <div className="space-y-2">
-                  <p className="text-foreground font-medium">Email: tech@elucidare.io</p>
-                  <p className="text-muted-foreground text-sm">Response time: Within 12 hours</p>
-                </div>
-              </div>
-
-              {/* Enterprise Sales */}
-              <div className="bg-chart-2/10 border border-chart-2/20 rounded-lg p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="bg-chart-2/20 p-2 rounded-lg">
-                    <EnvelopeIcon className="h-6 w-6 text-chart-2" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-foreground">Enterprise Sales</h3>
-                </div>
-                <p className="text-muted-foreground mb-4">
-                  Team dashboards, admin controls, and enterprise features for organizations.
-                </p>
-                <div className="space-y-2">
-                  <p className="text-foreground font-medium">Email: enterprise@elucidare.io</p>
-                  <p className="text-muted-foreground text-sm">Response time: Within 4 hours</p>
-                </div>
-              </div>
-
-              {/* Feature Requests */}
-              <div className="bg-chart-5/10 border border-chart-5/20 rounded-lg p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="bg-chart-5/20 p-2 rounded-lg">
-                    <ChatBubbleLeftRightIcon className="h-6 w-6 text-chart-5" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-foreground">Feature Requests & Feedback</h3>
-                </div>
-                <p className="text-muted-foreground mb-4">
-                  Ideas for new features or feedback on existing functionality.
-                </p>
-                <div className="space-y-2">
-                  <p className="text-foreground font-medium">Email: feedback@elucidare.io</p>
-                  <p className="text-muted-foreground text-sm">Response time: Within 48 hours</p>
-                </div>
-              </div>
+              ))}
             </div>
 
             {/* Support Hours */}
-            <section className="bg-muted/50 border border-border rounded-lg p-6">
+            <section className="bg-slate-50/50 border border-black/5 rounded-lg p-6">
               <div className="flex items-center gap-3 mb-4">
-                <ClockIcon className="h-6 w-6 text-muted-foreground" />
-                <h3 className="text-lg font-semibold text-foreground">Support Hours</h3>
+                <ClockIcon className="h-6 w-6 text-primary" />
+                <h3 className="text-lg font-semibold text-gray-800">Support Hours</h3>
               </div>
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
-                  <p className="text-foreground font-medium">Monday - Friday</p>
-                  <p className="text-muted-foreground">9:00 AM - 6:00 PM EST</p>
+                  <p className="font-medium text-gray-900">Monday - Friday</p>
+                  <p className="text-gray-600">9:00 AM - 6:00 PM EST</p>
                 </div>
                 <div>
-                  <p className="text-foreground font-medium">Saturday - Sunday</p>
-                  <p className="text-muted-foreground">Limited support (urgent issues only)</p>
+                  <p className="font-medium text-gray-900">Weekends & Holidays</p>
+                  <p className="text-gray-600">Limited support for urgent issues</p>
                 </div>
               </div>
             </section>
 
             {/* What to Include */}
             <section>
-              <h3 className="text-xl font-semibold text-foreground mb-4">When Contacting Support</h3>
-              <div className="bg-accent/10 border border-accent/20 rounded-lg p-6">
-                <p className="text-muted-foreground mb-4">
-                  To help us assist you quickly, please include:
+              <h3 className="text-xl font-semibold text-gray-800 mb-4">Helping Us Help You</h3>
+              <div className="bg-primary/5 border border-primary/10 rounded-lg p-6">
+                <p className="text-gray-700 mb-4">
+                  To help us resolve your issue quickly, please include the following in your email:
                 </p>
-                <ul className="space-y-2 text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent font-bold">•</span>
-                    <span>A clear description of the issue or question</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent font-bold">•</span>
-                    <span>What you were trying to do when the problem occurred</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent font-bold">•</span>
-                    <span>Your account email address</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent font-bold">•</span>
-                    <span>Any error messages you received</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-accent font-bold">•</span>
-                    <span>Your browser type (Chrome, Safari, Firefox, etc.)</span>
-                  </li>
+                <ul className="space-y-2 text-gray-700">
+                  {[
+                    "A clear description of the issue or question",
+                    "What you were trying to do when the problem occurred",
+                    "Your account email address",
+                    "Any error messages you received (screenshots are great!)",
+                    "The browser you're using (e.g., Chrome, Safari)"
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <span className="text-primary font-bold mt-1">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </section>
 
-            {/* Emergency Contact */}
-            <section className="text-center bg-destructive/5 border border-destructive/20 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-destructive mb-2">
-                Urgent Issues
-              </h3>
-              <p className="text-muted-foreground text-sm">
-                For critical issues affecting your work or account security, mark your email as "URGENT" 
-                and we'll prioritize your request.
-              </p>
-            </section>
           </div>
         </div>
       </div>
