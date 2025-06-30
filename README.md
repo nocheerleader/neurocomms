@@ -77,7 +77,7 @@ We built Elucidare with a "privacy-first" approach. User content is processed to
 
 To make evaluation easy, you can use the pre-configured demo account to explore all features, including premium ones.
 
--   **Email:** `demo@tonewise.app`
+-   **Email:** `demo@elucidare.app`
 -   **Password:** `demopassword123`
 
 Alternatively, you can access the demo account directly via the "Continue as Demo User" button on the signup page.
