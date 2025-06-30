@@ -12,7 +12,7 @@ export interface ToneAnalysisResult {
     neutral: number;
   };
   confidence: number;
-  explanation: string;
+  explanation: string[];
   suggestions: string[];
   processing_time_ms: number;
 }
