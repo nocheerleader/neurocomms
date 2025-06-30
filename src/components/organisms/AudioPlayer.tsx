@@ -85,7 +85,7 @@ export function AudioPlayer({ audioUrl, text, playbackSpeed, onClose }: AudioPla
           <div className="bg-primary/10 p-2 rounded-lg">
             <SpeakerWaveIcon className="h-5 w-5 text-primary" />
           </div>
-          <h3 className="text-lg font-semibold text-gray-900">Audio Player</h3>
+          <h3 className="text-lg font-semibold text-gray-900">Your Practice Audio</h3>
         </div>
         <button onClick={onClose} className="p-2 text-gray-400 hover:text-gray-600 transition-colors rounded-full">
           <XMarkIcon className="h-5 w-5" />
@@ -94,8 +94,12 @@ export function AudioPlayer({ audioUrl, text, playbackSpeed, onClose }: AudioPla
 
       <audio ref={audioRef} src={audioUrl} preload="metadata" autoPlay />
 
+      {/* IMPROVED EXPLANATION SECTION */}
       <div className="bg-slate-50/50 rounded-lg p-4">
-        <h4 className="text-sm font-medium text-gray-700 mb-3">Practice Text</h4>
+        <h4 className="text-sm font-medium text-gray-700 mb-2">Practice Text</h4>
+        <p className="text-sm text-gray-600 mb-3">
+          As the audio plays, the current word will be highlighted below. This helps you follow along and match your speaking pace.
+        </p>
         <TextHighlighter text={text} currentWordIndex={isPlaying ? currentWordIndex : -1} />
       </div>
 
