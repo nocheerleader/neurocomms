@@ -14,7 +14,7 @@ export function Terms() {
           <div className="flex items-center justify-between py-6">
             <div className="flex items-center space-x-3">
               <div className="bg-accent p-2 rounded-lg">
-                <DocumentTextIcon className="h-6 w-6 text-accent-foreground" />
+                <DocumentTextIcon className="h-6 w-6 text-primary" />
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-foreground">Terms of Service</h1>
