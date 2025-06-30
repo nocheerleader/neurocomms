@@ -49,7 +49,6 @@ function moderateContent(text: string): { isAppropriate: boolean; reason?: strin
 // Check usage limits
 async function checkUsageLimit(userId: string): Promise<{ canUse: boolean; message?: string }> {
   try {
-    // Get user's subscription tier
     const { data: profile, error: profileError } = await supabase
       .from('user_profiles')
       .select('subscription_tier')
@@ -61,12 +60,10 @@ async function checkUsageLimit(userId: string): Promise<{ canUse: boolean; messa
       return { canUse: false, message: 'Failed to verify user account' };
     }
 
-    // Premium users have unlimited access
     if (profile.subscription_tier === 'premium') {
       return { canUse: true };
     }
 
-    // Check today's usage for free users
     const today = new Date().toISOString().split('T')[0];
     const { data: usage, error: usageError } = await supabase
       .from('daily_usage')
@@ -98,23 +95,15 @@ async function analyzeWithOpenAI(text: string) {
     throw new Error('OpenAI API key not configured');
   }
 
-  const prompt = `Analyze the tone of the following message and provide:
-
-1. Tone percentages for these categories (must sum to 100):
-   - Professional: How formal and business-like is this message?
-   - Friendly: How warm, approachable, and positive is this message?
-   - Urgent: How time-sensitive or demanding is this message?
-   - Neutral: How factual and emotionally neutral is this message?
-
-2. Confidence score (0.0 to 1.0): How confident are you in this analysis?
-
-3. Plain explanation: Explain the tone in simple terms that someone with autism or ADHD would understand. Avoid metaphors or implied meanings.
-
-4. Practical suggestions: List 2-3 specific ways to respond appropriately.
+  // --- THIS IS THE UPDATED PROMPT ---
+  const prompt = `Analyze the tone of the following message.
 
 Message to analyze: "${text}"
 
-Respond in this exact JSON format:
+Provide the output in this exact JSON format.
+- For "explanation", provide a JSON array of 3 short, direct, literal sentences.
+- DO NOT use vague words like 'might', 'seems', 'somewhat', or 'a bit'.
+
 {
   "tones": {
     "professional": [number],
@@ -123,12 +112,20 @@ Respond in this exact JSON format:
     "neutral": [number]
   },
   "confidence": [number between 0.0 and 1.0],
-  "explanation": "[clear, literal explanation]",
-  "suggestions": ["[suggestion 1]", "[suggestion 2]", "[suggestion 3]"]
+  "explanation": [
+    "[Sentence 1: State the primary tone and its direct meaning. Example: 'The primary tone is Professional, which means this is a formal work communication.']",
+    "[Sentence 2: State a secondary tone and its direct meaning. Example: 'There is a low amount of Urgency, which means you should reply soon but it is not an emergency.']",
+    "[Sentence 3: Give a clear, overall conclusion. Example: 'Overall, this is a standard work request with no hidden negative emotion.']"
+  ],
+  "suggestions": [
+    "[suggestion 1]",
+    "[suggestion 2]"
+  ]
 }`;
+  // --- END OF UPDATED PROMPT ---
 
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+  const timeoutId = setTimeout(() => controller.abort(), 10000);
 
   try {
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
@@ -142,7 +139,7 @@ Respond in this exact JSON format:
         messages: [
           {
             role: 'system',
-            content: 'You are a communication assistant helping neurodiverse individuals understand message tone. Be literal and specific in your explanations.'
+            content: 'You are a communication assistant for neurodiverse users. Be literal, direct, and clear. Avoid all ambiguous language.'
           },
           {
             role: 'user',
@@ -168,18 +165,14 @@ Respond in this exact JSON format:
       throw new Error('No response from OpenAI');
     }
 
-    // Parse the JSON response
     const analysis = JSON.parse(content);
 
-    // Validate the response structure
     if (!analysis.tones || !analysis.confidence || !analysis.explanation || !analysis.suggestions) {
       throw new Error('Invalid response format from OpenAI');
     }
 
-    // Ensure tone percentages sum to 100
     const toneSum = Object.values(analysis.tones).reduce((sum: number, value: any) => sum + value, 0);
     if (Math.abs(toneSum - 100) > 1) {
-      // Normalize if they don't sum to 100
       const factor = 100 / toneSum;
       Object.keys(analysis.tones).forEach(key => {
         analysis.tones[key] = Math.round(analysis.tones[key] * factor);
@@ -213,12 +206,10 @@ async function saveAnalysis(userId: string, inputText: string, analysisResult: a
 
     if (error) throw error;
 
-    // Validate that the inserted record has a valid ID
     if (!data || !data.id || typeof data.id !== 'string') {
       throw new Error('Database insert succeeded but did not return a valid record ID');
     }
 
-    // Update usage counter
     const today = new Date().toISOString().split('T')[0];
     await supabase
       .from('daily_usage')
@@ -231,15 +222,11 @@ async function saveAnalysis(userId: string, inputText: string, analysisResult: a
         ignoreDuplicates: false
       });
 
-    // If upsert didn't work, try incrementing existing record
     await supabase.rpc('increment_usage_counter', {
       p_user_id: userId,
       p_feature: 'tone_analyses_count',
       p_date: today
-    }).then(() => {
-      // If RPC doesn't exist, that's fine - the upsert above should handle it
     }).catch(() => {
-      // Fallback: manual increment
       supabase
         .from('daily_usage')
         .update({ 
@@ -267,7 +254,6 @@ Deno.serve(async (req) => {
       return corsResponse({ error: 'Method not allowed' }, 405);
     }
 
-    // Get user from auth token
     const authHeader = req.headers.get('Authorization');
     if (!authHeader) {
       return corsResponse({ error: 'Missing authorization header' }, 401);
@@ -280,7 +266,6 @@ Deno.serve(async (req) => {
       return corsResponse({ error: 'Invalid authentication token' }, 401);
     }
 
-    // Parse request body
     const { text } = await req.json();
 
     if (!text || typeof text !== 'string') {
@@ -295,7 +280,6 @@ Deno.serve(async (req) => {
       return corsResponse({ error: 'Text cannot be empty' }, 400);
     }
 
-    // Content moderation
     const moderation = moderateContent(text);
     if (!moderation.isAppropriate) {
       return corsResponse({ 
@@ -304,10 +288,7 @@ Deno.serve(async (req) => {
       }, 400);
     }
     
-    // --- START: DEMO USER BYPASS ---
-    // First, check if the user is our special demo user.
     if (user.email !== 'demo@elucidare.app') {
-      // If it's a regular user, perform the standard usage check.
       const usageCheck = await checkUsageLimit(user.id);
       if (!usageCheck.canUse) {
         return corsResponse({ 
@@ -316,17 +297,13 @@ Deno.serve(async (req) => {
         }, 429);
       }
     } else {
-      // It IS the demo user, so we log it and skip the check.
       console.log('Demo user detected, bypassing usage check for tone analysis.');
     }
-    // --- END: DEMO USER BYPASS ---
 
-    // Analyze tone
     const startTime = Date.now();
     const analysis = await analyzeWithOpenAI(text);
     const processingTime = Date.now() - startTime;
 
-    // Save to database
     const savedAnalysis = await saveAnalysis(
       user.id,
       text,
@@ -335,7 +312,6 @@ Deno.serve(async (req) => {
       processingTime
     );
 
-    // Return the result
     return corsResponse({
       id: savedAnalysis.id,
       tones: analysis.tones,
